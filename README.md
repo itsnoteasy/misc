@@ -8,4 +8,4 @@ if anyone cares to make a libre one I will add it here.
 
 I moved the sensor forward for this build, only time will tell if that was the right decision. It is still possible to move it farther with a redesign, although I did not want to change it too much.
 
-The pullup resistors are optional, 10k is recommended for the wheel and a pair of 5k for each microswitch. I recommend not using an ultrabright led as it will exceed the safe average current limits of the mcu pin driving it. it is there merely as a power on indicator.
+The pullup resistors are optional, a pair of 1206 size 10k is recommended for the wheel and a pair of 5k for each microswitch. I recommend not using an ultrabright led as it will exceed the safe average current limits of the mcu pin driving it. it is there merely as a power on indicator.
