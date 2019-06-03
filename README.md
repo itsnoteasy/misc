@@ -10,6 +10,8 @@ I moved the sensor forward for this build, only time will tell if that was the r
 
 The pullup resistors are optional, a pair of 1206 size 10k is recommended for the wheel and a pair of 5k for each microswitch. I recommend not using an ultrabright led as it will exceed the safe average current limits of the mcu pin driving it. it is there merely as a power on indicator.
 
+I am aware the schematic symbol pinout for the pmw3360 is in a different order to the chip, but the pins themselves are correct.
+
 footprints are the property of their respective creators, can be sourced here:
 
 https://www.overclock.net/forum/375-mice/1724838-progress-fully-custom-mouse-2.html#post27945424
