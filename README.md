@@ -1,5 +1,6 @@
 the io3360 zip is a through hole pcb and instructions designed in fritzing to convert the intellimouse optical 1.1 and wheel mouse optical to a pmw3360 by using the jkicklighter board on tindie and a teensy 2.0. It works fine as my daily driver although all it does is add weight. If you wanted to use the files a lighter approach would be to cut off the pcb in fritzing and add in wire holes, like how the ninox classic intellimouse is done on youtube.
 
+The buttons folder is a cut off version of the smt pcb for those who want a light weight through hole build. There are pads for optional 1206 size pullups. I haven't tested it but it's probably ok, and you can order it from the cheaper pcb companies as it was completed in kicad, so has no errors.
 
 the mouse8 folder is a work in progress similar project in kicad 6.0 nightly build using all surface mount parts, aiming for a lighter weight and lower cost. I uploaded the files so interested parties could submit bugfixes and comments. as of yet there are no successful builds, due to slow shipping times and tight budgets on my end. 
 
