@@ -1,0 +1,693 @@
+EESchema Schematic File Version 5
+LIBS:mouse8-cache
+EELAYER 29 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Text Label 3175 4325 0    60   ~ 0
+GND
+$Comp
+L Switch:SW_SPDT SWL1
+U 1 1 5CB7D01E
+P 4775 1925
+F 0 "SWL1" H 4475 1775 50  0000 C CNN
+F 1 "SW_SPDT" H 4775 1775 50  0000 C CNN
+F 2 "KiCad:Microswitch_SPDT_D2F" H 4775 1925 50  0001 C CNN
+F 3 "~" H 4775 1925 50  0001 C CNN
+	1    4775 1925
+	-1   0    0    1   
+$EndComp
+$Comp
+L Switch:SW_SPDT SWR1
+U 1 1 5CB8587F
+P 4775 2375
+F 0 "SWR1" H 4475 2225 50  0000 C CNN
+F 1 "SW_SPDT" H 4775 2225 50  0000 C CNN
+F 2 "KiCad:Microswitch_SPDT_D2F" H 4775 2375 50  0001 C CNN
+F 3 "~" H 4775 2375 50  0001 C CNN
+	1    4775 2375
+	-1   0    0    1   
+$EndComp
+$Comp
+L Switch:SW_SPDT SWM1
+U 1 1 5CB949EF
+P 4775 2825
+F 0 "SWM1" H 4475 2675 50  0000 C CNN
+F 1 "SW_SPDT" H 4775 2675 50  0000 C CNN
+F 2 "KiCad:Microswitch_SPDT_D2F" H 4775 2825 50  0001 C CNN
+F 3 "~" H 4775 2825 50  0001 C CNN
+	1    4775 2825
+	-1   0    0    1   
+$EndComp
+$Comp
+L Switch:SW_SPDT SWB1
+U 1 1 5CB96701
+P 4775 3325
+F 0 "SWB1" H 4475 3125 50  0000 C CNN
+F 1 "SW_SPDT" H 4775 3125 50  0000 C CNN
+F 2 "KiCad:Microswitch_SPDT_D2F" H 4775 3325 50  0001 C CNN
+F 3 "~" H 4775 3325 50  0001 C CNN
+	1    4775 3325
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4475 1825 4575 1825
+Wire Wire Line
+	4525 2275 4575 2275
+$Comp
+L Switch:SW_SPDT SWF1
+U 1 1 5CBA888F
+P 4775 3725
+F 0 "SWF1" H 4525 3575 50  0000 C CNN
+F 1 "SW_SPDT" H 4825 3575 50  0000 C CNN
+F 2 "KiCad:Microswitch_SPDT_D2F" H 4775 3725 50  0001 C CNN
+F 3 "~" H 4775 3725 50  0001 C CNN
+	1    4775 3725
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5125 3925 5125 3525
+Wire Wire Line
+	5175 3975 5175 3075
+Wire Wire Line
+	5225 4025 5225 2575
+Wire Wire Line
+	5225 2575 4575 2575
+Wire Wire Line
+	4575 2575 4575 2475
+Wire Wire Line
+	5275 4075 5275 2175
+Wire Wire Line
+	5275 2175 4575 2175
+Wire Wire Line
+	4575 2175 4575 2025
+Wire Wire Line
+	5375 4325 5375 3725
+Wire Wire Line
+	5375 1925 4975 1925
+Wire Wire Line
+	4975 2375 5375 2375
+Connection ~ 5375 2375
+Wire Wire Line
+	5375 2375 5375 1925
+Wire Wire Line
+	4975 2825 5375 2825
+Connection ~ 5375 2825
+Wire Wire Line
+	5375 2825 5375 2375
+Wire Wire Line
+	4975 3325 5375 3325
+Connection ~ 5375 3325
+Wire Wire Line
+	5375 3325 5375 2825
+Wire Wire Line
+	4975 3725 5375 3725
+Connection ~ 5375 3725
+Wire Wire Line
+	5375 3725 5375 3325
+$Comp
+L Device:R R11
+U 1 1 5CBFFF6B
+P 3775 2825
+F 0 "R11" V 3675 2675 50  0000 C CNN
+F 1 "5K" V 3675 2875 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 3705 2825 50  0001 C CNN
+F 3 "~" H 3775 2825 50  0001 C CNN
+	1    3775 2825
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R12
+U 1 1 5CC04198
+P 3775 3025
+F 0 "R12" V 3675 2875 50  0000 C CNN
+F 1 "5K" V 3675 3075 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 3705 3025 50  0001 C CNN
+F 3 "~" H 3775 3025 50  0001 C CNN
+	1    3775 3025
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R13
+U 1 1 5CC06126
+P 3775 3225
+F 0 "R13" V 3675 3075 50  0000 C CNN
+F 1 "5K" V 3675 3275 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 3705 3225 50  0001 C CNN
+F 3 "~" H 3775 3225 50  0001 C CNN
+	1    3775 3225
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R14
+U 1 1 5CC06130
+P 3775 3425
+F 0 "R14" V 3675 3275 50  0000 C CNN
+F 1 "5K" V 3675 3475 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 3705 3425 50  0001 C CNN
+F 3 "~" H 3775 3425 50  0001 C CNN
+	1    3775 3425
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R15
+U 1 1 5CC09AD0
+P 3775 3625
+F 0 "R15" V 3675 3475 50  0000 C CNN
+F 1 "5K" V 3675 3675 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 3705 3625 50  0001 C CNN
+F 3 "~" H 3775 3625 50  0001 C CNN
+	1    3775 3625
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3925 3225 3925 3275
+Connection ~ 3925 3425
+Wire Wire Line
+	3925 3425 3925 3475
+Wire Wire Line
+	3925 3225 3925 3075
+Connection ~ 3925 3225
+Connection ~ 3925 3025
+Wire Wire Line
+	3925 2825 3925 2625
+Connection ~ 3925 2825
+Wire Wire Line
+	3625 3625 3625 3675
+Connection ~ 3625 3675
+Wire Wire Line
+	3625 3425 3575 3425
+Wire Wire Line
+	3575 3425 3575 3775
+Connection ~ 3575 3775
+Wire Wire Line
+	3625 3225 3525 3225
+Wire Wire Line
+	3525 3225 3525 3875
+Connection ~ 3525 3875
+Wire Wire Line
+	3625 3025 3475 3025
+Wire Wire Line
+	3475 3025 3475 3975
+Connection ~ 3475 3975
+Wire Wire Line
+	3625 2825 3425 2825
+Wire Wire Line
+	3425 2825 3425 4075
+Connection ~ 3425 4075
+Wire Wire Line
+	3425 4075 5275 4075
+Wire Wire Line
+	3975 3625 4375 3625
+Wire Wire Line
+	4575 2725 4525 2725
+Wire Wire Line
+	4575 3375 4575 3275
+Wire Wire Line
+	4575 2925 4525 2925
+Wire Wire Line
+	4525 2925 4525 3075
+Wire Wire Line
+	4525 3075 5175 3075
+Wire Wire Line
+	4025 2675 4025 3575
+Wire Wire Line
+	3975 3625 3975 2775
+Wire Wire Line
+	3925 2825 3925 2875
+$Comp
+L Device:R R21
+U 1 1 5CC737F6
+P 4225 2675
+F 0 "R21" V 4125 2575 50  0000 C CNN
+F 1 "5K" V 4125 2725 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 4155 2675 50  0001 C CNN
+F 3 "~" H 4225 2675 50  0001 C CNN
+	1    4225 2675
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R22
+U 1 1 5CC73800
+P 4225 2875
+F 0 "R22" V 4125 2775 50  0000 C CNN
+F 1 "5K" V 4125 2925 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 4155 2875 50  0001 C CNN
+F 3 "~" H 4225 2875 50  0001 C CNN
+	1    4225 2875
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R23
+U 1 1 5CC7380A
+P 4225 3075
+F 0 "R23" V 4125 2975 50  0000 C CNN
+F 1 "5K" V 4125 3125 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 4155 3075 50  0001 C CNN
+F 3 "~" H 4225 3075 50  0001 C CNN
+	1    4225 3075
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R24
+U 1 1 5CC73814
+P 4225 3275
+F 0 "R24" V 4125 3175 50  0000 C CNN
+F 1 "5K" V 4125 3325 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 4155 3275 50  0001 C CNN
+F 3 "~" H 4225 3275 50  0001 C CNN
+	1    4225 3275
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R25
+U 1 1 5CC7381E
+P 4225 3475
+F 0 "R25" V 4125 3425 50  0000 C CNN
+F 1 "5K" V 4125 3575 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 4155 3475 50  0001 C CNN
+F 3 "~" H 4225 3475 50  0001 C CNN
+	1    4225 3475
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4575 3425 4575 3525
+Wire Wire Line
+	4575 3525 5125 3525
+Wire Wire Line
+	4525 3575 4525 3375
+Wire Wire Line
+	4525 3375 4575 3375
+Wire Wire Line
+	4025 3575 4525 3575
+Wire Wire Line
+	4375 3625 4375 3475
+Connection ~ 4375 3625
+Wire Wire Line
+	4375 3625 4575 3625
+Wire Wire Line
+	4375 3275 4575 3275
+Connection ~ 4575 3275
+Wire Wire Line
+	4575 3275 4575 3225
+Wire Wire Line
+	4375 3075 4475 3075
+Wire Wire Line
+	4475 3075 4475 2875
+Wire Wire Line
+	4475 2875 4525 2875
+Wire Wire Line
+	4525 2875 4525 2725
+Connection ~ 4525 2725
+Wire Wire Line
+	4525 2475 4525 2275
+Wire Wire Line
+	4375 2875 4425 2875
+Wire Wire Line
+	4425 2875 4425 2475
+Connection ~ 4425 2475
+Wire Wire Line
+	4425 2475 4525 2475
+Wire Wire Line
+	4075 3475 3925 3475
+Connection ~ 3925 3475
+Wire Wire Line
+	3925 3475 3925 3625
+Wire Wire Line
+	4075 3275 3925 3275
+Connection ~ 3925 3275
+Wire Wire Line
+	3925 3275 3925 3425
+Wire Wire Line
+	4075 3075 3925 3075
+Connection ~ 3925 3075
+Wire Wire Line
+	3925 3075 3925 3025
+Wire Wire Line
+	4075 2875 3925 2875
+Connection ~ 3925 2875
+Wire Wire Line
+	3925 2875 3925 3025
+Wire Wire Line
+	4075 2675 4075 2625
+Wire Wire Line
+	4075 2625 3925 2625
+Connection ~ 3925 2625
+Wire Wire Line
+	4525 2525 4525 2725
+Wire Wire Line
+	5375 1625 5375 1925
+Connection ~ 5375 1925
+Wire Wire Line
+	2425 4075 3425 4075
+Wire Wire Line
+	2475 3975 2475 3900
+Wire Wire Line
+	2475 3975 3475 3975
+Wire Wire Line
+	2525 3875 2525 3725
+Wire Wire Line
+	2525 3875 3525 3875
+Wire Wire Line
+	2575 3775 2575 3550
+Wire Wire Line
+	2575 3775 3575 3775
+Wire Wire Line
+	2625 3675 2625 3375
+Wire Wire Line
+	2625 3375 2425 3375
+Wire Wire Line
+	2625 3675 3625 3675
+Wire Wire Line
+	2425 1775 2575 1775
+$Comp
+L Device:R R8
+U 1 1 5CF916E0
+P 4075 2225
+F 0 "R8" V 3975 2175 50  0000 C CNN
+F 1 "10K" V 3975 2375 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 4005 2225 50  0001 C CNN
+F 3 "~" H 4075 2225 50  0001 C CNN
+	1    4075 2225
+	0    1    1    0   
+$EndComp
+Connection ~ 3925 2225
+Wire Wire Line
+	3925 2225 3925 2625
+$Comp
+L Device:R R9
+U 1 1 5CF9411C
+P 4075 1975
+F 0 "R9" V 3975 1925 50  0000 C CNN
+F 1 "10K" V 3975 2125 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 4005 1975 50  0001 C CNN
+F 3 "~" H 4075 1975 50  0001 C CNN
+	1    4075 1975
+	0    1    1    0   
+$EndComp
+Connection ~ 3925 1975
+Wire Wire Line
+	3925 1975 3925 2225
+$Comp
+L power:GND #PWR0101
+U 1 1 5CB21CFD
+P 2275 4325
+F 0 "#PWR0101" H 2275 4075 50  0001 C CNN
+F 1 "GND" H 2280 4152 50  0000 C CNN
+F 2 "" H 2275 4325 50  0001 C CNN
+F 3 "" H 2275 4325 50  0001 C CNN
+	1    2275 4325
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4525 3675 4525 3825
+Wire Wire Line
+	4525 3825 4575 3825
+Wire Wire Line
+	3625 3675 4525 3675
+Wire Wire Line
+	4475 3775 4475 3925
+Wire Wire Line
+	4475 3925 5125 3925
+Wire Wire Line
+	3575 3775 4475 3775
+Wire Wire Line
+	4375 3875 4375 3975
+Wire Wire Line
+	4375 3975 5175 3975
+Wire Wire Line
+	3525 3875 4375 3875
+Wire Wire Line
+	4275 3975 4275 4025
+Wire Wire Line
+	4275 4025 5225 4025
+Wire Wire Line
+	3475 3975 4275 3975
+Wire Wire Line
+	2575 1775 2575 1825
+Wire Wire Line
+	2425 2075 3125 2075
+Wire Wire Line
+	3075 2475 4425 2475
+Wire Wire Line
+	3025 2525 4525 2525
+Wire Wire Line
+	3225 2675 4025 2675
+Wire Wire Line
+	4225 1975 4375 1975
+Wire Wire Line
+	3125 2425 4375 2425
+Wire Wire Line
+	4375 2675 4375 2425
+Connection ~ 4375 2425
+Wire Wire Line
+	4375 2425 4475 2425
+Wire Wire Line
+	3125 2075 3125 2425
+Wire Wire Line
+	4475 1825 4475 2425
+Wire Wire Line
+	4225 2225 4425 2225
+Wire Wire Line
+	4425 2225 4425 2325
+Wire Wire Line
+	3175 2325 3675 2325
+$Comp
+L Connector:Conn_01x05_Female J2
+U 1 1 5CC2EA9E
+P 3375 2075
+F 0 "J2" H 3267 1650 50  0000 C CNN
+F 1 "Conn_01x05_Female" H 3225 2125 50  0000 C CNN
+F 2 "KiCad:ALPS_horzontal_encoder" H 3375 2075 50  0001 C CNN
+F 3 "~" H 3375 2075 50  0001 C CNN
+	1    3375 2075
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3575 2075 3675 2075
+Wire Wire Line
+	3575 1875 3675 1875
+Wire Wire Line
+	3975 1625 4425 1625
+Wire Wire Line
+	4425 2075 4425 1625
+Connection ~ 4425 1625
+Wire Wire Line
+	4425 1625 5375 1625
+Wire Wire Line
+	3675 2325 3675 2275
+Wire Wire Line
+	3675 2275 3575 2275
+Connection ~ 3675 2325
+Wire Wire Line
+	3675 1875 3675 1975
+Connection ~ 3675 2075
+Wire Wire Line
+	3675 2075 4425 2075
+Wire Wire Line
+	3575 1975 3675 1975
+Connection ~ 3675 1975
+Wire Wire Line
+	3675 1975 3675 2075
+Wire Wire Line
+	2575 1825 3775 1825
+Wire Wire Line
+	3575 2175 3775 2175
+Wire Wire Line
+	3775 2175 3775 1825
+Text Label 3675 1975 0    50   ~ 0
+rotary
+Wire Wire Line
+	3675 2325 4425 2325
+Wire Wire Line
+	3775 1825 4375 1825
+Wire Wire Line
+	4375 1825 4375 1975
+Connection ~ 3775 1825
+$Comp
+L Connector_Generic:Conn_01x01 J5
+U 1 1 5CDD6EF6
+P 2225 3375
+F 0 "J5" H 2305 3417 50  0000 L CNN
+F 1 "Conn_01x01" H 2305 3326 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 2225 3375 50  0001 C CNN
+F 3 "~" H 2225 3375 50  0001 C CNN
+	1    2225 3375
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2275 4325 5375 4325
+$Comp
+L Connector_Generic:Conn_01x01 J8
+U 1 1 5D063778
+P 2225 2600
+F 0 "J8" H 2305 2642 50  0000 L CNN
+F 1 "Conn_01x01" H 2305 2551 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 2225 2600 50  0001 C CNN
+F 3 "~" H 2225 2600 50  0001 C CNN
+	1    2225 2600
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 J7
+U 1 1 5D063B5F
+P 2225 2425
+F 0 "J7" H 2305 2467 50  0000 L CNN
+F 1 "Conn_01x01" H 2305 2376 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 2225 2425 50  0001 C CNN
+F 3 "~" H 2225 2425 50  0001 C CNN
+	1    2225 2425
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 J6
+U 1 1 5D064157
+P 2225 2250
+F 0 "J6" H 2305 2292 50  0000 L CNN
+F 1 "Conn_01x01" H 2305 2201 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 2225 2250 50  0001 C CNN
+F 3 "~" H 2225 2250 50  0001 C CNN
+	1    2225 2250
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 J9
+U 1 1 5D064430
+P 2225 2775
+F 0 "J9" H 2305 2817 50  0000 L CNN
+F 1 "Conn_01x01" H 2305 2726 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 2225 2775 50  0001 C CNN
+F 3 "~" H 2225 2775 50  0001 C CNN
+	1    2225 2775
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 J4
+U 1 1 5D0647BA
+P 2225 2075
+F 0 "J4" H 2305 2117 50  0000 L CNN
+F 1 "Conn_01x01" H 2305 2026 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 2225 2075 50  0001 C CNN
+F 3 "~" H 2225 2075 50  0001 C CNN
+	1    2225 2075
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 J3
+U 1 1 5D064A95
+P 2225 1925
+F 0 "J3" H 2305 1967 50  0000 L CNN
+F 1 "Conn_01x01" H 2305 1876 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 2225 1925 50  0001 C CNN
+F 3 "~" H 2225 1925 50  0001 C CNN
+	1    2225 1925
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 J1
+U 1 1 5D065311
+P 2225 1775
+F 0 "J1" H 2305 1817 50  0000 L CNN
+F 1 "Conn_01x01" H 2305 1726 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 2225 1775 50  0001 C CNN
+F 3 "~" H 2225 1775 50  0001 C CNN
+	1    2225 1775
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 J10
+U 1 1 5D06568E
+P 2225 4075
+F 0 "J10" H 2305 4117 50  0000 L CNN
+F 1 "Conn_01x01" H 2305 4026 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 2225 4075 50  0001 C CNN
+F 3 "~" H 2225 4075 50  0001 C CNN
+	1    2225 4075
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 J11
+U 1 1 5D065DFC
+P 2275 3900
+F 0 "J11" H 2355 3942 50  0000 L CNN
+F 1 "Conn_01x01" H 2355 3851 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 2275 3900 50  0001 C CNN
+F 3 "~" H 2275 3900 50  0001 C CNN
+	1    2275 3900
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 J12
+U 1 1 5D0663BB
+P 2325 3725
+F 0 "J12" H 2405 3767 50  0000 L CNN
+F 1 "Conn_01x01" H 2405 3676 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 2325 3725 50  0001 C CNN
+F 3 "~" H 2325 3725 50  0001 C CNN
+	1    2325 3725
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 J13
+U 1 1 5D0667AB
+P 2375 3550
+F 0 "J13" H 2455 3592 50  0000 L CNN
+F 1 "Conn_01x01" H 2455 3501 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 2375 3550 50  0001 C CNN
+F 3 "~" H 2375 3550 50  0001 C CNN
+	1    2375 3550
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 J14
+U 1 1 5D0670CC
+P 3725 1750
+F 0 "J14" H 3805 1792 50  0000 L CNN
+F 1 "Conn_01x01" H 3805 1701 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 3725 1750 50  0001 C CNN
+F 3 "~" H 3725 1750 50  0001 C CNN
+	1    3725 1750
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3925 1750 3925 1975
+$Comp
+L Connector_Generic:Conn_01x01 J15
+U 1 1 5D068D22
+P 3775 1625
+F 0 "J15" H 3855 1667 50  0000 L CNN
+F 1 "Conn_01x01" H 3855 1576 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 3775 1625 50  0001 C CNN
+F 3 "~" H 3775 1625 50  0001 C CNN
+	1    3775 1625
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2425 1925 3175 1925
+Wire Wire Line
+	3175 1925 3175 2325
+Wire Wire Line
+	2425 2775 3975 2775
+Wire Wire Line
+	2425 2600 3225 2600
+Wire Wire Line
+	3225 2600 3225 2675
+Wire Wire Line
+	2425 2425 3025 2425
+Wire Wire Line
+	3025 2425 3025 2525
+Wire Wire Line
+	2425 2250 3075 2250
+Wire Wire Line
+	3075 2250 3075 2475
+$EndSCHEMATC
