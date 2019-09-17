@@ -18,3 +18,8 @@ footprints are the property of their respective creators, can be sourced here:
 https://www.overclock.net/forum/375-mice/1724838-progress-fully-custom-mouse-2.html#post27945424
 
 https://www.overclock.net/forum/375-mice/1635281-new-ninox-mouse-ninox-astrum-swapable-shells-195.html#post27920712
+
+mouse8onethree is an untested reworking of the mouse8 pcb to fit the ergo intellimouse1.3a shell, wmo and io1.1. It also adds a jumbled isp header. b1, b2, b3 are connected to a pair of through holes and can be jumpered over once the bootloader is programmed. 
+ISP guide is here:
+
+https://github.com/qmk/qmk_firmware/blob/master/docs/isp_flashing_guide.md
