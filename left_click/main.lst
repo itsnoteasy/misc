@@ -1,0 +1,476 @@
+   1               		.file	"main.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               	.Ltext0:
+   9               		.cfi_sections	.debug_frame
+  10               		.section	.text.startup.main,"ax",@progbits
+  11               	.global	main
+  13               	main:
+  14               	.LFB2:
+  15               		.file 1 "main.c"
+   1:main.c        **** /* firmware for some 3360 mouse
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright (c) 2016 qsxcv
+   4:main.c        ****  *
+   5:main.c        ****  * Permission is hereby granted, free of charge, to any person obtaining a copy
+   6:main.c        ****  * of this software and associated documentation files (the "Software"), to deal
+   7:main.c        ****  * in the Software without restriction, including without limitation the rights
+   8:main.c        ****  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   9:main.c        ****  * copies of the Software, and to permit persons to whom the Software is
+  10:main.c        ****  * furnished to do so, subject to the following conditions:
+  11:main.c        ****  *
+  12:main.c        ****  * The above copyright notice and this permission notice shall be included in
+  13:main.c        ****  * all copies or substantial portions of the Software.
+  14:main.c        ****  *
+  15:main.c        ****  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  16:main.c        ****  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  17:main.c        ****  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  18:main.c        ****  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  19:main.c        ****  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  20:main.c        ****  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  21:main.c        ****  * THE SOFTWARE.
+  22:main.c        ****  */
+  23:main.c        **** 
+  24:main.c        **** // this code assumes
+  25:main.c        **** // left button		<-> D0
+  26:main.c        **** 
+  27:main.c        **** #include <avr/io.h>
+  28:main.c        **** #include <avr/pgmspace.h>
+  29:main.c        **** #include <avr/interrupt.h>
+  30:main.c        **** #include "usb_mouse.h"
+  31:main.c        **** 
+  32:main.c        **** #define delay_us(t) __builtin_avr_delay_cycles((t) * (F_CPU/1000000))
+  33:main.c        **** #define delay_ms(t) __builtin_avr_delay_cycles((t) * (F_CPU/1000))
+  34:main.c        **** 
+  35:main.c        **** #define DEBOUNCE_TIME 128 // debounce time in units of 125us. only affects release latency.
+  36:main.c        **** 
+  37:main.c        **** static void pins_init(void)
+  38:main.c        **** {
+  39:main.c        **** 	// buttons
+  40:main.c        **** 	PORTD |= 0b00000001; // L
+  41:main.c        **** 	EICRA = 0b01010101; // generate interrupt request on any edge of D0/D1/D2/D3
+  42:main.c        **** 	EIMSK = 0; // but don't enable any actual interrupts
+  43:main.c        **** 	EIFR = 0b00001111; // clear EIFR
+  44:main.c        **** }
+  45:main.c        **** 
+  46:main.c        **** int main(void)
+  47:main.c        **** {
+  16               		.loc 1 47 0
+  17               		.cfi_startproc
+  18               	/* prologue: function */
+  19               	/* frame size = 0 */
+  20               	/* stack size = 0 */
+  21               	.L__stack_usage = 0
+  48:main.c        **** 	// set clock prescaler for 8MHz
+  49:main.c        **** 	CLKPR = 0x80;
+  22               		.loc 1 49 0
+  23 0000 80E8      		ldi r24,lo8(-128)
+  24 0002 8093 6100 		sts 97,r24
+  50:main.c        **** 	CLKPR = 0x00;
+  25               		.loc 1 50 0
+  26 0006 1092 6100 		sts 97,__zero_reg__
+  27               	.LBB6:
+  28               	.LBB7:
+  40:main.c        **** 	EICRA = 0b01010101; // generate interrupt request on any edge of D0/D1/D2/D3
+  29               		.loc 1 40 0
+  30 000a 589A      		sbi 0xb,0
+  41:main.c        **** 	EIMSK = 0; // but don't enable any actual interrupts
+  31               		.loc 1 41 0
+  32 000c 85E5      		ldi r24,lo8(85)
+  33 000e 8093 6900 		sts 105,r24
+  42:main.c        **** 	EIFR = 0b00001111; // clear EIFR
+  34               		.loc 1 42 0
+  35 0012 1DBA      		out 0x1d,__zero_reg__
+  43:main.c        **** }
+  36               		.loc 1 43 0
+  37 0014 8FE0      		ldi r24,lo8(15)
+  38 0016 8CBB      		out 0x1c,r24
+  39               	.LBE7:
+  40               	.LBE6:
+  51:main.c        **** 	pins_init();
+  52:main.c        **** 	// previous state to compare against for debouncing
+  53:main.c        **** 	uint8_t btn_prev = (~PIND) & 0b00000001; // read L, R, M, FSB, RSB, DPI
+  41               		.loc 1 53 0
+  42 0018 C9B1      		in r28,0x9
+  43 001a C095      		com r28
+  44 001c C170      		andi r28,lo8(1)
+  45               	.LVL0:
+  54:main.c        **** 	// time (in 125us) button has been unpressed.
+  55:main.c        **** 	// consider button to be released if this time exceeds DEBOUNCE_TIME.
+  56:main.c        **** 	uint8_t btn_time = 0;
+  57:main.c        **** 	// binary OR of all button states since previous usb transmission
+  58:main.c        **** 	uint8_t btn_usb = 0x00;
+  59:main.c        **** 	// previously transmitted button state
+  60:main.c        **** 	uint8_t btn_usb_prev = 0x00;
+  61:main.c        **** 	
+  62:main.c        **** 	// if dpi button is pressed when plugging in, jump to bootloader
+  63:main.c        **** 	// see https://www.pjrc.com/teensy/jump_to_bootloader.html
+  64:main.c        **** 	delay_ms(50);
+  46               		.loc 1 64 0
+  47 001e 2FE7      		ldi r18,lo8(79999)
+  48 0020 88E3      		ldi r24,hi8(79999)
+  49 0022 91E0      		ldi r25,hlo8(79999)
+  50 0024 2150      	1:	subi r18,1
+  51 0026 8040      		sbci r24,0
+  52 0028 9040      		sbci r25,0
+  53 002a 01F4      		brne 1b
+  54 002c 00C0      		rjmp .
+  55 002e 0000      		nop
+  65:main.c        **** 	if (!(PIND & (1<<0)))
+  56               		.loc 1 65 0
+  57 0030 4899      		sbic 0x9,0
+  58 0032 00C0      		rjmp .L2
+  66:main.c        **** 		__asm__ volatile ("jmp 0x7e00");
+  59               		.loc 1 66 0
+  60               	/* #APP */
+  61               	 ;  66 "main.c" 1
+  62 0034 0C94 003F 		jmp 0x7e00
+  63               	 ;  0 "" 2
+  64               	/* #NOAPP */
+  65               	.L2:
+  67:main.c        **** 	
+  68:main.c        **** 	usb_init();
+  66               		.loc 1 68 0
+  67 0038 0E94 0000 		call usb_init
+  68               	.LVL1:
+  69               	.L3:
+  69:main.c        **** 	while (!usb_configured());
+  70               		.loc 1 69 0 discriminator 1
+  71 003c 0E94 0000 		call usb_configured
+  72               	.LVL2:
+  73 0040 8823      		tst r24
+  74 0042 01F0      		breq .L3
+  70:main.c        **** 	delay_ms(456); // arbitrary
+  75               		.loc 1 70 0
+  76 0044 2FEF      		ldi r18,lo8(729599)
+  77 0046 81E2      		ldi r24,hi8(729599)
+  78 0048 9BE0      		ldi r25,hlo8(729599)
+  79 004a 2150      	1:	subi r18,1
+  80 004c 8040      		sbci r24,0
+  81 004e 9040      		sbci r25,0
+  82 0050 01F4      		brne 1b
+  83 0052 00C0      		rjmp .
+  84 0054 0000      		nop
+  71:main.c        **** 
+  72:main.c        **** 	// set up timer0 to set OCF0A in TIFR0 every 125us
+  73:main.c        **** 	TCCR0A = 0x02; // CTC
+  85               		.loc 1 73 0
+  86 0056 82E0      		ldi r24,lo8(2)
+  87 0058 84BD      		out 0x24,r24
+  74:main.c        **** 	TCCR0B = 0x02; // prescaler 1/8 = 1us period
+  88               		.loc 1 74 0
+  89 005a 85BD      		out 0x25,r24
+  75:main.c        **** 	OCR0A = 249; // = 125 - 1
+  90               		.loc 1 75 0
+  91 005c 89EF      		ldi r24,lo8(-7)
+  92 005e 87BD      		out 0x27,r24
+  76:main.c        **** 
+  77:main.c        **** 	cli();
+  93               		.loc 1 77 0
+  94               	/* #APP */
+  95               	 ;  77 "main.c" 1
+  96 0060 F894      		cli
+  97               	 ;  0 "" 2
+  60:main.c        **** 	
+  98               		.loc 1 60 0
+  99               	/* #NOAPP */
+ 100 0062 E12C      		mov r14,__zero_reg__
+  58:main.c        **** 	// previously transmitted button state
+ 101               		.loc 1 58 0
+ 102 0064 D0E0      		ldi r29,0
+  56:main.c        **** 	// binary OR of all button states since previous usb transmission
+ 103               		.loc 1 56 0
+ 104 0066 F12C      		mov r15,__zero_reg__
+ 105               	.LBB8:
+ 106               	.LBB9:
+  78:main.c        **** 	while (1) {
+  79:main.c        **** 		for (uint8_t i = 0; i < 8; i++) {
+  80:main.c        **** 		// synchronization to usb frames and 125us intervals
+  81:main.c        **** 			// polling interrupt flags gives 5 clock cycles or so of
+  82:main.c        **** 			// jitter. possible to eliminate by going into sleep
+  83:main.c        **** 			// mode and waking up using interrupts, but whatever.
+  84:main.c        **** 			if (i == 0) {
+  85:main.c        **** 				// sync to usb frames (1ms)
+  86:main.c        **** 				UDINT &= ~(1<<SOFI);
+  87:main.c        **** 				while(!(UDINT & (1<<SOFI)));
+  88:main.c        **** 				// reset prescaler phase, not really necessary
+  89:main.c        **** 				GTCCR |= (1<<PSRSYNC);
+  90:main.c        **** 				TCNT0 = 0;
+  91:main.c        **** 			} else {
+  92:main.c        **** 				// sync to 125us intervals using timer0
+  93:main.c        **** 				while (!(TIFR0 & (1<<OCF0A)));
+  94:main.c        **** 			}
+  95:main.c        **** 			TIFR0 |= (1<<OCF0A); // 0CF0A is cleared by writing 1
+  96:main.c        **** 
+  97:main.c        **** 		// button stuff
+  98:main.c        **** 			//high = not pressed, low = pressed
+  99:main.c        **** 			//PIND 0 EIFR 0: low, no edges -> is low
+ 100:main.c        **** 			//PIND 0 EIFR 1: low, edge -> is low
+ 101:main.c        **** 			//PIND 1 EIFR 0: high, no edges -> always high during last 125us
+ 102:main.c        **** 			//PIND 1 EIFR 1: high, edge -> low at some point in the last 125us
+ 103:main.c        **** 			const uint8_t btn_unpressed = PIND & (~(EIFR) | 0b00000001);
+ 104:main.c        **** 			EIFR = 0b00000111; // clear EIFR
+ 107               		.loc 1 104 0
+ 108 0068 87E0      		ldi r24,lo8(7)
+ 109 006a D82E      		mov r13,r24
+ 110 006c CC24      		clr r12
+ 111 006e C394      		inc r12
+ 105:main.c        **** 			// manual loop debouncing for every button
+ 106:main.c        **** 			// button debouncing logic
+ 107:main.c        **** 			//          >input<           |        >output<
+ 108:main.c        **** 			//------------------------------------------------------
+ 109:main.c        **** 			// previous    | current      | unclicked  | current
+ 110:main.c        **** 			// dbncd state | actual state | time       | dbncd state
+ 111:main.c        **** 			//-------------+--------------+------------+------------
+ 112:main.c        **** 			//    btn_prev |   ~unpressed | btn_time   |   btn_dbncd
+ 113:main.c        **** 			//-------------+--------------+------------+------------
+ 114:main.c        **** 			//           0 |            0 |         =0 |          =0
+ 115:main.c        **** 			//           0 |            1 |         =0 |          =1
+ 116:main.c        **** 			//           1 |            0 |         ++ | (time < DEBOUNCE_TIME)
+ 117:main.c        **** 			//           1 |            1 |         =0 |          =1
+ 118:main.c        **** 			uint8_t btn_dbncd = 0x00;
+ 119:main.c        **** 
+ 120:main.c        **** 			if ((btn_prev & (1<<0)) && (btn_unpressed & (1<<0))) {
+ 121:main.c        **** 				btn_time++;
+ 122:main.c        **** 				if (btn_time < DEBOUNCE_TIME)
+ 123:main.c        **** 					btn_dbncd |= (1<<0);
+ 124:main.c        **** 			} else {
+ 125:main.c        **** 				btn_time = 0;
+ 126:main.c        **** 				btn_dbncd |= (~btn_unpressed) & (1<<0);
+ 127:main.c        **** 			}
+ 128:main.c        **** 
+ 129:main.c        ****                 // usb
+ 130:main.c        **** 				// first make sure it's configured
+ 131:main.c        **** 				sei();
+ 132:main.c        **** 				while (!usb_configured());
+ 133:main.c        **** 				cli();
+ 134:main.c        **** 				// this stuff is very intricate and confusing
+ 135:main.c        **** 				// i'm fairly certain all of it is correct.
+ 136:main.c        **** 				// mask dpi button state for usb
+ 137:main.c        **** 				const uint8_t btn_dbncd_mask = btn_dbncd & 0b00000001;
+ 138:main.c        **** 
+ 139:main.c        **** 				// there's nothing to do if nothing's changed in this 125us cycle
+ 140:main.c        **** 				if (btn_dbncd_mask != (btn_prev & 0b00000001)) {
+ 141:main.c        **** 					UENUM = MOUSE_ENDPOINT;
+ 112               		.loc 1 141 0
+ 113 0070 93E0      		ldi r25,lo8(3)
+ 114 0072 B92E      		mov r11,r25
+ 142:main.c        **** 					if (UESTA0X & (1<<NBUSYBK0)) { // untransmitted data still in bank
+ 143:main.c        **** 						UEINTX |= (1<<RXOUTI); // kill bank; RXOUTI == KILLBK
+ 144:main.c        **** 						while (UEINTX & (1<<RXOUTI));
+ 145:main.c        **** 					} else {
+ 146:main.c        **** 						// transmission's finished, or the data that should be in the
+ 147:main.c        **** 						// bank is exactly the same as what was previously transmitted
+ 148:main.c        **** 						// so that there was nothing worth transmitting before.
+ 149:main.c        **** 						btn_usb_prev = btn_usb;
+ 150:main.c        **** 						btn_usb = 0x00;
+ 151:main.c        **** 					}
+ 152:main.c        **** 					
+ 153:main.c        **** 					btn_usb |= btn_dbncd_mask & 0b00000001; // L
+ 154:main.c        **** 					// only load bank with data if there's something worth transmitting
+ 155:main.c        **** 					if (btn_usb != btn_usb_prev) {
+ 156:main.c        **** 						UEDATX = btn_usb;
+ 157:main.c        **** 						UEINTX = 0x3a;
+ 115               		.loc 1 157 0
+ 116 0074 2AE3      		ldi r18,lo8(58)
+ 117 0076 A22E      		mov r10,r18
+ 118               	.LVL3:
+ 119               	.L15:
+ 120               	.LBE9:
+ 121 0078 1C2F      		mov r17,r28
+  79:main.c        **** 		// synchronization to usb frames and 125us intervals
+ 122               		.loc 1 79 0
+ 123 007a 00E0      		ldi r16,0
+ 124               	.LVL4:
+ 125               	.LBB10:
+  84:main.c        **** 				// sync to usb frames (1ms)
+ 126               		.loc 1 84 0
+ 127 007c 0023      		tst r16
+ 128 007e 01F0      		breq .L32
+ 129               	.LVL5:
+ 130               	.L25:
+  93:main.c        **** 			}
+ 131               		.loc 1 93 0 discriminator 1
+ 132 0080 A99B      		sbis 0x15,1
+ 133 0082 00C0      		rjmp .L25
+ 134               	.LVL6:
+ 135               	.L6:
+  95:main.c        **** 
+ 136               		.loc 1 95 0
+ 137 0084 A99A      		sbi 0x15,1
+ 103:main.c        **** 			EIFR = 0b00000111; // clear EIFR
+ 138               		.loc 1 103 0
+ 139 0086 99B1      		in r25,0x9
+ 140 0088 8CB3      		in r24,0x1c
+ 141 008a 8095      		com r24
+ 142 008c 8160      		ori r24,lo8(1)
+ 143 008e 8923      		and r24,r25
+ 144               	.LVL7:
+ 104:main.c        **** 			// manual loop debouncing for every button
+ 145               		.loc 1 104 0
+ 146 0090 DCBA      		out 0x1c,r13
+ 147               	.LVL8:
+ 120:main.c        **** 				btn_time++;
+ 148               		.loc 1 120 0
+ 149 0092 CC23      		tst r28
+ 150 0094 01F0      		breq .L7
+ 120:main.c        **** 				btn_time++;
+ 151               		.loc 1 120 0 is_stmt 0 discriminator 1
+ 152 0096 C82F      		mov r28,r24
+ 153 0098 C170      		andi r28,lo8(1)
+ 154 009a 80FF      		sbrs r24,0
+ 155 009c 00C0      		rjmp .L8
+ 121:main.c        **** 				if (btn_time < DEBOUNCE_TIME)
+ 156               		.loc 1 121 0 is_stmt 1
+ 157 009e F394      		inc r15
+ 158               	.LVL9:
+ 123:main.c        **** 			} else {
+ 159               		.loc 1 123 0
+ 160 00a0 CF2D      		mov r28,r15
+ 161 00a2 C095      		com r28
+ 162 00a4 CC1F      		rol r28
+ 163 00a6 CC27      		clr r28
+ 164 00a8 CC1F      		rol r28
+ 165               	.LVL10:
+ 166               	.L9:
+ 131:main.c        **** 				while (!usb_configured());
+ 167               		.loc 1 131 0
+ 168               	/* #APP */
+ 169               	 ;  131 "main.c" 1
+ 170 00aa 7894      		sei
+ 171               	 ;  0 "" 2
+ 172               	.LVL11:
+ 173               	/* #NOAPP */
+ 174               	.L10:
+ 132:main.c        **** 				cli();
+ 175               		.loc 1 132 0 discriminator 1
+ 176 00ac 0E94 0000 		call usb_configured
+ 177               	.LVL12:
+ 178 00b0 8823      		tst r24
+ 179 00b2 01F0      		breq .L10
+ 133:main.c        **** 				// this stuff is very intricate and confusing
+ 180               		.loc 1 133 0
+ 181               	/* #APP */
+ 182               	 ;  133 "main.c" 1
+ 183 00b4 F894      		cli
+ 184               	 ;  0 "" 2
+ 185               	.LVL13:
+ 140:main.c        **** 					UENUM = MOUSE_ENDPOINT;
+ 186               		.loc 1 140 0
+ 187               	/* #NOAPP */
+ 188 00b6 C117      		cp r28,r17
+ 189 00b8 01F0      		breq .L11
+ 141:main.c        **** 					if (UESTA0X & (1<<NBUSYBK0)) { // untransmitted data still in bank
+ 190               		.loc 1 141 0
+ 191 00ba B092 E900 		sts 233,r11
+ 142:main.c        **** 						UEINTX |= (1<<RXOUTI); // kill bank; RXOUTI == KILLBK
+ 192               		.loc 1 142 0
+ 193 00be 8091 EE00 		lds r24,238
+ 194 00c2 80FF      		sbrs r24,0
+ 195 00c4 00C0      		rjmp .L16
+ 143:main.c        **** 						while (UEINTX & (1<<RXOUTI));
+ 196               		.loc 1 143 0
+ 197 00c6 8091 E800 		lds r24,232
+ 198 00ca 8460      		ori r24,lo8(4)
+ 199 00cc 8093 E800 		sts 232,r24
+ 200               	.L13:
+ 144:main.c        **** 					} else {
+ 201               		.loc 1 144 0 discriminator 1
+ 202 00d0 8091 E800 		lds r24,232
+ 203 00d4 82FD      		sbrc r24,2
+ 204 00d6 00C0      		rjmp .L13
+ 205               	.LVL14:
+ 206               	.L12:
+ 153:main.c        **** 					// only load bank with data if there's something worth transmitting
+ 207               		.loc 1 153 0
+ 208 00d8 DC2B      		or r29,r28
+ 209               	.LVL15:
+ 155:main.c        **** 						UEDATX = btn_usb;
+ 210               		.loc 1 155 0
+ 211 00da ED16      		cp r14,r29
+ 212 00dc 01F0      		breq .L11
+ 156:main.c        **** 						UEINTX = 0x3a;
+ 213               		.loc 1 156 0
+ 214 00de D093 F100 		sts 241,r29
+ 215               		.loc 1 157 0
+ 216 00e2 A092 E800 		sts 232,r10
+ 217               	.L11:
+ 218               	.LVL16:
+ 219               	.LBE10:
+  79:main.c        **** 		// synchronization to usb frames and 125us intervals
+ 220               		.loc 1 79 0 discriminator 2
+ 221 00e6 0F5F      		subi r16,lo8(-(1))
+ 222               	.LVL17:
+ 223 00e8 0830      		cpi r16,lo8(8)
+ 224 00ea 01F0      		breq .L15
+ 225 00ec 1C2F      		mov r17,r28
+ 226               	.LBB11:
+  84:main.c        **** 				// sync to usb frames (1ms)
+ 227               		.loc 1 84 0
+ 228 00ee 0111      		cpse r16,__zero_reg__
+ 229 00f0 00C0      		rjmp .L25
+ 230               	.LVL18:
+ 231               	.L32:
+  86:main.c        **** 				while(!(UDINT & (1<<SOFI)));
+ 232               		.loc 1 86 0
+ 233 00f2 8091 E100 		lds r24,225
+ 234 00f6 8B7F      		andi r24,lo8(-5)
+ 235 00f8 8093 E100 		sts 225,r24
+ 236               	.L5:
+  87:main.c        **** 				// reset prescaler phase, not really necessary
+ 237               		.loc 1 87 0 discriminator 1
+ 238 00fc 8091 E100 		lds r24,225
+ 239 0100 82FF      		sbrs r24,2
+ 240 0102 00C0      		rjmp .L5
+  89:main.c        **** 				TCNT0 = 0;
+ 241               		.loc 1 89 0
+ 242 0104 83B5      		in r24,0x23
+ 243 0106 8160      		ori r24,lo8(1)
+ 244 0108 83BD      		out 0x23,r24
+  90:main.c        **** 			} else {
+ 245               		.loc 1 90 0
+ 246 010a 16BC      		out 0x26,__zero_reg__
+ 247 010c 00C0      		rjmp .L6
+ 248               	.LVL19:
+ 249               	.L7:
+ 250 010e C82F      		mov r28,r24
+ 251 0110 C170      		andi r28,lo8(1)
+ 252               	.L8:
+ 253               	.LVL20:
+ 254 0112 CC25      		eor r28,r12
+ 255               	.LVL21:
+ 125:main.c        **** 				btn_dbncd |= (~btn_unpressed) & (1<<0);
+ 256               		.loc 1 125 0
+ 257 0114 F12C      		mov r15,__zero_reg__
+ 258 0116 00C0      		rjmp .L9
+ 259               	.LVL22:
+ 260               	.L16:
+ 261 0118 ED2E      		mov r14,r29
+ 262               	.LVL23:
+ 263 011a D0E0      		ldi r29,0
+ 264               	.LVL24:
+ 265 011c 00C0      		rjmp .L12
+ 266               	.LBE11:
+ 267               	.LBE8:
+ 268               		.cfi_endproc
+ 269               	.LFE2:
+ 271               		.text
+ 272               	.Letext0:
+ 273               		.file 2 "usb_mouse.h"
+ 274               		.file 3 "/usr/lib/avr/include/stdint.h"
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.c
+     /tmp/ccK1MpM1.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccK1MpM1.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccK1MpM1.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccK1MpM1.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccK1MpM1.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccK1MpM1.s:13     .text.startup.main:0000000000000000 main
+
+UNDEFINED SYMBOLS
+usb_init
+usb_configured

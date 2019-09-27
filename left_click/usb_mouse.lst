@@ -1,0 +1,1670 @@
+   1               		.file	"usb_mouse.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               	.Ltext0:
+   9               		.cfi_sections	.debug_frame
+  10               		.section	.text.usb_init,"ax",@progbits
+  11               	.global	usb_init
+  13               	usb_init:
+  14               	.LFB1:
+  15               		.file 1 "usb_mouse.c"
+   1:usb_mouse.c   **** /* USB Mouse Plus Debug Channel Example for Teensy USB Development Board
+   2:usb_mouse.c   ****  * http://www.pjrc.com/teensy/usb_mouse.html
+   3:usb_mouse.c   ****  * Copyright (c) 2009 PJRC.COM, LLC
+   4:usb_mouse.c   ****  *
+   5:usb_mouse.c   ****  * Permission is hereby granted, free of charge, to any person obtaining a copy
+   6:usb_mouse.c   ****  * of this software and associated documentation files (the "Software"), to deal
+   7:usb_mouse.c   ****  * in the Software without restriction, including without limitation the rights
+   8:usb_mouse.c   ****  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   9:usb_mouse.c   ****  * copies of the Software, and to permit persons to whom the Software is
+  10:usb_mouse.c   ****  * furnished to do so, subject to the following conditions:
+  11:usb_mouse.c   ****  *
+  12:usb_mouse.c   ****  * The above copyright notice and this permission notice shall be included in
+  13:usb_mouse.c   ****  * all copies or substantial portions of the Software.
+  14:usb_mouse.c   ****  *
+  15:usb_mouse.c   ****  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  16:usb_mouse.c   ****  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  17:usb_mouse.c   ****  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  18:usb_mouse.c   ****  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  19:usb_mouse.c   ****  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  20:usb_mouse.c   ****  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  21:usb_mouse.c   ****  * THE SOFTWARE.
+  22:usb_mouse.c   ****  */
+  23:usb_mouse.c   **** 
+  24:usb_mouse.c   **** // Version 1.0: Initial Release
+  25:usb_mouse.c   **** // Version 1.1: Add support for Teensy 2.0
+  26:usb_mouse.c   **** 
+  27:usb_mouse.c   **** // modified by Furiosus to support 16 bit motion data
+  28:usb_mouse.c   **** // modified by qsxcv
+  29:usb_mouse.c   **** 
+  30:usb_mouse.c   **** #define USB_SERIAL_PRIVATE_INCLUDE
+  31:usb_mouse.c   **** #include "usb_mouse.h"
+  32:usb_mouse.c   **** 
+  33:usb_mouse.c   **** /**************************************************************************
+  34:usb_mouse.c   ****  *
+  35:usb_mouse.c   ****  *  Configurable Options
+  36:usb_mouse.c   ****  *
+  37:usb_mouse.c   ****  **************************************************************************/
+  38:usb_mouse.c   **** 
+  39:usb_mouse.c   **** // You can change these to give your code its own name.
+  40:usb_mouse.c   **** #define STR_MANUFACTURER	L"bst"
+  41:usb_mouse.c   **** #define STR_PRODUCT		L"3360"
+  42:usb_mouse.c   **** 
+  43:usb_mouse.c   **** 
+  44:usb_mouse.c   **** // Mac OS-X and Linux automatically load the correct drivers.  On
+  45:usb_mouse.c   **** // Windows, even though the driver is supplied by Microsoft, an
+  46:usb_mouse.c   **** // INF file is needed to load the driver.  These numbers need to
+  47:usb_mouse.c   **** // match the INF file.
+  48:usb_mouse.c   **** #define VENDOR_ID		0x16C0
+  49:usb_mouse.c   **** #define PRODUCT_ID		0x047E
+  50:usb_mouse.c   **** 
+  51:usb_mouse.c   **** 
+  52:usb_mouse.c   **** // USB devices are supposed to implment a halt feature, which is
+  53:usb_mouse.c   **** // rarely (if ever) used.  If you comment this line out, the halt
+  54:usb_mouse.c   **** // code will be removed, saving 102 bytes of space (gcc 4.3.0).
+  55:usb_mouse.c   **** // This is not strictly USB compliant, but works with all major
+  56:usb_mouse.c   **** // operating systems.
+  57:usb_mouse.c   **** #define SUPPORT_ENDPOINT_HALT
+  58:usb_mouse.c   **** 
+  59:usb_mouse.c   **** 
+  60:usb_mouse.c   **** 
+  61:usb_mouse.c   **** /**************************************************************************
+  62:usb_mouse.c   ****  *
+  63:usb_mouse.c   ****  *  Endpoint Buffer Configuration
+  64:usb_mouse.c   ****  *
+  65:usb_mouse.c   ****  **************************************************************************/
+  66:usb_mouse.c   **** 
+  67:usb_mouse.c   **** #define ENDPOINT0_SIZE		32
+  68:usb_mouse.c   **** 
+  69:usb_mouse.c   **** #define MOUSE_INTERFACE		0
+  70:usb_mouse.c   **** //#define MOUSE_ENDPOINT	3 // moved to usb_mouse.h for use in main
+  71:usb_mouse.c   **** #define MOUSE_SIZE		8
+  72:usb_mouse.c   **** #define MOUSE_BUFFER		EP_SINGLE_BUFFER
+  73:usb_mouse.c   **** 
+  74:usb_mouse.c   **** static const uint8_t PROGMEM endpoint_config_table[] = {
+  75:usb_mouse.c   **** 	0,
+  76:usb_mouse.c   **** 	0,
+  77:usb_mouse.c   **** 	1, EP_TYPE_INTERRUPT_IN,  EP_SIZE(MOUSE_SIZE) | MOUSE_BUFFER,
+  78:usb_mouse.c   **** 	0
+  79:usb_mouse.c   **** };
+  80:usb_mouse.c   **** 
+  81:usb_mouse.c   **** 
+  82:usb_mouse.c   **** /**************************************************************************
+  83:usb_mouse.c   ****  *
+  84:usb_mouse.c   ****  *  Descriptor Data
+  85:usb_mouse.c   ****  *
+  86:usb_mouse.c   ****  **************************************************************************/
+  87:usb_mouse.c   **** 
+  88:usb_mouse.c   **** // Descriptors are the data that your computer reads when it auto-detects
+  89:usb_mouse.c   **** // this USB device (called "enumeration" in USB lingo).  The most commonly
+  90:usb_mouse.c   **** // changed items are editable at the top of this file.  Changing things
+  91:usb_mouse.c   **** // in here should only be done by those who've read chapter 9 of the USB
+  92:usb_mouse.c   **** // spec and relevant portions of any USB class specifications!
+  93:usb_mouse.c   **** 
+  94:usb_mouse.c   **** 
+  95:usb_mouse.c   **** static const uint8_t PROGMEM device_descriptor[] = {
+  96:usb_mouse.c   **** 	18,					// bLength
+  97:usb_mouse.c   **** 	1,					// bDescriptorType
+  98:usb_mouse.c   **** 	0x00, 0x02,				// bcdUSB
+  99:usb_mouse.c   **** 	0,					// bDeviceClass
+ 100:usb_mouse.c   **** 	0,					// bDeviceSubClass
+ 101:usb_mouse.c   **** 	0,					// bDeviceProtocol
+ 102:usb_mouse.c   **** 	ENDPOINT0_SIZE,				// bMaxPacketSize0
+ 103:usb_mouse.c   **** 	LSB(VENDOR_ID), MSB(VENDOR_ID),		// idVendor
+ 104:usb_mouse.c   **** 	LSB(PRODUCT_ID), MSB(PRODUCT_ID),	// idProduct
+ 105:usb_mouse.c   **** 	0x00, 0x01,				// bcdDevice
+ 106:usb_mouse.c   **** 	1,					// iManufacturer
+ 107:usb_mouse.c   **** 	2,					// iProduct
+ 108:usb_mouse.c   **** 	0,					// iSerialNumber
+ 109:usb_mouse.c   **** 	1					// bNumConfigurations
+ 110:usb_mouse.c   **** };
+ 111:usb_mouse.c   **** 
+ 112:usb_mouse.c   **** // Mouse Protocol 1, HID 1.11 spec, Appendix B, page 59-60, with wheel extension
+ 113:usb_mouse.c   **** /*
+ 114:usb_mouse.c   **** static uint8_t PROGMEM mouse_hid_report_desc[] = {
+ 115:usb_mouse.c   **** 	0x05, 0x01,			// Usage Page (Generic Desktop)
+ 116:usb_mouse.c   **** 	0x09, 0x02,			// Usage (Mouse)
+ 117:usb_mouse.c   **** 	0xA1, 0x01,			// Collection (Application)
+ 118:usb_mouse.c   **** 	0x05, 0x09,			//   Usage Page (Button)
+ 119:usb_mouse.c   **** 	0x19, 0x01,			//   Usage Minimum (Button #1)
+ 120:usb_mouse.c   **** 	0x29, 0x03,			//   Usage Maximum (Button #3)
+ 121:usb_mouse.c   **** 	0x15, 0x00,			//   Logical Minimum (0)
+ 122:usb_mouse.c   **** 	0x25, 0x01,			//   Logical Maximum (1)
+ 123:usb_mouse.c   **** 	0x95, 0x03,			//   Report Count (3)
+ 124:usb_mouse.c   **** 	0x75, 0x01,			//   Report Size (1)
+ 125:usb_mouse.c   **** 	0x81, 0x02,			//   Input (Data, Variable, Absolute)
+ 126:usb_mouse.c   **** 	0x95, 0x01,			//   Report Count (1)
+ 127:usb_mouse.c   **** 	0x75, 0x05,			//   Report Size (5)
+ 128:usb_mouse.c   **** 	0x81, 0x03,			//   Input (Constant)
+ 129:usb_mouse.c   **** 	0x05, 0x01,			//   Usage Page (Generic Desktop)
+ 130:usb_mouse.c   **** 	0x09, 0x30,			//   Usage (X)
+ 131:usb_mouse.c   **** 	0x09, 0x31,			//   Usage (Y)
+ 132:usb_mouse.c   **** 	0x15, 0x80,			//   Logical Minimum (-128)
+ 133:usb_mouse.c   **** 	0x25, 0x7F,			//   Logical Maximum (127)
+ 134:usb_mouse.c   **** 	0x75, 0x08,			//   Report Size (8),
+ 135:usb_mouse.c   **** 	0x95, 0x02,			//   Report Count (2),
+ 136:usb_mouse.c   **** 	0x81, 0x06,			//   Input (Data, Variable, Relative)
+ 137:usb_mouse.c   **** 	0x09, 0x38,			//   Usage (Wheel)
+ 138:usb_mouse.c   **** 	0x95, 0x01,			//   Report Count (1),
+ 139:usb_mouse.c   **** 	0x81, 0x06,			//   Input (Data, Variable, Relative)
+ 140:usb_mouse.c   **** 	0xC0				// End Collection
+ 141:usb_mouse.c   **** };
+ 142:usb_mouse.c   **** */
+ 143:usb_mouse.c   **** static const uint8_t PROGMEM mouse_hid_report_desc[] = {
+ 144:usb_mouse.c   **** 	0x05, 0x01,		// Usage Page (Generic Desktop)
+ 145:usb_mouse.c   **** 	0x09, 0x02,		// Usage (Mouse)
+ 146:usb_mouse.c   **** 	0xA1, 0x01,		// Collection (Application)
+ 147:usb_mouse.c   **** 	0x05, 0x09,		//   Usage Page (Button)
+ 148:usb_mouse.c   **** 	0x19, 0x01,		//   Usage Minimum (Button #1)
+ 149:usb_mouse.c   **** 	0x29, 0x05,		//   Usage Maximum (Button #5)
+ 150:usb_mouse.c   **** 	0x15, 0x00,		//   Logical Minimum (0)
+ 151:usb_mouse.c   **** 	0x25, 0x01,		//   Logical Maximum (1)
+ 152:usb_mouse.c   **** 	0x95, 0x05,		//   Report Count (5)
+ 153:usb_mouse.c   **** 	0x75, 0x01,		//   Report Size (1)
+ 154:usb_mouse.c   **** 	0x81, 0x02,		//   Input (Data, Variable, Absolute)
+ 155:usb_mouse.c   **** 	0x95, 0x01,		//   Report Count (1)
+ 156:usb_mouse.c   **** 	0x75, 0x03,		//   Report Size (3)
+ 157:usb_mouse.c   **** 	0x81, 0x03,		//   Input (Constant) // Byte 1
+ 158:usb_mouse.c   **** 	0x05, 0x01,		//   Usage Page (Generic Desktop)
+ 159:usb_mouse.c   **** 	0x09, 0x30,		//   Usage (X)
+ 160:usb_mouse.c   **** 	0x09, 0x31,		//   Usage (Y)
+ 161:usb_mouse.c   **** 	0x16, 0x01, 0x80,	//   Logical Minimum (-32,767)
+ 162:usb_mouse.c   **** 	0x26, 0xFF, 0x7F,	//   Logical Maximum (32,767)
+ 163:usb_mouse.c   **** 	0x36, 0x01, 0x80,	//   Physical Minimum (-32,767)
+ 164:usb_mouse.c   **** 	0x46, 0xFF, 0x7F,	//   Physical Maxiumum (32,767)
+ 165:usb_mouse.c   **** 	0x75, 0x10,		//   Report Size (16),
+ 166:usb_mouse.c   **** 	0x95, 0x02,		//   Report Count (2),
+ 167:usb_mouse.c   **** 	0x81, 0x06,		//   Input (Data, Variable, Relative) // Byte 3, 5
+ 168:usb_mouse.c   **** 	0x09, 0x38,		//   Usage (Wheel)
+ 169:usb_mouse.c   **** 	0x15, 0x81,		//   Logical Minimum (-127)
+ 170:usb_mouse.c   **** 	0x25, 0x7F,		//   Logical Maximum (127)
+ 171:usb_mouse.c   **** 	0x35, 0x81,		//   Phyiscal Minimum (-127)
+ 172:usb_mouse.c   **** 	0x45, 0x7F,		//   Physical Maxiumum (127)
+ 173:usb_mouse.c   **** 	0x75, 0x08,		//   Report Size (8)
+ 174:usb_mouse.c   **** 	0x95, 0x01,		//   Report Count (1)
+ 175:usb_mouse.c   **** 	0x81, 0x06,		//   Input (Data, Variable, Relative) // Byte 6
+ 176:usb_mouse.c   **** 	0xC0			// End Collection
+ 177:usb_mouse.c   **** };
+ 178:usb_mouse.c   **** 
+ 179:usb_mouse.c   **** #define CONFIG1_DESC_SIZE        (9+9+9+7)
+ 180:usb_mouse.c   **** #define MOUSE_HID_DESC_OFFSET    (9+9)
+ 181:usb_mouse.c   **** static const uint8_t PROGMEM config1_descriptor[CONFIG1_DESC_SIZE] = {
+ 182:usb_mouse.c   **** 	// configuration descriptor, USB spec 9.6.3, page 264-266, Table 9-10
+ 183:usb_mouse.c   **** 	9, 					// bLength;
+ 184:usb_mouse.c   **** 	2,					// bDescriptorType;
+ 185:usb_mouse.c   **** 	LSB(CONFIG1_DESC_SIZE),			// wTotalLength
+ 186:usb_mouse.c   **** 	MSB(CONFIG1_DESC_SIZE),
+ 187:usb_mouse.c   **** 	1,					// bNumInterfaces
+ 188:usb_mouse.c   **** 	1,					// bConfigurationValue
+ 189:usb_mouse.c   **** 	0,					// iConfiguration
+ 190:usb_mouse.c   **** 	0xC0,					// bmAttributes
+ 191:usb_mouse.c   **** 	50,					// bMaxPower
+ 192:usb_mouse.c   **** 	// interface descriptor, USB spec 9.6.5, page 267-269, Table 9-12
+ 193:usb_mouse.c   **** 	9,					// bLength
+ 194:usb_mouse.c   **** 	4,					// bDescriptorType
+ 195:usb_mouse.c   **** 	MOUSE_INTERFACE,			// bInterfaceNumber
+ 196:usb_mouse.c   **** 	0,					// bAlternateSetting
+ 197:usb_mouse.c   **** 	1,					// bNumEndpoints
+ 198:usb_mouse.c   **** 	0x03,					// bInterfaceClass (0x03 = HID)
+ 199:usb_mouse.c   **** 	0x01,					// bInterfaceSubClass (0x01 = Boot)
+ 200:usb_mouse.c   **** 	0x02,					// bInterfaceProtocol (0x02 = Mouse)
+ 201:usb_mouse.c   **** 	0,					// iInterface
+ 202:usb_mouse.c   **** 	// HID interface descriptor, HID 1.11 spec, section 6.2.1
+ 203:usb_mouse.c   **** 	9,					// bLength
+ 204:usb_mouse.c   **** 	0x21,					// bDescriptorType
+ 205:usb_mouse.c   **** 	0x11, 0x01,				// bcdHID
+ 206:usb_mouse.c   **** 	0,					// bCountryCode
+ 207:usb_mouse.c   **** 	1,					// bNumDescriptors
+ 208:usb_mouse.c   **** 	0x22,					// bDescriptorType
+ 209:usb_mouse.c   **** 	sizeof(mouse_hid_report_desc),		// wDescriptorLength
+ 210:usb_mouse.c   **** 	0,
+ 211:usb_mouse.c   **** 	// endpoint descriptor, USB spec 9.6.6, page 269-271, Table 9-13
+ 212:usb_mouse.c   **** 	7,					// bLength
+ 213:usb_mouse.c   **** 	5,					// bDescriptorType
+ 214:usb_mouse.c   **** 	MOUSE_ENDPOINT | 0x80,			// bEndpointAddress
+ 215:usb_mouse.c   **** 	0x03,					// bmAttributes (0x03=intr)
+ 216:usb_mouse.c   **** 	6, 0,					// wMaxPacketSize
+ 217:usb_mouse.c   **** 	1					// bInterval
+ 218:usb_mouse.c   **** };
+ 219:usb_mouse.c   **** 
+ 220:usb_mouse.c   **** // If you're desperate for a little extra code memory, these strings
+ 221:usb_mouse.c   **** // can be completely removed if iManufacturer, iProduct, iSerialNumber
+ 222:usb_mouse.c   **** // in the device desciptor are changed to zeros.
+ 223:usb_mouse.c   **** struct usb_string_descriptor_struct {
+ 224:usb_mouse.c   **** 	uint8_t bLength;
+ 225:usb_mouse.c   **** 	uint8_t bDescriptorType;
+ 226:usb_mouse.c   **** 	int16_t wString[];
+ 227:usb_mouse.c   **** };
+ 228:usb_mouse.c   **** static const struct usb_string_descriptor_struct PROGMEM string0 = {
+ 229:usb_mouse.c   **** 	4,
+ 230:usb_mouse.c   **** 	3,
+ 231:usb_mouse.c   **** 	{0x0409}
+ 232:usb_mouse.c   **** };
+ 233:usb_mouse.c   **** static const struct usb_string_descriptor_struct PROGMEM string1 = {
+ 234:usb_mouse.c   **** 	sizeof(STR_MANUFACTURER),
+ 235:usb_mouse.c   **** 	3,
+ 236:usb_mouse.c   **** 	STR_MANUFACTURER
+ 237:usb_mouse.c   **** };
+ 238:usb_mouse.c   **** static const struct usb_string_descriptor_struct PROGMEM string2 = {
+ 239:usb_mouse.c   **** 	sizeof(STR_PRODUCT),
+ 240:usb_mouse.c   **** 	3,
+ 241:usb_mouse.c   **** 	STR_PRODUCT
+ 242:usb_mouse.c   **** };
+ 243:usb_mouse.c   **** 
+ 244:usb_mouse.c   **** // This table defines which descriptor data is sent for each specific
+ 245:usb_mouse.c   **** // request from the host (in wValue and wIndex).
+ 246:usb_mouse.c   **** static const struct descriptor_list_struct {
+ 247:usb_mouse.c   **** 	uint16_t	wValue;
+ 248:usb_mouse.c   **** 	uint16_t	wIndex;
+ 249:usb_mouse.c   **** 	const uint8_t	*addr;
+ 250:usb_mouse.c   **** 	uint8_t		length;
+ 251:usb_mouse.c   **** } PROGMEM descriptor_list[] = {
+ 252:usb_mouse.c   **** 	{0x0100, 0x0000, device_descriptor, sizeof(device_descriptor)},
+ 253:usb_mouse.c   **** 	{0x0200, 0x0000, config1_descriptor, sizeof(config1_descriptor)},
+ 254:usb_mouse.c   **** 	{0x2200, MOUSE_INTERFACE, mouse_hid_report_desc, sizeof(mouse_hid_report_desc)},
+ 255:usb_mouse.c   **** 	{0x2100, MOUSE_INTERFACE, config1_descriptor+MOUSE_HID_DESC_OFFSET, 9},
+ 256:usb_mouse.c   **** 	{0x0300, 0x0000, (const uint8_t *)&string0, 4},
+ 257:usb_mouse.c   **** 	{0x0301, 0x0409, (const uint8_t *)&string1, sizeof(STR_MANUFACTURER)},
+ 258:usb_mouse.c   **** 	{0x0302, 0x0409, (const uint8_t *)&string2, sizeof(STR_PRODUCT)}
+ 259:usb_mouse.c   **** };
+ 260:usb_mouse.c   **** #define NUM_DESC_LIST (sizeof(descriptor_list)/sizeof(struct descriptor_list_struct))
+ 261:usb_mouse.c   **** 
+ 262:usb_mouse.c   **** 
+ 263:usb_mouse.c   **** /**************************************************************************
+ 264:usb_mouse.c   ****  *
+ 265:usb_mouse.c   ****  *  Variables - these are the only non-stack RAM usage
+ 266:usb_mouse.c   ****  *
+ 267:usb_mouse.c   ****  **************************************************************************/
+ 268:usb_mouse.c   **** 
+ 269:usb_mouse.c   **** // zero when we are not configured, non-zero when enumerated
+ 270:usb_mouse.c   **** static volatile uint8_t usb_configuration=0;
+ 271:usb_mouse.c   **** 
+ 272:usb_mouse.c   **** // protocol setting from the host.  We use exactly the same report
+ 273:usb_mouse.c   **** // either way, so this variable only stores the setting since we
+ 274:usb_mouse.c   **** // are required to be able to report which setting is in use.
+ 275:usb_mouse.c   **** static uint8_t mouse_protocol=1;
+ 276:usb_mouse.c   **** 
+ 277:usb_mouse.c   **** 
+ 278:usb_mouse.c   **** /**************************************************************************
+ 279:usb_mouse.c   ****  *
+ 280:usb_mouse.c   ****  *  Public Functions - these are the API intended for the user
+ 281:usb_mouse.c   ****  *
+ 282:usb_mouse.c   ****  **************************************************************************/
+ 283:usb_mouse.c   **** 
+ 284:usb_mouse.c   **** 
+ 285:usb_mouse.c   **** // initialize USB
+ 286:usb_mouse.c   **** void usb_init(void)
+ 287:usb_mouse.c   **** {
+  16               		.loc 1 287 0
+  17               		.cfi_startproc
+  18               	/* prologue: function */
+  19               	/* frame size = 0 */
+  20               	/* stack size = 0 */
+  21               	.L__stack_usage = 0
+ 288:usb_mouse.c   **** 	HW_CONFIG();
+  22               		.loc 1 288 0
+  23 0000 81E0      		ldi r24,lo8(1)
+  24 0002 8093 D700 		sts 215,r24
+ 289:usb_mouse.c   **** 	USB_FREEZE();				// enable USB
+  25               		.loc 1 289 0
+  26 0006 80EA      		ldi r24,lo8(-96)
+  27 0008 8093 D800 		sts 216,r24
+ 290:usb_mouse.c   **** 	PLL_CONFIG();				// config PLL
+  28               		.loc 1 290 0
+  29 000c 82E1      		ldi r24,lo8(18)
+  30 000e 89BD      		out 0x29,r24
+  31               	.L2:
+ 291:usb_mouse.c   ****         while (!(PLLCSR & (1<<PLOCK))) ;	// wait for PLL lock
+  32               		.loc 1 291 0 discriminator 1
+  33 0010 09B4      		in __tmp_reg__,0x29
+  34 0012 00FE      		sbrs __tmp_reg__,0
+  35 0014 00C0      		rjmp .L2
+ 292:usb_mouse.c   ****         USB_CONFIG();				// start USB clock
+  36               		.loc 1 292 0
+  37 0016 80E9      		ldi r24,lo8(-112)
+  38 0018 8093 D800 		sts 216,r24
+ 293:usb_mouse.c   ****         UDCON = 0;				// enable attach resistor
+  39               		.loc 1 293 0
+  40 001c 1092 E000 		sts 224,__zero_reg__
+ 294:usb_mouse.c   **** 	usb_configuration = 0;
+  41               		.loc 1 294 0
+  42 0020 1092 0000 		sts usb_configuration,__zero_reg__
+ 295:usb_mouse.c   ****         UDIEN = (1<<EORSTE);
+  43               		.loc 1 295 0
+  44 0024 88E0      		ldi r24,lo8(8)
+  45 0026 8093 E200 		sts 226,r24
+ 296:usb_mouse.c   **** 	sei();
+  46               		.loc 1 296 0
+  47               	/* #APP */
+  48               	 ;  296 "usb_mouse.c" 1
+  49 002a 7894      		sei
+  50               	 ;  0 "" 2
+  51               	/* #NOAPP */
+  52 002c 0895      		ret
+  53               		.cfi_endproc
+  54               	.LFE1:
+  56               		.section	.text.usb_configured,"ax",@progbits
+  57               	.global	usb_configured
+  59               	usb_configured:
+  60               	.LFB2:
+ 297:usb_mouse.c   **** }
+ 298:usb_mouse.c   **** 
+ 299:usb_mouse.c   **** // return 0 if the USB is not configured, or the configuration
+ 300:usb_mouse.c   **** // number selected by the HOST
+ 301:usb_mouse.c   **** uint8_t usb_configured(void)
+ 302:usb_mouse.c   **** {
+  61               		.loc 1 302 0
+  62               		.cfi_startproc
+  63               	/* prologue: function */
+  64               	/* frame size = 0 */
+  65               	/* stack size = 0 */
+  66               	.L__stack_usage = 0
+ 303:usb_mouse.c   **** 	return usb_configuration;
+  67               		.loc 1 303 0
+  68 0000 8091 0000 		lds r24,usb_configuration
+ 304:usb_mouse.c   **** }
+  69               		.loc 1 304 0
+  70 0004 0895      		ret
+  71               		.cfi_endproc
+  72               	.LFE2:
+  74               		.section	.text.__vector_10,"ax",@progbits
+  75               	.global	__vector_10
+  77               	__vector_10:
+  78               	.LFB3:
+ 305:usb_mouse.c   **** 
+ 306:usb_mouse.c   **** 
+ 307:usb_mouse.c   **** /*
+ 308:usb_mouse.c   **** void usb_mouse_update(const uint8_t button_mask, // 0th (least significant) bit = left, 1th bit = r
+ 309:usb_mouse.c   **** 		const uint8_t x_lo, const uint8_t x_hi,
+ 310:usb_mouse.c   **** 		const uint8_t y_lo, const uint8_t y_hi,
+ 311:usb_mouse.c   **** 		const int8_t wheel)
+ 312:usb_mouse.c   **** {
+ 313:usb_mouse.c   **** 	uint8_t intr_state, timeout;
+ 314:usb_mouse.c   **** 
+ 315:usb_mouse.c   **** 	if (!usb_configuration) return;
+ 316:usb_mouse.c   **** 	intr_state = SREG;
+ 317:usb_mouse.c   **** 	cli();
+ 318:usb_mouse.c   **** 	UENUM = MOUSE_ENDPOINT;
+ 319:usb_mouse.c   **** 	timeout = UDFNUML + 50;
+ 320:usb_mouse.c   **** 	while (1) {
+ 321:usb_mouse.c   **** 		// are we ready to transmit?
+ 322:usb_mouse.c   **** 		if (UEINTX & (1<<RWAL)) break;
+ 323:usb_mouse.c   **** 		SREG = intr_state;
+ 324:usb_mouse.c   **** 		// has the USB gone offline?
+ 325:usb_mouse.c   **** 		if (!usb_configuration) return;
+ 326:usb_mouse.c   **** 		// have we waited too long?
+ 327:usb_mouse.c   **** 		if (UDFNUML == timeout) return;
+ 328:usb_mouse.c   **** 		// get ready to try checking again
+ 329:usb_mouse.c   **** 		intr_state = SREG;
+ 330:usb_mouse.c   **** 		cli();
+ 331:usb_mouse.c   **** 		UENUM = MOUSE_ENDPOINT;
+ 332:usb_mouse.c   **** 	}
+ 333:usb_mouse.c   **** 	UEDATX = button_mask;
+ 334:usb_mouse.c   **** 	UEDATX = x_lo;
+ 335:usb_mouse.c   **** 	UEDATX = x_hi;
+ 336:usb_mouse.c   **** 	UEDATX = y_lo;
+ 337:usb_mouse.c   **** 	UEDATX = y_hi;
+ 338:usb_mouse.c   **** 	UEDATX = wheel;
+ 339:usb_mouse.c   **** 	UEINTX = 0x3A;
+ 340:usb_mouse.c   **** 	SREG = intr_state;
+ 341:usb_mouse.c   **** }
+ 342:usb_mouse.c   **** */
+ 343:usb_mouse.c   **** 
+ 344:usb_mouse.c   **** /**************************************************************************
+ 345:usb_mouse.c   ****  *
+ 346:usb_mouse.c   ****  *  Private Functions - not intended for general user consumption....
+ 347:usb_mouse.c   ****  *
+ 348:usb_mouse.c   ****  **************************************************************************/
+ 349:usb_mouse.c   **** 
+ 350:usb_mouse.c   **** 
+ 351:usb_mouse.c   **** 
+ 352:usb_mouse.c   **** // USB Device Interrupt - handle all device-level events
+ 353:usb_mouse.c   **** // the transmit buffer flushing is triggered by the start of frame
+ 354:usb_mouse.c   **** //
+ 355:usb_mouse.c   **** ISR(USB_GEN_vect)
+ 356:usb_mouse.c   **** {
+  79               		.loc 1 356 0
+  80               		.cfi_startproc
+  81 0000 1F92      		push r1
+  82               	.LCFI0:
+  83               		.cfi_def_cfa_offset 3
+  84               		.cfi_offset 1, -2
+  85 0002 0F92      		push r0
+  86               	.LCFI1:
+  87               		.cfi_def_cfa_offset 4
+  88               		.cfi_offset 0, -3
+  89 0004 0FB6      		in r0,__SREG__
+  90 0006 0F92      		push r0
+  91 0008 1124      		clr __zero_reg__
+  92 000a 8F93      		push r24
+  93               	.LCFI2:
+  94               		.cfi_def_cfa_offset 5
+  95               		.cfi_offset 24, -4
+  96               	/* prologue: Signal */
+  97               	/* frame size = 0 */
+  98               	/* stack size = 4 */
+  99               	.L__stack_usage = 4
+ 357:usb_mouse.c   **** 	uint8_t intbits;
+ 358:usb_mouse.c   **** 
+ 359:usb_mouse.c   ****         intbits = UDINT;
+ 100               		.loc 1 359 0
+ 101 000c 8091 E100 		lds r24,225
+ 102               	.LVL0:
+ 360:usb_mouse.c   ****         UDINT = 0;
+ 103               		.loc 1 360 0
+ 104 0010 1092 E100 		sts 225,__zero_reg__
+ 361:usb_mouse.c   ****         if (intbits & (1<<EORSTI)) {
+ 105               		.loc 1 361 0
+ 106 0014 83FF      		sbrs r24,3
+ 107 0016 00C0      		rjmp .L7
+ 362:usb_mouse.c   **** 		UENUM = 0;
+ 108               		.loc 1 362 0
+ 109 0018 1092 E900 		sts 233,__zero_reg__
+ 363:usb_mouse.c   **** 		UECONX = 1;
+ 110               		.loc 1 363 0
+ 111 001c 81E0      		ldi r24,lo8(1)
+ 112               	.LVL1:
+ 113 001e 8093 EB00 		sts 235,r24
+ 364:usb_mouse.c   **** 		UECFG0X = EP_TYPE_CONTROL;
+ 114               		.loc 1 364 0
+ 115 0022 1092 EC00 		sts 236,__zero_reg__
+ 365:usb_mouse.c   **** 		UECFG1X = EP_SIZE(ENDPOINT0_SIZE) | EP_SINGLE_BUFFER;
+ 116               		.loc 1 365 0
+ 117 0026 82E2      		ldi r24,lo8(34)
+ 118 0028 8093 ED00 		sts 237,r24
+ 366:usb_mouse.c   **** 		UEIENX = (1<<RXSTPE);
+ 119               		.loc 1 366 0
+ 120 002c 88E0      		ldi r24,lo8(8)
+ 121 002e 8093 F000 		sts 240,r24
+ 367:usb_mouse.c   **** 		usb_configuration = 0;
+ 122               		.loc 1 367 0
+ 123 0032 1092 0000 		sts usb_configuration,__zero_reg__
+ 124               	.L7:
+ 125               	/* epilogue start */
+ 368:usb_mouse.c   ****         }
+ 369:usb_mouse.c   **** }
+ 126               		.loc 1 369 0
+ 127 0036 8F91      		pop r24
+ 128 0038 0F90      		pop r0
+ 129 003a 0FBE      		out __SREG__,r0
+ 130 003c 0F90      		pop r0
+ 131 003e 1F90      		pop r1
+ 132 0040 1895      		reti
+ 133               		.cfi_endproc
+ 134               	.LFE3:
+ 136               		.section	.text.__vector_11,"ax",@progbits
+ 137               	.global	__vector_11
+ 139               	__vector_11:
+ 140               	.LFB8:
+ 370:usb_mouse.c   **** 
+ 371:usb_mouse.c   **** 
+ 372:usb_mouse.c   **** 
+ 373:usb_mouse.c   **** // Misc functions to wait for ready and send/receive packets
+ 374:usb_mouse.c   **** static inline void usb_wait_in_ready(void)
+ 375:usb_mouse.c   **** {
+ 376:usb_mouse.c   **** 	while (!(UEINTX & (1<<TXINI))) ;
+ 377:usb_mouse.c   **** }
+ 378:usb_mouse.c   **** static inline void usb_send_in(void)
+ 379:usb_mouse.c   **** {
+ 380:usb_mouse.c   **** 	UEINTX = ~(1<<TXINI);
+ 381:usb_mouse.c   **** }
+ 382:usb_mouse.c   **** static inline void usb_wait_receive_out(void)
+ 383:usb_mouse.c   **** {
+ 384:usb_mouse.c   **** 	while (!(UEINTX & (1<<RXOUTI))) ;
+ 385:usb_mouse.c   **** }
+ 386:usb_mouse.c   **** static inline void usb_ack_out(void)
+ 387:usb_mouse.c   **** {
+ 388:usb_mouse.c   **** 	UEINTX = ~(1<<RXOUTI);
+ 389:usb_mouse.c   **** }
+ 390:usb_mouse.c   **** 
+ 391:usb_mouse.c   **** 
+ 392:usb_mouse.c   **** 
+ 393:usb_mouse.c   **** // USB Endpoint Interrupt - endpoint 0 is handled here.  The
+ 394:usb_mouse.c   **** // other endpoints are manipulated by the user-callable
+ 395:usb_mouse.c   **** // functions, and the start-of-frame interrupt.
+ 396:usb_mouse.c   **** //
+ 397:usb_mouse.c   **** ISR(USB_COM_vect)
+ 398:usb_mouse.c   **** {
+ 141               		.loc 1 398 0
+ 142               		.cfi_startproc
+ 143 0000 1F92      		push r1
+ 144               	.LCFI3:
+ 145               		.cfi_def_cfa_offset 3
+ 146               		.cfi_offset 1, -2
+ 147 0002 0F92      		push r0
+ 148               	.LCFI4:
+ 149               		.cfi_def_cfa_offset 4
+ 150               		.cfi_offset 0, -3
+ 151 0004 0FB6      		in r0,__SREG__
+ 152 0006 0F92      		push r0
+ 153 0008 1124      		clr __zero_reg__
+ 154 000a 2F93      		push r18
+ 155               	.LCFI5:
+ 156               		.cfi_def_cfa_offset 5
+ 157               		.cfi_offset 18, -4
+ 158 000c 3F93      		push r19
+ 159               	.LCFI6:
+ 160               		.cfi_def_cfa_offset 6
+ 161               		.cfi_offset 19, -5
+ 162 000e 4F93      		push r20
+ 163               	.LCFI7:
+ 164               		.cfi_def_cfa_offset 7
+ 165               		.cfi_offset 20, -6
+ 166 0010 5F93      		push r21
+ 167               	.LCFI8:
+ 168               		.cfi_def_cfa_offset 8
+ 169               		.cfi_offset 21, -7
+ 170 0012 6F93      		push r22
+ 171               	.LCFI9:
+ 172               		.cfi_def_cfa_offset 9
+ 173               		.cfi_offset 22, -8
+ 174 0014 7F93      		push r23
+ 175               	.LCFI10:
+ 176               		.cfi_def_cfa_offset 10
+ 177               		.cfi_offset 23, -9
+ 178 0016 8F93      		push r24
+ 179               	.LCFI11:
+ 180               		.cfi_def_cfa_offset 11
+ 181               		.cfi_offset 24, -10
+ 182 0018 9F93      		push r25
+ 183               	.LCFI12:
+ 184               		.cfi_def_cfa_offset 12
+ 185               		.cfi_offset 25, -11
+ 186 001a AF93      		push r26
+ 187               	.LCFI13:
+ 188               		.cfi_def_cfa_offset 13
+ 189               		.cfi_offset 26, -12
+ 190 001c BF93      		push r27
+ 191               	.LCFI14:
+ 192               		.cfi_def_cfa_offset 14
+ 193               		.cfi_offset 27, -13
+ 194 001e EF93      		push r30
+ 195               	.LCFI15:
+ 196               		.cfi_def_cfa_offset 15
+ 197               		.cfi_offset 30, -14
+ 198 0020 FF93      		push r31
+ 199               	.LCFI16:
+ 200               		.cfi_def_cfa_offset 16
+ 201               		.cfi_offset 31, -15
+ 202               	/* prologue: Signal */
+ 203               	/* frame size = 0 */
+ 204               	/* stack size = 15 */
+ 205               	.L__stack_usage = 15
+ 399:usb_mouse.c   ****         uint8_t intbits;
+ 400:usb_mouse.c   **** 	const uint8_t *list;
+ 401:usb_mouse.c   ****         const uint8_t *cfg;
+ 402:usb_mouse.c   **** 	uint8_t i, n, len, en;
+ 403:usb_mouse.c   **** 	uint8_t bmRequestType;
+ 404:usb_mouse.c   **** 	uint8_t bRequest;
+ 405:usb_mouse.c   **** 	uint16_t wValue;
+ 406:usb_mouse.c   **** 	uint16_t wIndex;
+ 407:usb_mouse.c   **** 	uint16_t wLength;
+ 408:usb_mouse.c   **** 	uint16_t desc_val;
+ 409:usb_mouse.c   **** 	const uint8_t *desc_addr;
+ 410:usb_mouse.c   **** 	uint8_t	desc_length;
+ 411:usb_mouse.c   **** 
+ 412:usb_mouse.c   ****         UENUM = 0;
+ 206               		.loc 1 412 0
+ 207 0022 1092 E900 		sts 233,__zero_reg__
+ 413:usb_mouse.c   **** 	intbits = UEINTX;
+ 208               		.loc 1 413 0
+ 209 0026 8091 E800 		lds r24,232
+ 210               	.LVL2:
+ 414:usb_mouse.c   ****         if (intbits & (1<<RXSTPI)) {
+ 211               		.loc 1 414 0
+ 212 002a 83FF      		sbrs r24,3
+ 213 002c 00C0      		rjmp .L13
+ 415:usb_mouse.c   ****                 bmRequestType = UEDATX;
+ 214               		.loc 1 415 0
+ 215 002e 7091 F100 		lds r23,241
+ 216               	.LVL3:
+ 416:usb_mouse.c   ****                 bRequest = UEDATX;
+ 217               		.loc 1 416 0
+ 218 0032 6091 F100 		lds r22,241
+ 219               	.LVL4:
+ 417:usb_mouse.c   ****                 wValue = UEDATX;
+ 220               		.loc 1 417 0
+ 221 0036 2091 F100 		lds r18,241
+ 222               	.LVL5:
+ 418:usb_mouse.c   ****                 wValue |= (UEDATX << 8);
+ 223               		.loc 1 418 0
+ 224 003a 8091 F100 		lds r24,241
+ 225               	.LVL6:
+ 226 003e 30E0      		ldi r19,0
+ 227 0040 382B      		or r19,r24
+ 228               	.LVL7:
+ 419:usb_mouse.c   ****                 wIndex = UEDATX;
+ 229               		.loc 1 419 0
+ 230 0042 8091 F100 		lds r24,241
+ 231               	.LVL8:
+ 420:usb_mouse.c   ****                 wIndex |= (UEDATX << 8);
+ 232               		.loc 1 420 0
+ 233 0046 4091 F100 		lds r20,241
+ 234 004a 90E0      		ldi r25,0
+ 235 004c FC01      		movw r30,r24
+ 236 004e F42B      		or r31,r20
+ 237 0050 AF01      		movw r20,r30
+ 238               	.LVL9:
+ 421:usb_mouse.c   ****                 wLength = UEDATX;
+ 239               		.loc 1 421 0
+ 240 0052 A091 F100 		lds r26,241
+ 241               	.LVL10:
+ 422:usb_mouse.c   ****                 wLength |= (UEDATX << 8);
+ 242               		.loc 1 422 0
+ 243 0056 B091 F100 		lds r27,241
+ 244               	.LVL11:
+ 423:usb_mouse.c   ****                 UEINTX = ~((1<<RXSTPI) | (1<<RXOUTI) | (1<<TXINI));
+ 245               		.loc 1 423 0
+ 246 005a 82EF      		ldi r24,lo8(-14)
+ 247 005c 8093 E800 		sts 232,r24
+ 424:usb_mouse.c   ****                 if (bRequest == GET_DESCRIPTOR) {
+ 248               		.loc 1 424 0
+ 249 0060 6630      		cpi r22,lo8(6)
+ 250 0062 01F0      		breq .L71
+ 425:usb_mouse.c   **** 			list = (const uint8_t *)descriptor_list;
+ 426:usb_mouse.c   **** 			for (i=0; ; i++) {
+ 427:usb_mouse.c   **** 				if (i >= NUM_DESC_LIST) {
+ 428:usb_mouse.c   **** 					UECONX = (1<<STALLRQ)|(1<<EPEN);  //stall
+ 429:usb_mouse.c   **** 					return;
+ 430:usb_mouse.c   **** 				}
+ 431:usb_mouse.c   **** 				desc_val = pgm_read_word(list);
+ 432:usb_mouse.c   **** 				if (desc_val != wValue) {
+ 433:usb_mouse.c   **** 					list += sizeof(struct descriptor_list_struct);
+ 434:usb_mouse.c   **** 					continue;
+ 435:usb_mouse.c   **** 				}
+ 436:usb_mouse.c   **** 				list += 2;
+ 437:usb_mouse.c   **** 				desc_val = pgm_read_word(list);
+ 438:usb_mouse.c   **** 				if (desc_val != wIndex) {
+ 439:usb_mouse.c   **** 					list += sizeof(struct descriptor_list_struct)-2;
+ 440:usb_mouse.c   **** 					continue;
+ 441:usb_mouse.c   **** 				}
+ 442:usb_mouse.c   **** 				list += 2;
+ 443:usb_mouse.c   **** 				desc_addr = (const uint8_t *)pgm_read_word(list);
+ 444:usb_mouse.c   **** 				list += 2;
+ 445:usb_mouse.c   **** 				desc_length = pgm_read_byte(list);
+ 446:usb_mouse.c   **** 				break;
+ 447:usb_mouse.c   **** 			}
+ 448:usb_mouse.c   **** 			len = (wLength < 256) ? wLength : 255;
+ 449:usb_mouse.c   **** 			if (len > desc_length) len = desc_length;
+ 450:usb_mouse.c   **** 			do {
+ 451:usb_mouse.c   **** 				// wait for host ready for IN packet
+ 452:usb_mouse.c   **** 				do {
+ 453:usb_mouse.c   **** 					i = UEINTX;
+ 454:usb_mouse.c   **** 				} while (!(i & ((1<<TXINI)|(1<<RXOUTI))));
+ 455:usb_mouse.c   **** 				if (i & (1<<RXOUTI)) return;	// abort
+ 456:usb_mouse.c   **** 				// send IN packet
+ 457:usb_mouse.c   **** 				n = len < ENDPOINT0_SIZE ? len : ENDPOINT0_SIZE;
+ 458:usb_mouse.c   **** 				for (i = n; i; i--) {
+ 459:usb_mouse.c   **** 					UEDATX = pgm_read_byte(desc_addr++);
+ 460:usb_mouse.c   **** 				}
+ 461:usb_mouse.c   **** 				len -= n;
+ 462:usb_mouse.c   **** 				usb_send_in();
+ 463:usb_mouse.c   **** 			} while (len || n == ENDPOINT0_SIZE);
+ 464:usb_mouse.c   **** 			return;
+ 465:usb_mouse.c   ****                 }
+ 466:usb_mouse.c   **** 		if (bRequest == SET_ADDRESS) {
+ 251               		.loc 1 466 0
+ 252 0064 6530      		cpi r22,lo8(5)
+ 253 0066 01F4      		brne .+2
+ 254 0068 00C0      		rjmp .L72
+ 467:usb_mouse.c   **** 			usb_send_in();
+ 468:usb_mouse.c   **** 			usb_wait_in_ready();
+ 469:usb_mouse.c   **** 			UDADDR = wValue | (1<<ADDEN);
+ 470:usb_mouse.c   **** 			return;
+ 471:usb_mouse.c   **** 		}
+ 472:usb_mouse.c   **** 		if (bRequest == SET_CONFIGURATION && bmRequestType == 0) {
+ 255               		.loc 1 472 0
+ 256 006a 6930      		cpi r22,lo8(9)
+ 257 006c 01F4      		brne .+2
+ 258 006e 00C0      		rjmp .L73
+ 473:usb_mouse.c   **** 			usb_configuration = wValue;
+ 474:usb_mouse.c   **** 			usb_send_in();
+ 475:usb_mouse.c   **** 			cfg = endpoint_config_table;
+ 476:usb_mouse.c   **** 			for (i=1; i<5; i++) {
+ 477:usb_mouse.c   **** 				UENUM = i;
+ 478:usb_mouse.c   **** 				en = pgm_read_byte(cfg++);
+ 479:usb_mouse.c   **** 				UECONX = en;
+ 480:usb_mouse.c   **** 				if (en) {
+ 481:usb_mouse.c   **** 					UECFG0X = pgm_read_byte(cfg++);
+ 482:usb_mouse.c   **** 					UECFG1X = pgm_read_byte(cfg++);
+ 483:usb_mouse.c   **** 				}
+ 484:usb_mouse.c   **** 			}
+ 485:usb_mouse.c   ****         		UERST = 0x1E;
+ 486:usb_mouse.c   ****         		UERST = 0;
+ 487:usb_mouse.c   **** 			return;
+ 488:usb_mouse.c   **** 		}
+ 489:usb_mouse.c   **** 		if (bRequest == GET_CONFIGURATION && bmRequestType == 0x80) {
+ 259               		.loc 1 489 0
+ 260 0070 6830      		cpi r22,lo8(8)
+ 261 0072 01F0      		breq .L74
+ 490:usb_mouse.c   **** 			usb_wait_in_ready();
+ 491:usb_mouse.c   **** 			UEDATX = usb_configuration;
+ 492:usb_mouse.c   **** 			usb_send_in();
+ 493:usb_mouse.c   **** 			return;
+ 494:usb_mouse.c   **** 		}
+ 495:usb_mouse.c   **** 
+ 496:usb_mouse.c   **** 		if (bRequest == GET_STATUS) {
+ 262               		.loc 1 496 0
+ 263 0074 6111      		cpse r22,__zero_reg__
+ 264 0076 00C0      		rjmp .L38
+ 265               	.L39:
+ 266               	.LBB38:
+ 267               	.LBB39:
+ 376:usb_mouse.c   **** }
+ 268               		.loc 1 376 0
+ 269 0078 8091 E800 		lds r24,232
+ 270 007c 80FF      		sbrs r24,0
+ 271 007e 00C0      		rjmp .L39
+ 272               	.LVL12:
+ 273               	.LBE39:
+ 274               	.LBE38:
+ 497:usb_mouse.c   **** 			usb_wait_in_ready();
+ 498:usb_mouse.c   **** 			i = 0;
+ 499:usb_mouse.c   **** 			#ifdef SUPPORT_ENDPOINT_HALT
+ 500:usb_mouse.c   **** 			if (bmRequestType == 0x82) {
+ 275               		.loc 1 500 0
+ 276 0080 7238      		cpi r23,lo8(-126)
+ 277 0082 01F4      		brne .+2
+ 278 0084 00C0      		rjmp .L75
+ 498:usb_mouse.c   **** 			#ifdef SUPPORT_ENDPOINT_HALT
+ 279               		.loc 1 498 0
+ 280 0086 80E0      		ldi r24,0
+ 281               	.LVL13:
+ 282               	.L40:
+ 501:usb_mouse.c   **** 				UENUM = wIndex;
+ 502:usb_mouse.c   **** 				if (UECONX & (1<<STALLRQ)) i = 1;
+ 503:usb_mouse.c   **** 				UENUM = 0;
+ 504:usb_mouse.c   **** 			}
+ 505:usb_mouse.c   **** 			#endif
+ 506:usb_mouse.c   **** 			UEDATX = i;
+ 283               		.loc 1 506 0
+ 284 0088 8093 F100 		sts 241,r24
+ 507:usb_mouse.c   **** 			UEDATX = 0;
+ 285               		.loc 1 507 0
+ 286 008c 1092 F100 		sts 241,__zero_reg__
+ 287               	.LBB40:
+ 288               	.LBB41:
+ 380:usb_mouse.c   **** }
+ 289               		.loc 1 380 0
+ 290 0090 8EEF      		ldi r24,lo8(-2)
+ 291               	.LVL14:
+ 292 0092 8093 E800 		sts 232,r24
+ 293 0096 00C0      		rjmp .L12
+ 294               	.L74:
+ 295               	.LBE41:
+ 296               	.LBE40:
+ 489:usb_mouse.c   **** 			usb_wait_in_ready();
+ 297               		.loc 1 489 0 discriminator 1
+ 298 0098 7038      		cpi r23,lo8(-128)
+ 299 009a 01F4      		brne .+2
+ 300 009c 00C0      		rjmp .L37
+ 301               	.L33:
+ 508:usb_mouse.c   **** 			usb_send_in();
+ 509:usb_mouse.c   **** 			return;
+ 510:usb_mouse.c   **** 		}
+ 511:usb_mouse.c   **** 		#ifdef SUPPORT_ENDPOINT_HALT
+ 512:usb_mouse.c   **** 		if ((bRequest == CLEAR_FEATURE || bRequest == SET_FEATURE)
+ 513:usb_mouse.c   **** 		  && bmRequestType == 0x02 && wValue == 0) {
+ 514:usb_mouse.c   **** 			i = wIndex & 0x7F;
+ 515:usb_mouse.c   **** 			if (i >= 1 && i <= MAX_ENDPOINT) {
+ 516:usb_mouse.c   **** 				usb_send_in();
+ 517:usb_mouse.c   **** 				UENUM = i;
+ 518:usb_mouse.c   **** 				if (bRequest == SET_FEATURE) {
+ 519:usb_mouse.c   **** 					UECONX = (1<<STALLRQ)|(1<<EPEN);
+ 520:usb_mouse.c   **** 				} else {
+ 521:usb_mouse.c   **** 					UECONX = (1<<STALLRQC)|(1<<RSTDT)|(1<<EPEN);
+ 522:usb_mouse.c   **** 					UERST = (1 << i);
+ 523:usb_mouse.c   **** 					UERST = 0;
+ 524:usb_mouse.c   **** 				}
+ 525:usb_mouse.c   **** 				return;
+ 526:usb_mouse.c   **** 			}
+ 527:usb_mouse.c   **** 		}
+ 528:usb_mouse.c   **** 		#endif
+ 529:usb_mouse.c   **** 		if (wIndex == MOUSE_INTERFACE) {
+ 302               		.loc 1 529 0
+ 303 009e 452B      		or r20,r21
+ 304 00a0 01F4      		brne .+2
+ 305 00a2 00C0      		rjmp .L76
+ 306               	.LVL15:
+ 307               	.L13:
+ 530:usb_mouse.c   **** 			if (bmRequestType == 0xA1) {
+ 531:usb_mouse.c   **** 				if (bRequest == HID_GET_REPORT) {
+ 532:usb_mouse.c   **** 					usb_wait_in_ready();
+ 533:usb_mouse.c   **** 					UEDATX = 0;
+ 534:usb_mouse.c   **** 					UEDATX = 0;
+ 535:usb_mouse.c   **** 					UEDATX = 0;
+ 536:usb_mouse.c   **** 					UEDATX = 0;
+ 537:usb_mouse.c   **** 					UEDATX = 0;
+ 538:usb_mouse.c   **** 					UEDATX = 0;
+ 539:usb_mouse.c   **** 					usb_send_in();
+ 540:usb_mouse.c   **** 					return;
+ 541:usb_mouse.c   **** 				}
+ 542:usb_mouse.c   **** 				if (bRequest == HID_GET_PROTOCOL) {
+ 543:usb_mouse.c   **** 					usb_wait_in_ready();
+ 544:usb_mouse.c   **** 					UEDATX = mouse_protocol;
+ 545:usb_mouse.c   **** 					usb_send_in();
+ 546:usb_mouse.c   **** 					return;
+ 547:usb_mouse.c   **** 				}
+ 548:usb_mouse.c   **** 			}
+ 549:usb_mouse.c   **** 			if (bmRequestType == 0x21) {
+ 550:usb_mouse.c   **** 				if (bRequest == HID_SET_PROTOCOL) {
+ 551:usb_mouse.c   **** 					mouse_protocol = wValue;
+ 552:usb_mouse.c   **** 					usb_send_in();
+ 553:usb_mouse.c   **** 					return;
+ 554:usb_mouse.c   **** 				}
+ 555:usb_mouse.c   **** 			}
+ 556:usb_mouse.c   **** 		}
+ 557:usb_mouse.c   **** 	}
+ 558:usb_mouse.c   **** 	UECONX = (1<<STALLRQ) | (1<<EPEN);	// stall
+ 308               		.loc 1 558 0
+ 309 00a4 81E2      		ldi r24,lo8(33)
+ 310 00a6 8093 EB00 		sts 235,r24
+ 311               	.L12:
+ 312               	/* epilogue start */
+ 559:usb_mouse.c   **** }
+ 313               		.loc 1 559 0
+ 314 00aa FF91      		pop r31
+ 315 00ac EF91      		pop r30
+ 316 00ae BF91      		pop r27
+ 317 00b0 AF91      		pop r26
+ 318 00b2 9F91      		pop r25
+ 319 00b4 8F91      		pop r24
+ 320 00b6 7F91      		pop r23
+ 321 00b8 6F91      		pop r22
+ 322 00ba 5F91      		pop r21
+ 323 00bc 4F91      		pop r20
+ 324 00be 3F91      		pop r19
+ 325 00c0 2F91      		pop r18
+ 326 00c2 0F90      		pop r0
+ 327 00c4 0FBE      		out __SREG__,r0
+ 328 00c6 0F90      		pop r0
+ 329 00c8 1F90      		pop r1
+ 330 00ca 1895      		reti
+ 331               	.LVL16:
+ 332               	.L71:
+ 333 00cc 80E0      		ldi r24,lo8(descriptor_list)
+ 334 00ce 90E0      		ldi r25,hi8(descriptor_list)
+ 335               	.LVL17:
+ 336               	.L22:
+ 337               	.LBB42:
+ 431:usb_mouse.c   **** 				if (desc_val != wValue) {
+ 338               		.loc 1 431 0
+ 339 00d0 FC01      		movw r30,r24
+ 340               	/* #APP */
+ 341               	 ;  431 "usb_mouse.c" 1
+ 342 00d2 6591      		lpm r22, Z+
+ 343 00d4 7491      		lpm r23, Z
+ 344               		
+ 345               	 ;  0 "" 2
+ 346               	.LVL18:
+ 347               	/* #NOAPP */
+ 348               	.LBE42:
+ 432:usb_mouse.c   **** 					list += sizeof(struct descriptor_list_struct);
+ 349               		.loc 1 432 0
+ 350 00d6 2617      		cp r18,r22
+ 351 00d8 3707      		cpc r19,r23
+ 352 00da 01F0      		breq .L77
+ 353               	.LVL19:
+ 354               	.L17:
+ 355 00dc 0796      		adiw r24,7
+ 427:usb_mouse.c   **** 					UECONX = (1<<STALLRQ)|(1<<EPEN);  //stall
+ 356               		.loc 1 427 0
+ 357 00de F0E0      		ldi r31,hi8(descriptor_list+49)
+ 358 00e0 8030      		cpi r24,lo8(descriptor_list+49)
+ 359 00e2 9F07      		cpc r25,r31
+ 360 00e4 01F4      		brne .L22
+ 361 00e6 00C0      		rjmp .L13
+ 362               	.LVL20:
+ 363               	.L73:
+ 472:usb_mouse.c   **** 			usb_configuration = wValue;
+ 364               		.loc 1 472 0 discriminator 1
+ 365 00e8 7111      		cpse r23,__zero_reg__
+ 366 00ea 00C0      		rjmp .L33
+ 473:usb_mouse.c   **** 			usb_send_in();
+ 367               		.loc 1 473 0
+ 368 00ec 2093 0000 		sts usb_configuration,r18
+ 369               	.LBB43:
+ 370               	.LBB44:
+ 380:usb_mouse.c   **** }
+ 371               		.loc 1 380 0
+ 372 00f0 8EEF      		ldi r24,lo8(-2)
+ 373 00f2 8093 E800 		sts 232,r24
+ 374               	.LVL21:
+ 375               	.LBE44:
+ 376               	.LBE43:
+ 476:usb_mouse.c   **** 				UENUM = i;
+ 377               		.loc 1 476 0
+ 378 00f6 81E0      		ldi r24,lo8(1)
+ 475:usb_mouse.c   **** 			for (i=1; i<5; i++) {
+ 379               		.loc 1 475 0
+ 380 00f8 20E0      		ldi r18,lo8(endpoint_config_table)
+ 381 00fa 30E0      		ldi r19,hi8(endpoint_config_table)
+ 382               	.LVL22:
+ 383               	.L35:
+ 477:usb_mouse.c   **** 				en = pgm_read_byte(cfg++);
+ 384               		.loc 1 477 0
+ 385 00fc 8093 E900 		sts 233,r24
+ 386               	.LBB45:
+ 478:usb_mouse.c   **** 				UECONX = en;
+ 387               		.loc 1 478 0
+ 388 0100 A901      		movw r20,r18
+ 389 0102 4F5F      		subi r20,-1
+ 390 0104 5F4F      		sbci r21,-1
+ 391               	.LVL23:
+ 392 0106 F901      		movw r30,r18
+ 393               	/* #APP */
+ 394               	 ;  478 "usb_mouse.c" 1
+ 395 0108 9491      		lpm r25, Z
+ 396               		
+ 397               	 ;  0 "" 2
+ 398               	.LVL24:
+ 399               	/* #NOAPP */
+ 400               	.LBE45:
+ 479:usb_mouse.c   **** 				if (en) {
+ 401               		.loc 1 479 0
+ 402 010a 9093 EB00 		sts 235,r25
+ 480:usb_mouse.c   **** 					UECFG0X = pgm_read_byte(cfg++);
+ 403               		.loc 1 480 0
+ 404 010e 9923      		tst r25
+ 405 0110 01F4      		brne .+2
+ 406 0112 00C0      		rjmp .L46
+ 407               	.LVL25:
+ 408               	.LBB46:
+ 481:usb_mouse.c   **** 					UECFG1X = pgm_read_byte(cfg++);
+ 409               		.loc 1 481 0
+ 410 0114 FA01      		movw r30,r20
+ 411               	/* #APP */
+ 412               	 ;  481 "usb_mouse.c" 1
+ 413 0116 4491      		lpm r20, Z
+ 414               		
+ 415               	 ;  0 "" 2
+ 416               	.LVL26:
+ 417               	/* #NOAPP */
+ 418               	.LBE46:
+ 419 0118 4093 EC00 		sts 236,r20
+ 420               	.LVL27:
+ 421               	.LBB47:
+ 482:usb_mouse.c   **** 				}
+ 422               		.loc 1 482 0
+ 423 011c 3196      		adiw r30,1
+ 424               	.LVL28:
+ 425               	/* #APP */
+ 426               	 ;  482 "usb_mouse.c" 1
+ 427 011e E491      		lpm r30, Z
+ 428               		
+ 429               	 ;  0 "" 2
+ 430               	.LVL29:
+ 431               	/* #NOAPP */
+ 432 0120 2D5F      		subi r18,-3
+ 433 0122 3F4F      		sbci r19,-1
+ 434               	.LVL30:
+ 435               	.LBE47:
+ 436 0124 E093 ED00 		sts 237,r30
+ 437               	.LVL31:
+ 438               	.L34:
+ 476:usb_mouse.c   **** 				UENUM = i;
+ 439               		.loc 1 476 0 discriminator 2
+ 440 0128 8F5F      		subi r24,lo8(-(1))
+ 441               	.LVL32:
+ 442 012a 8530      		cpi r24,lo8(5)
+ 443 012c 01F4      		brne .L35
+ 485:usb_mouse.c   ****         		UERST = 0;
+ 444               		.loc 1 485 0
+ 445 012e 8EE1      		ldi r24,lo8(30)
+ 446               	.LVL33:
+ 447 0130 8093 EA00 		sts 234,r24
+ 486:usb_mouse.c   **** 			return;
+ 448               		.loc 1 486 0
+ 449 0134 1092 EA00 		sts 234,__zero_reg__
+ 487:usb_mouse.c   **** 		}
+ 450               		.loc 1 487 0
+ 451 0138 00C0      		rjmp .L12
+ 452               	.LVL34:
+ 453               	.L77:
+ 454               	.LBB48:
+ 437:usb_mouse.c   **** 				if (desc_val != wIndex) {
+ 455               		.loc 1 437 0
+ 456 013a FC01      		movw r30,r24
+ 457 013c 3296      		adiw r30,2
+ 458               	.LVL35:
+ 459               	/* #APP */
+ 460               	 ;  437 "usb_mouse.c" 1
+ 461 013e 6591      		lpm r22, Z+
+ 462 0140 7491      		lpm r23, Z
+ 463               		
+ 464               	 ;  0 "" 2
+ 465               	.LVL36:
+ 466               	/* #NOAPP */
+ 467               	.LBE48:
+ 438:usb_mouse.c   **** 					list += sizeof(struct descriptor_list_struct)-2;
+ 468               		.loc 1 438 0
+ 469 0142 4617      		cp r20,r22
+ 470 0144 5707      		cpc r21,r23
+ 471 0146 01F0      		breq .+2
+ 472 0148 00C0      		rjmp .L17
+ 473               	.LVL37:
+ 442:usb_mouse.c   **** 				desc_addr = (const uint8_t *)pgm_read_word(list);
+ 474               		.loc 1 442 0
+ 475 014a FC01      		movw r30,r24
+ 476 014c 3496      		adiw r30,4
+ 477               	.LVL38:
+ 478               	.LBB49:
+ 443:usb_mouse.c   **** 				list += 2;
+ 479               		.loc 1 443 0
+ 480               	/* #APP */
+ 481               	 ;  443 "usb_mouse.c" 1
+ 482 014e 4591      		lpm r20, Z+
+ 483 0150 5491      		lpm r21, Z
+ 484               		
+ 485               	 ;  0 "" 2
+ 486               	.LVL39:
+ 487               	/* #NOAPP */
+ 488               	.LBE49:
+ 444:usb_mouse.c   **** 				desc_length = pgm_read_byte(list);
+ 489               		.loc 1 444 0
+ 490 0152 FC01      		movw r30,r24
+ 491 0154 3696      		adiw r30,6
+ 492               	.LVL40:
+ 493               	.LBB50:
+ 445:usb_mouse.c   **** 				break;
+ 494               		.loc 1 445 0
+ 495               	/* #APP */
+ 496               	 ;  445 "usb_mouse.c" 1
+ 497 0156 2491      		lpm r18, Z
+ 498               		
+ 499               	 ;  0 "" 2
+ 500               	.LVL41:
+ 501               	/* #NOAPP */
+ 502               	.LBE50:
+ 448:usb_mouse.c   **** 			if (len > desc_length) len = desc_length;
+ 503               		.loc 1 448 0
+ 504 0158 8A2F      		mov r24,r26
+ 505 015a 90E0      		ldi r25,0
+ 506 015c 9B2B      		or r25,r27
+ 507 015e 8F3F      		cpi r24,-1
+ 508 0160 9105      		cpc r25,__zero_reg__
+ 509 0162 01F0      		breq .+4
+ 510 0164 00F0      		brlo .+2
+ 511 0166 00C0      		rjmp .L78
+ 512               	.L18:
+ 513               	.LVL42:
+ 514 0168 8217      		cp r24,r18
+ 515 016a 00F4      		brsh .+2
+ 516 016c 00C0      		rjmp .L79
+ 517               	.LVL43:
+ 518               	.L19:
+ 519               	.LBB51:
+ 520               	.LBB52:
+ 380:usb_mouse.c   **** }
+ 521               		.loc 1 380 0
+ 522 016e 6EEF      		ldi r22,lo8(-2)
+ 523               	.LVL44:
+ 524               	.L23:
+ 525               	.LBE52:
+ 526               	.LBE51:
+ 453:usb_mouse.c   **** 				} while (!(i & ((1<<TXINI)|(1<<RXOUTI))));
+ 527               		.loc 1 453 0 discriminator 1
+ 528 0170 8091 E800 		lds r24,232
+ 529               	.LVL45:
+ 454:usb_mouse.c   **** 				if (i & (1<<RXOUTI)) return;	// abort
+ 530               		.loc 1 454 0 discriminator 1
+ 531 0174 982F      		mov r25,r24
+ 532 0176 9570      		andi r25,lo8(5)
+ 533 0178 01F0      		breq .L23
+ 455:usb_mouse.c   **** 				// send IN packet
+ 534               		.loc 1 455 0
+ 535 017a 82FD      		sbrc r24,2
+ 536 017c 00C0      		rjmp .L12
+ 457:usb_mouse.c   **** 				for (i = n; i; i--) {
+ 537               		.loc 1 457 0
+ 538 017e 322F      		mov r19,r18
+ 539 0180 2132      		cpi r18,lo8(33)
+ 540 0182 00F0      		brlo .L25
+ 541 0184 30E2      		ldi r19,lo8(32)
+ 542               	.LVL46:
+ 543               	.L69:
+ 458:usb_mouse.c   **** 					UEDATX = pgm_read_byte(desc_addr++);
+ 544               		.loc 1 458 0
+ 545 0186 FA01      		movw r30,r20
+ 546 0188 832F      		mov r24,r19
+ 547               	.LVL47:
+ 548               	.L27:
+ 549               	.LBB55:
+ 459:usb_mouse.c   **** 				}
+ 550               		.loc 1 459 0 discriminator 3
+ 551               	/* #APP */
+ 552               	 ;  459 "usb_mouse.c" 1
+ 553 018a 9491      		lpm r25, Z
+ 554               		
+ 555               	 ;  0 "" 2
+ 556               	.LVL48:
+ 557               	/* #NOAPP */
+ 558               	.LBE55:
+ 559 018c 9093 F100 		sts 241,r25
+ 458:usb_mouse.c   **** 					UEDATX = pgm_read_byte(desc_addr++);
+ 560               		.loc 1 458 0 discriminator 3
+ 561 0190 8150      		subi r24,lo8(-(-1))
+ 562               	.LVL49:
+ 563 0192 3196      		adiw r30,1
+ 564               	.LVL50:
+ 565 0194 8111      		cpse r24,__zero_reg__
+ 566 0196 00C0      		rjmp .L27
+ 567 0198 8FEF      		ldi r24,lo8(-1)
+ 568               	.LVL51:
+ 569 019a 830F      		add r24,r19
+ 570 019c 90E0      		ldi r25,0
+ 571               	.LVL52:
+ 572 019e 0196      		adiw r24,1
+ 573 01a0 480F      		add r20,r24
+ 574 01a2 591F      		adc r21,r25
+ 575               	.LVL53:
+ 461:usb_mouse.c   **** 				usb_send_in();
+ 576               		.loc 1 461 0
+ 577 01a4 231B      		sub r18,r19
+ 578               	.LVL54:
+ 579               	.LBB56:
+ 580               	.LBB53:
+ 380:usb_mouse.c   **** }
+ 581               		.loc 1 380 0
+ 582 01a6 6093 E800 		sts 232,r22
+ 583               	.LVL55:
+ 584               	.LBE53:
+ 585               	.LBE56:
+ 463:usb_mouse.c   **** 			return;
+ 586               		.loc 1 463 0
+ 587 01aa 2111      		cpse r18,__zero_reg__
+ 588 01ac 00C0      		rjmp .L23
+ 463:usb_mouse.c   **** 			return;
+ 589               		.loc 1 463 0 is_stmt 0 discriminator 1
+ 590 01ae 3032      		cpi r19,lo8(32)
+ 591 01b0 01F0      		breq .L23
+ 592 01b2 00C0      		rjmp .L12
+ 593               	.LVL56:
+ 594               	.L25:
+ 458:usb_mouse.c   **** 					UEDATX = pgm_read_byte(desc_addr++);
+ 595               		.loc 1 458 0 is_stmt 1
+ 596 01b4 2111      		cpse r18,__zero_reg__
+ 597 01b6 00C0      		rjmp .L69
+ 598               	.LBB57:
+ 599               	.LBB54:
+ 380:usb_mouse.c   **** }
+ 600               		.loc 1 380 0
+ 601 01b8 6093 E800 		sts 232,r22
+ 602 01bc 00C0      		rjmp .L12
+ 603               	.LVL57:
+ 604               	.L72:
+ 605               	.LBE54:
+ 606               	.LBE57:
+ 607               	.LBB58:
+ 608               	.LBB59:
+ 609 01be 8EEF      		ldi r24,lo8(-2)
+ 610 01c0 8093 E800 		sts 232,r24
+ 611               	.L31:
+ 612               	.LBE59:
+ 613               	.LBE58:
+ 614               	.LBB60:
+ 615               	.LBB61:
+ 376:usb_mouse.c   **** }
+ 616               		.loc 1 376 0
+ 617 01c4 8091 E800 		lds r24,232
+ 618 01c8 80FF      		sbrs r24,0
+ 619 01ca 00C0      		rjmp .L31
+ 620               	.LBE61:
+ 621               	.LBE60:
+ 469:usb_mouse.c   **** 			return;
+ 622               		.loc 1 469 0
+ 623 01cc 2068      		ori r18,lo8(-128)
+ 624               	.LVL58:
+ 625 01ce 2093 E300 		sts 227,r18
+ 470:usb_mouse.c   **** 		}
+ 626               		.loc 1 470 0
+ 627 01d2 00C0      		rjmp .L12
+ 628               	.LVL59:
+ 629               	.L37:
+ 630               	.LBB62:
+ 631               	.LBB63:
+ 376:usb_mouse.c   **** }
+ 632               		.loc 1 376 0
+ 633 01d4 8091 E800 		lds r24,232
+ 634 01d8 80FF      		sbrs r24,0
+ 635 01da 00C0      		rjmp .L37
+ 636               	.LBE63:
+ 637               	.LBE62:
+ 491:usb_mouse.c   **** 			usb_send_in();
+ 638               		.loc 1 491 0
+ 639 01dc 8091 0000 		lds r24,usb_configuration
+ 640 01e0 8093 F100 		sts 241,r24
+ 641               	.LBB64:
+ 642               	.LBB65:
+ 380:usb_mouse.c   **** }
+ 643               		.loc 1 380 0
+ 644 01e4 8EEF      		ldi r24,lo8(-2)
+ 645 01e6 8093 E800 		sts 232,r24
+ 646 01ea 00C0      		rjmp .L12
+ 647               	.L76:
+ 648               	.LBE65:
+ 649               	.LBE64:
+ 530:usb_mouse.c   **** 				if (bRequest == HID_GET_REPORT) {
+ 650               		.loc 1 530 0
+ 651 01ec 713A      		cpi r23,lo8(-95)
+ 652 01ee 01F4      		brne .+2
+ 653 01f0 00C0      		rjmp .L80
+ 549:usb_mouse.c   **** 				if (bRequest == HID_SET_PROTOCOL) {
+ 654               		.loc 1 549 0
+ 655 01f2 7132      		cpi r23,lo8(33)
+ 656 01f4 01F0      		breq .+2
+ 657 01f6 00C0      		rjmp .L13
+ 550:usb_mouse.c   **** 					mouse_protocol = wValue;
+ 658               		.loc 1 550 0
+ 659 01f8 6B30      		cpi r22,lo8(11)
+ 660 01fa 01F0      		breq .+2
+ 661 01fc 00C0      		rjmp .L13
+ 551:usb_mouse.c   **** 					usb_send_in();
+ 662               		.loc 1 551 0
+ 663 01fe 2093 0000 		sts mouse_protocol,r18
+ 664               	.LBB66:
+ 665               	.LBB67:
+ 380:usb_mouse.c   **** }
+ 666               		.loc 1 380 0
+ 667 0202 8EEF      		ldi r24,lo8(-2)
+ 668 0204 8093 E800 		sts 232,r24
+ 669 0208 00C0      		rjmp .L12
+ 670               	.LVL60:
+ 671               	.L79:
+ 672 020a 282F      		mov r18,r24
+ 673               	.LVL61:
+ 674 020c 00C0      		rjmp .L19
+ 675               	.LVL62:
+ 676               	.L78:
+ 677               	.LBE67:
+ 678               	.LBE66:
+ 448:usb_mouse.c   **** 			if (len > desc_length) len = desc_length;
+ 679               		.loc 1 448 0
+ 680 020e 8FEF      		ldi r24,lo8(-1)
+ 681 0210 90E0      		ldi r25,0
+ 682               	.LVL63:
+ 683 0212 00C0      		rjmp .L18
+ 684               	.LVL64:
+ 685               	.L46:
+ 686               	.LBB68:
+ 478:usb_mouse.c   **** 				UECONX = en;
+ 687               		.loc 1 478 0
+ 688 0214 9A01      		movw r18,r20
+ 689               	.LVL65:
+ 690 0216 00C0      		rjmp .L34
+ 691               	.LVL66:
+ 692               	.L75:
+ 693               	.LBE68:
+ 501:usb_mouse.c   **** 				if (UECONX & (1<<STALLRQ)) i = 1;
+ 694               		.loc 1 501 0
+ 695 0218 4093 E900 		sts 233,r20
+ 502:usb_mouse.c   **** 				UENUM = 0;
+ 696               		.loc 1 502 0
+ 697 021c 8091 EB00 		lds r24,235
+ 498:usb_mouse.c   **** 			#ifdef SUPPORT_ENDPOINT_HALT
+ 698               		.loc 1 498 0
+ 699 0220 85FB      		bst r24,5
+ 700 0222 8827      		clr r24
+ 701 0224 80F9      		bld r24,0
+ 702               	.LVL67:
+ 503:usb_mouse.c   **** 			}
+ 703               		.loc 1 503 0
+ 704 0226 1092 E900 		sts 233,__zero_reg__
+ 705 022a 00C0      		rjmp .L40
+ 706               	.LVL68:
+ 707               	.L38:
+ 512:usb_mouse.c   **** 		  && bmRequestType == 0x02 && wValue == 0) {
+ 708               		.loc 1 512 0
+ 709 022c 862F      		mov r24,r22
+ 710 022e 8D7F      		andi r24,lo8(-3)
+ 711 0230 8130      		cpi r24,lo8(1)
+ 712 0232 01F0      		breq .+2
+ 713 0234 00C0      		rjmp .L33
+ 513:usb_mouse.c   **** 			i = wIndex & 0x7F;
+ 714               		.loc 1 513 0
+ 715 0236 7230      		cpi r23,lo8(2)
+ 716 0238 01F0      		breq .+2
+ 717 023a 00C0      		rjmp .L33
+ 513:usb_mouse.c   **** 			i = wIndex & 0x7F;
+ 718               		.loc 1 513 0 is_stmt 0 discriminator 1
+ 719 023c 232B      		or r18,r19
+ 720 023e 01F0      		breq .+2
+ 721 0240 00C0      		rjmp .L13
+ 514:usb_mouse.c   **** 			if (i >= 1 && i <= MAX_ENDPOINT) {
+ 722               		.loc 1 514 0 is_stmt 1
+ 723 0242 4F77      		andi r20,lo8(127)
+ 724               	.LVL69:
+ 515:usb_mouse.c   **** 				usb_send_in();
+ 725               		.loc 1 515 0
+ 726 0244 8FEF      		ldi r24,lo8(-1)
+ 727 0246 840F      		add r24,r20
+ 728 0248 8430      		cpi r24,lo8(4)
+ 729 024a 00F0      		brlo .+2
+ 730 024c 00C0      		rjmp .L13
+ 731               	.LBB69:
+ 732               	.LBB70:
+ 380:usb_mouse.c   **** }
+ 733               		.loc 1 380 0
+ 734 024e 8EEF      		ldi r24,lo8(-2)
+ 735 0250 8093 E800 		sts 232,r24
+ 736               	.LBE70:
+ 737               	.LBE69:
+ 517:usb_mouse.c   **** 				if (bRequest == SET_FEATURE) {
+ 738               		.loc 1 517 0
+ 739 0254 4093 E900 		sts 233,r20
+ 518:usb_mouse.c   **** 					UECONX = (1<<STALLRQ)|(1<<EPEN);
+ 740               		.loc 1 518 0
+ 741 0258 6330      		cpi r22,lo8(3)
+ 742 025a 01F4      		brne .+2
+ 743 025c 00C0      		rjmp .L13
+ 521:usb_mouse.c   **** 					UERST = (1 << i);
+ 744               		.loc 1 521 0
+ 745 025e 89E1      		ldi r24,lo8(25)
+ 746 0260 8093 EB00 		sts 235,r24
+ 522:usb_mouse.c   **** 					UERST = 0;
+ 747               		.loc 1 522 0
+ 748 0264 81E0      		ldi r24,lo8(1)
+ 749 0266 90E0      		ldi r25,0
+ 750 0268 00C0      		rjmp 2f
+ 751               		1:
+ 752 026a 880F      		lsl r24
+ 753               		2:
+ 754 026c 4A95      		dec r20
+ 755 026e 02F4      		brpl 1b
+ 756 0270 8093 EA00 		sts 234,r24
+ 523:usb_mouse.c   **** 				}
+ 757               		.loc 1 523 0
+ 758 0274 1092 EA00 		sts 234,__zero_reg__
+ 759 0278 00C0      		rjmp .L12
+ 760               	.LVL70:
+ 761               	.L80:
+ 531:usb_mouse.c   **** 					usb_wait_in_ready();
+ 762               		.loc 1 531 0
+ 763 027a 6130      		cpi r22,lo8(1)
+ 764 027c 01F0      		breq .L44
+ 542:usb_mouse.c   **** 					usb_wait_in_ready();
+ 765               		.loc 1 542 0
+ 766 027e 6330      		cpi r22,lo8(3)
+ 767 0280 01F0      		breq .+2
+ 768 0282 00C0      		rjmp .L13
+ 769               	.L45:
+ 770               	.LBB71:
+ 771               	.LBB72:
+ 376:usb_mouse.c   **** }
+ 772               		.loc 1 376 0
+ 773 0284 8091 E800 		lds r24,232
+ 774 0288 80FF      		sbrs r24,0
+ 775 028a 00C0      		rjmp .L45
+ 776               	.LBE72:
+ 777               	.LBE71:
+ 544:usb_mouse.c   **** 					usb_send_in();
+ 778               		.loc 1 544 0
+ 779 028c 8091 0000 		lds r24,mouse_protocol
+ 780 0290 8093 F100 		sts 241,r24
+ 781               	.LBB73:
+ 782               	.LBB74:
+ 380:usb_mouse.c   **** }
+ 783               		.loc 1 380 0
+ 784 0294 8EEF      		ldi r24,lo8(-2)
+ 785 0296 8093 E800 		sts 232,r24
+ 786 029a 00C0      		rjmp .L12
+ 787               	.L44:
+ 788               	.LBE74:
+ 789               	.LBE73:
+ 790               	.LBB75:
+ 791               	.LBB76:
+ 376:usb_mouse.c   **** }
+ 792               		.loc 1 376 0
+ 793 029c 8091 E800 		lds r24,232
+ 794 02a0 80FF      		sbrs r24,0
+ 795 02a2 00C0      		rjmp .L44
+ 796               	.LBE76:
+ 797               	.LBE75:
+ 533:usb_mouse.c   **** 					UEDATX = 0;
+ 798               		.loc 1 533 0
+ 799 02a4 1092 F100 		sts 241,__zero_reg__
+ 534:usb_mouse.c   **** 					UEDATX = 0;
+ 800               		.loc 1 534 0
+ 801 02a8 1092 F100 		sts 241,__zero_reg__
+ 535:usb_mouse.c   **** 					UEDATX = 0;
+ 802               		.loc 1 535 0
+ 803 02ac 1092 F100 		sts 241,__zero_reg__
+ 536:usb_mouse.c   **** 					UEDATX = 0;
+ 804               		.loc 1 536 0
+ 805 02b0 1092 F100 		sts 241,__zero_reg__
+ 537:usb_mouse.c   **** 					UEDATX = 0;
+ 806               		.loc 1 537 0
+ 807 02b4 1092 F100 		sts 241,__zero_reg__
+ 538:usb_mouse.c   **** 					usb_send_in();
+ 808               		.loc 1 538 0
+ 809 02b8 1092 F100 		sts 241,__zero_reg__
+ 810               	.LBB77:
+ 811               	.LBB78:
+ 380:usb_mouse.c   **** }
+ 812               		.loc 1 380 0
+ 813 02bc 8EEF      		ldi r24,lo8(-2)
+ 814 02be 8093 E800 		sts 232,r24
+ 815 02c2 00C0      		rjmp .L12
+ 816               	.LBE78:
+ 817               	.LBE77:
+ 818               		.cfi_endproc
+ 819               	.LFE8:
+ 821               		.data
+ 824               	mouse_protocol:
+ 825 0000 01        		.byte	1
+ 826               		.local	usb_configuration
+ 827               		.comm	usb_configuration,1,1
+ 828               		.section	.progmem.data,"a",@progbits
+ 831               	descriptor_list:
+ 832 0000 0001      		.word	256
+ 833 0002 0000      		.word	0
+ 834 0004 0000      		.word	device_descriptor
+ 835 0006 12        		.byte	18
+ 836 0007 0002      		.word	512
+ 837 0009 0000      		.word	0
+ 838 000b 0000      		.word	config1_descriptor
+ 839 000d 22        		.byte	34
+ 840 000e 0022      		.word	8704
+ 841 0010 0000      		.word	0
+ 842 0012 0000      		.word	mouse_hid_report_desc
+ 843 0014 45        		.byte	69
+ 844 0015 0021      		.word	8448
+ 845 0017 0000      		.word	0
+ 846 0019 0000      		.word	config1_descriptor+18
+ 847 001b 09        		.byte	9
+ 848 001c 0003      		.word	768
+ 849 001e 0000      		.word	0
+ 850 0020 0000      		.word	string0
+ 851 0022 04        		.byte	4
+ 852 0023 0103      		.word	769
+ 853 0025 0904      		.word	1033
+ 854 0027 0000      		.word	string1
+ 855 0029 08        		.byte	8
+ 856 002a 0203      		.word	770
+ 857 002c 0904      		.word	1033
+ 858 002e 0000      		.word	string2
+ 859 0030 0A        		.byte	10
+ 862               	string2:
+ 863 0031 0A        		.byte	10
+ 864 0032 03        		.byte	3
+ 865 0033 3300      		.string	"3"
+ 866 0035 3300      		.string	"3"
+ 867 0037 3600      		.string	"6"
+ 868 0039 3000      		.string	"0"
+ 869 003b 00        		.string	""
+ 870 003c 00        		.string	""
+ 873               	string1:
+ 874 003d 08        		.byte	8
+ 875 003e 03        		.byte	3
+ 876 003f 6200      		.string	"b"
+ 877 0041 7300      		.string	"s"
+ 878 0043 7400      		.string	"t"
+ 879 0045 00        		.string	""
+ 880 0046 00        		.string	""
+ 883               	string0:
+ 884 0047 04        		.byte	4
+ 885 0048 03        		.byte	3
+ 886 0049 0904      		.word	1033
+ 889               	config1_descriptor:
+ 890 004b 09        		.byte	9
+ 891 004c 02        		.byte	2
+ 892 004d 22        		.byte	34
+ 893 004e 00        		.byte	0
+ 894 004f 01        		.byte	1
+ 895 0050 01        		.byte	1
+ 896 0051 00        		.byte	0
+ 897 0052 C0        		.byte	-64
+ 898 0053 32        		.byte	50
+ 899 0054 09        		.byte	9
+ 900 0055 04        		.byte	4
+ 901 0056 00        		.byte	0
+ 902 0057 00        		.byte	0
+ 903 0058 01        		.byte	1
+ 904 0059 03        		.byte	3
+ 905 005a 01        		.byte	1
+ 906 005b 02        		.byte	2
+ 907 005c 00        		.byte	0
+ 908 005d 09        		.byte	9
+ 909 005e 21        		.byte	33
+ 910 005f 11        		.byte	17
+ 911 0060 01        		.byte	1
+ 912 0061 00        		.byte	0
+ 913 0062 01        		.byte	1
+ 914 0063 22        		.byte	34
+ 915 0064 45        		.byte	69
+ 916 0065 00        		.byte	0
+ 917 0066 07        		.byte	7
+ 918 0067 05        		.byte	5
+ 919 0068 83        		.byte	-125
+ 920 0069 03        		.byte	3
+ 921 006a 06        		.byte	6
+ 922 006b 00        		.byte	0
+ 923 006c 01        		.byte	1
+ 926               	mouse_hid_report_desc:
+ 927 006d 05        		.byte	5
+ 928 006e 01        		.byte	1
+ 929 006f 09        		.byte	9
+ 930 0070 02        		.byte	2
+ 931 0071 A1        		.byte	-95
+ 932 0072 01        		.byte	1
+ 933 0073 05        		.byte	5
+ 934 0074 09        		.byte	9
+ 935 0075 19        		.byte	25
+ 936 0076 01        		.byte	1
+ 937 0077 29        		.byte	41
+ 938 0078 05        		.byte	5
+ 939 0079 15        		.byte	21
+ 940 007a 00        		.byte	0
+ 941 007b 25        		.byte	37
+ 942 007c 01        		.byte	1
+ 943 007d 95        		.byte	-107
+ 944 007e 05        		.byte	5
+ 945 007f 75        		.byte	117
+ 946 0080 01        		.byte	1
+ 947 0081 81        		.byte	-127
+ 948 0082 02        		.byte	2
+ 949 0083 95        		.byte	-107
+ 950 0084 01        		.byte	1
+ 951 0085 75        		.byte	117
+ 952 0086 03        		.byte	3
+ 953 0087 81        		.byte	-127
+ 954 0088 03        		.byte	3
+ 955 0089 05        		.byte	5
+ 956 008a 01        		.byte	1
+ 957 008b 09        		.byte	9
+ 958 008c 30        		.byte	48
+ 959 008d 09        		.byte	9
+ 960 008e 31        		.byte	49
+ 961 008f 16        		.byte	22
+ 962 0090 01        		.byte	1
+ 963 0091 80        		.byte	-128
+ 964 0092 26        		.byte	38
+ 965 0093 FF        		.byte	-1
+ 966 0094 7F        		.byte	127
+ 967 0095 36        		.byte	54
+ 968 0096 01        		.byte	1
+ 969 0097 80        		.byte	-128
+ 970 0098 46        		.byte	70
+ 971 0099 FF        		.byte	-1
+ 972 009a 7F        		.byte	127
+ 973 009b 75        		.byte	117
+ 974 009c 10        		.byte	16
+ 975 009d 95        		.byte	-107
+ 976 009e 02        		.byte	2
+ 977 009f 81        		.byte	-127
+ 978 00a0 06        		.byte	6
+ 979 00a1 09        		.byte	9
+ 980 00a2 38        		.byte	56
+ 981 00a3 15        		.byte	21
+ 982 00a4 81        		.byte	-127
+ 983 00a5 25        		.byte	37
+ 984 00a6 7F        		.byte	127
+ 985 00a7 35        		.byte	53
+ 986 00a8 81        		.byte	-127
+ 987 00a9 45        		.byte	69
+ 988 00aa 7F        		.byte	127
+ 989 00ab 75        		.byte	117
+ 990 00ac 08        		.byte	8
+ 991 00ad 95        		.byte	-107
+ 992 00ae 01        		.byte	1
+ 993 00af 81        		.byte	-127
+ 994 00b0 06        		.byte	6
+ 995 00b1 C0        		.byte	-64
+ 998               	device_descriptor:
+ 999 00b2 12        		.byte	18
+ 1000 00b3 01        		.byte	1
+ 1001 00b4 00        		.byte	0
+ 1002 00b5 02        		.byte	2
+ 1003 00b6 00        		.byte	0
+ 1004 00b7 00        		.byte	0
+ 1005 00b8 00        		.byte	0
+ 1006 00b9 20        		.byte	32
+ 1007 00ba C0        		.byte	-64
+ 1008 00bb 16        		.byte	22
+ 1009 00bc 7E        		.byte	126
+ 1010 00bd 04        		.byte	4
+ 1011 00be 00        		.byte	0
+ 1012 00bf 01        		.byte	1
+ 1013 00c0 01        		.byte	1
+ 1014 00c1 02        		.byte	2
+ 1015 00c2 00        		.byte	0
+ 1016 00c3 01        		.byte	1
+ 1019               	endpoint_config_table:
+ 1020 00c4 00        		.byte	0
+ 1021 00c5 00        		.byte	0
+ 1022 00c6 01        		.byte	1
+ 1023 00c7 C1        		.byte	-63
+ 1024 00c8 02        		.byte	2
+ 1025 00c9 00        		.byte	0
+ 1026               		.text
+ 1027               	.Letext0:
+ 1028               		.file 2 "/usr/lib/avr/include/stdint.h"
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 usb_mouse.c
+     /tmp/ccqsDGuw.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccqsDGuw.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccqsDGuw.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccqsDGuw.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccqsDGuw.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccqsDGuw.s:13     .text.usb_init:0000000000000000 usb_init
+                             .bss:0000000000000000 usb_configuration
+     /tmp/ccqsDGuw.s:59     .text.usb_configured:0000000000000000 usb_configured
+     /tmp/ccqsDGuw.s:77     .text.__vector_10:0000000000000000 __vector_10
+     /tmp/ccqsDGuw.s:139    .text.__vector_11:0000000000000000 __vector_11
+     /tmp/ccqsDGuw.s:831    .progmem.data:0000000000000000 descriptor_list
+     /tmp/ccqsDGuw.s:1019   .progmem.data:00000000000000c4 endpoint_config_table
+     /tmp/ccqsDGuw.s:824    .data:0000000000000000 mouse_protocol
+     /tmp/ccqsDGuw.s:998    .progmem.data:00000000000000b2 device_descriptor
+     /tmp/ccqsDGuw.s:889    .progmem.data:000000000000004b config1_descriptor
+     /tmp/ccqsDGuw.s:926    .progmem.data:000000000000006d mouse_hid_report_desc
+     /tmp/ccqsDGuw.s:883    .progmem.data:0000000000000047 string0
+     /tmp/ccqsDGuw.s:873    .progmem.data:000000000000003d string1
+     /tmp/ccqsDGuw.s:862    .progmem.data:0000000000000031 string2
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
