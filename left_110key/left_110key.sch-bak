@@ -1,0 +1,5930 @@
+EESchema Schematic File Version 5
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+Comment5 ""
+Comment6 ""
+Comment7 ""
+Comment8 ""
+Comment9 ""
+$EndDescr
+Wire Wire Line
+	1100 1025 1100 1475
+Wire Wire Line
+	5800 1975 6475 1975
+Wire Wire Line
+	4375 1575 4525 1575
+$Comp
+L Device:D D5
+U 1 1 5DBF7FFF
+P 3850 1725
+F 0 "D5" V 3896 1646 50  0000 R CNN
+F 1 "D" V 3805 1646 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 3850 1725 50  0001 C CNN
+F 3 "~" H 3850 1725 50  0001 C CNN
+	1    3850 1725
+	0    -1   -1   0   
+$EndComp
+Connection ~ 4525 1875
+Wire Wire Line
+	3375 1875 3850 1875
+Connection ~ 3850 1875
+$Comp
+L Connector:Conn_01x04_Male J10
+U 1 1 5DBF8026
+P 6875 1575
+F 0 "J10" H 6983 1856 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 6983 1765 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 6875 1575 50  0001 C CNN
+F 3 "~" H 6875 1575 50  0001 C CNN
+	1    6875 1575
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 1575 6550 1575
+Connection ~ 5800 1975
+Connection ~ 3100 1975
+Connection ~ 3775 1975
+Wire Wire Line
+	7750 1775 7075 1775
+Wire Wire Line
+	6475 1975 7150 1975
+Connection ~ 6550 1875
+Wire Wire Line
+	7075 1775 6400 1775
+Wire Wire Line
+	5875 1875 6550 1875
+Connection ~ 6475 1975
+$Comp
+L Connector:Conn_01x04_Male J5
+U 1 1 5DBF8089
+P 3500 1575
+F 0 "J5" H 3608 1856 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 3608 1765 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 3500 1575 50  0001 C CNN
+F 3 "~" H 3500 1575 50  0001 C CNN
+	1    3500 1575
+	1    0    0    -1  
+$EndComp
+Connection ~ 5125 1975
+Wire Wire Line
+	1750 1975 2425 1975
+Connection ~ 1675 1775
+$Comp
+L Device:R R6
+U 1 1 5DBF80BE
+P 4450 1825
+F 0 "R6" H 4520 1871 50  0000 L CNN
+F 1 "R" H 4520 1780 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 4380 1825 50  0001 C CNN
+F 3 "~" H 4450 1825 50  0001 C CNN
+	1    4450 1825
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7750 1675 7825 1675
+Wire Wire Line
+	5050 1575 5200 1575
+Wire Wire Line
+	4375 1675 4450 1675
+$Comp
+L Device:D D7
+U 1 1 5DBF80DF
+P 5200 1725
+F 0 "D7" V 5246 1646 50  0000 R CNN
+F 1 "D" V 5155 1646 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 5200 1725 50  0001 C CNN
+F 3 "~" H 5200 1725 50  0001 C CNN
+	1    5200 1725
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R11
+U 1 1 5DBF80F0
+P 7825 1825
+F 0 "R11" H 7895 1871 50  0000 L CNN
+F 1 "R" H 7895 1780 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 7755 1825 50  0001 C CNN
+F 3 "~" H 7825 1825 50  0001 C CNN
+	1    7825 1825
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6550 1875 7225 1875
+$Comp
+L Device:D D10
+U 1 1 5DBF810D
+P 7225 1725
+F 0 "D10" V 7271 1646 50  0000 R CNN
+F 1 "D" V 7180 1646 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 7225 1725 50  0001 C CNN
+F 3 "~" H 7225 1725 50  0001 C CNN
+	1    7225 1725
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:D D4
+U 1 1 5DBF811E
+P 3175 1725
+F 0 "D4" V 3221 1646 50  0000 R CNN
+F 1 "D" V 3130 1646 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 3175 1725 50  0001 C CNN
+F 3 "~" H 3175 1725 50  0001 C CNN
+	1    3175 1725
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:D D6
+U 1 1 5DBF812F
+P 4525 1725
+F 0 "D6" V 4571 1646 50  0000 R CNN
+F 1 "D" V 4480 1646 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 4525 1725 50  0001 C CNN
+F 3 "~" H 4525 1725 50  0001 C CNN
+	1    4525 1725
+	0    -1   -1   0   
+$EndComp
+Connection ~ 2350 1775
+Wire Wire Line
+	6400 1475 6500 1475
+$Comp
+L Device:D D8
+U 1 1 5DBF8176
+P 5875 1725
+F 0 "D8" V 5921 1646 50  0000 R CNN
+F 1 "D" V 5830 1646 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 5875 1725 50  0001 C CNN
+F 3 "~" H 5875 1725 50  0001 C CNN
+	1    5875 1725
+	0    -1   -1   0   
+$EndComp
+Connection ~ 5725 1775
+Wire Wire Line
+	2350 1575 2500 1575
+Wire Wire Line
+	3175 1875 3850 1875
+Connection ~ 7150 1975
+Wire Wire Line
+	7075 1475 7175 1475
+$Comp
+L Connector:Conn_01x04_Male J6
+U 1 1 5DBF81AB
+P 4175 1575
+F 0 "J6" H 4283 1856 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 4283 1765 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 4175 1575 50  0001 C CNN
+F 3 "~" H 4175 1575 50  0001 C CNN
+	1    4175 1575
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J11
+U 1 1 5DBF81BC
+P 7550 1575
+F 0 "J11" H 7658 1856 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 7658 1765 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 7550 1575 50  0001 C CNN
+F 3 "~" H 7550 1575 50  0001 C CNN
+	1    7550 1575
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3775 1975 4450 1975
+$Comp
+L Device:R R8
+U 1 1 5DBF81CC
+P 5800 1825
+F 0 "R8" H 5870 1871 50  0000 L CNN
+F 1 "R" H 5870 1780 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5730 1825 50  0001 C CNN
+F 3 "~" H 5800 1825 50  0001 C CNN
+	1    5800 1825
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D2
+U 1 1 5DBF81DB
+P 1825 1725
+F 0 "D2" V 1871 1646 50  0000 R CNN
+F 1 "D" V 1780 1646 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 1825 1725 50  0001 C CNN
+F 3 "~" H 1825 1725 50  0001 C CNN
+	1    1825 1725
+	0    -1   -1   0   
+$EndComp
+Connection ~ 1150 1875
+$Comp
+L Connector:Conn_01x04_Male J9
+U 1 1 5DBF822B
+P 6200 1575
+F 0 "J9" H 6308 1856 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 6308 1765 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 6200 1575 50  0001 C CNN
+F 3 "~" H 6200 1575 50  0001 C CNN
+	1    6200 1575
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 5DBF8239
+P 1750 1825
+F 0 "R2" H 1820 1871 50  0000 L CNN
+F 1 "R" H 1820 1780 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 1680 1825 50  0001 C CNN
+F 3 "~" H 1750 1825 50  0001 C CNN
+	1    1750 1825
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R10
+U 1 1 5DBF8258
+P 7150 1825
+F 0 "R10" H 7220 1871 50  0000 L CNN
+F 1 "R" H 7220 1780 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 7080 1825 50  0001 C CNN
+F 3 "~" H 7150 1825 50  0001 C CNN
+	1    7150 1825
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R9
+U 1 1 5DBF8266
+P 6475 1825
+F 0 "R9" H 6545 1871 50  0000 L CNN
+F 1 "R" H 6545 1780 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6405 1825 50  0001 C CNN
+F 3 "~" H 6475 1825 50  0001 C CNN
+	1    6475 1825
+	1    0    0    -1  
+$EndComp
+Connection ~ 4450 1975
+Wire Wire Line
+	5725 1575 5875 1575
+Connection ~ 1750 1975
+$Comp
+L Device:D D11
+U 1 1 5DBF8299
+P 7900 1725
+F 0 "D11" V 7946 1646 50  0000 R CNN
+F 1 "D" V 7855 1646 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 7900 1725 50  0001 C CNN
+F 3 "~" H 7900 1725 50  0001 C CNN
+	1    7900 1725
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R5
+U 1 1 5DBF82A7
+P 3775 1825
+F 0 "R5" H 3845 1871 50  0000 L CNN
+F 1 "R" H 3845 1780 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3705 1825 50  0001 C CNN
+F 3 "~" H 3775 1825 50  0001 C CNN
+	1    3775 1825
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5050 1675 5125 1675
+Wire Wire Line
+	2425 1975 3100 1975
+Wire Wire Line
+	5125 1975 5800 1975
+Wire Wire Line
+	2350 1775 1675 1775
+Wire Wire Line
+	3025 1775 2350 1775
+$Comp
+L Device:D D3
+U 1 1 5DBF82CF
+P 2500 1725
+F 0 "D3" V 2546 1646 50  0000 R CNN
+F 1 "D" V 2455 1646 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 2500 1725 50  0001 C CNN
+F 3 "~" H 2500 1725 50  0001 C CNN
+	1    2500 1725
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J7
+U 1 1 5DBF82DF
+P 4850 1575
+F 0 "J7" H 4958 1856 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 4958 1765 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 4850 1575 50  0001 C CNN
+F 3 "~" H 4850 1575 50  0001 C CNN
+	1    4850 1575
+	1    0    0    -1  
+$EndComp
+Connection ~ 7075 1775
+Connection ~ 2500 1875
+Connection ~ 3025 1775
+Wire Wire Line
+	7150 1975 7825 1975
+Connection ~ 5200 1875
+Wire Wire Line
+	1000 1575 1150 1575
+Connection ~ 5875 1875
+Wire Wire Line
+	4375 1475 4475 1475
+$Comp
+L Device:R R7
+U 1 1 5DBF833B
+P 5125 1825
+F 0 "R7" H 5195 1871 50  0000 L CNN
+F 1 "R" H 5195 1780 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5055 1825 50  0001 C CNN
+F 3 "~" H 5125 1825 50  0001 C CNN
+	1    5125 1825
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D9
+U 1 1 5DBF8349
+P 6550 1725
+F 0 "D9" V 6596 1646 50  0000 R CNN
+F 1 "D" V 6505 1646 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 6550 1725 50  0001 C CNN
+F 3 "~" H 6550 1725 50  0001 C CNN
+	1    6550 1725
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3025 1675 3100 1675
+Wire Wire Line
+	1000 1675 1075 1675
+Wire Wire Line
+	3700 1675 3775 1675
+Wire Wire Line
+	3700 1575 3850 1575
+Wire Wire Line
+	4525 1875 5200 1875
+Wire Wire Line
+	7750 1575 7900 1575
+Wire Wire Line
+	675  1875 1150 1875
+$Comp
+L Device:R R3
+U 1 1 5DBF835F
+P 2425 1825
+F 0 "R3" H 2495 1871 50  0000 L CNN
+F 1 "R" H 2495 1780 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 2355 1825 50  0001 C CNN
+F 3 "~" H 2425 1825 50  0001 C CNN
+	1    2425 1825
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J4
+U 1 1 5DBF836F
+P 2825 1575
+F 0 "J4" H 2933 1856 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 2933 1765 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 2825 1575 50  0001 C CNN
+F 3 "~" H 2825 1575 50  0001 C CNN
+	1    2825 1575
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2350 1675 2425 1675
+$Comp
+L Connector:Conn_01x04_Male J3
+U 1 1 5DBF8380
+P 2150 1575
+F 0 "J3" H 2258 1856 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 2258 1765 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 2150 1575 50  0001 C CNN
+F 3 "~" H 2150 1575 50  0001 C CNN
+	1    2150 1575
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J8
+U 1 1 5DBF8390
+P 5525 1575
+F 0 "J8" H 5633 1856 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 5633 1765 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 5525 1575 50  0001 C CNN
+F 3 "~" H 5525 1575 50  0001 C CNN
+	1    5525 1575
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6075 1875 6550 1875
+Connection ~ 4375 1775
+Connection ~ 6400 1775
+Wire Wire Line
+	5725 1475 5825 1475
+Wire Wire Line
+	7075 1675 7150 1675
+Wire Wire Line
+	3700 1475 3800 1475
+Wire Wire Line
+	3850 1875 4525 1875
+Wire Wire Line
+	1150 1875 1825 1875
+Wire Wire Line
+	3025 1575 3175 1575
+Wire Wire Line
+	3025 1475 3125 1475
+Wire Wire Line
+	7075 1575 7225 1575
+Wire Wire Line
+	2350 1475 2450 1475
+Wire Wire Line
+	6400 1675 6475 1675
+Connection ~ 3175 1875
+$Comp
+L Device:R R4
+U 1 1 5DBF83B1
+P 3100 1825
+F 0 "R4" H 3170 1871 50  0000 L CNN
+F 1 "R" H 3170 1780 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3030 1825 50  0001 C CNN
+F 3 "~" H 3100 1825 50  0001 C CNN
+	1    3100 1825
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5725 1675 5800 1675
+Wire Wire Line
+	4450 1975 5125 1975
+$Comp
+L Device:D D1
+U 1 1 5DBF83E6
+P 1150 1725
+F 0 "D1" V 1196 1646 50  0000 R CNN
+F 1 "D" V 1105 1646 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 1150 1725 50  0001 C CNN
+F 3 "~" H 1150 1725 50  0001 C CNN
+	1    1150 1725
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6400 1775 5725 1775
+$Comp
+L Connector:Conn_01x04_Male J2
+U 1 1 5DBF83F7
+P 1475 1575
+F 0 "J2" H 1583 1856 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 1583 1765 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 1475 1575 50  0001 C CNN
+F 3 "~" H 1475 1575 50  0001 C CNN
+	1    1475 1575
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5050 1475 5150 1475
+Connection ~ 3700 1775
+Connection ~ 7225 1875
+Wire Wire Line
+	3100 1975 3775 1975
+Wire Wire Line
+	5050 1775 4375 1775
+Wire Wire Line
+	5200 1875 5875 1875
+Wire Wire Line
+	7750 1475 7850 1475
+Connection ~ 2425 1975
+$Comp
+L Connector:Conn_01x04_Male J1
+U 1 1 5DBF8435
+P 800 1575
+F 0 "J1" H 908 1856 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 908 1765 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 800 1575 50  0001 C CNN
+F 3 "~" H 800 1575 50  0001 C CNN
+	1    800  1575
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1000 1475 1100 1475
+Connection ~ 5050 1775
+Wire Wire Line
+	3700 1775 3025 1775
+Wire Wire Line
+	1675 1575 1825 1575
+Wire Wire Line
+	2500 1875 3175 1875
+Wire Wire Line
+	5725 1775 5050 1775
+Wire Wire Line
+	4375 1775 3700 1775
+$Comp
+L Device:R R1
+U 1 1 5DBF845D
+P 1075 1825
+F 0 "R1" H 1145 1871 50  0000 L CNN
+F 1 "R" H 1145 1780 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 1005 1825 50  0001 C CNN
+F 3 "~" H 1075 1825 50  0001 C CNN
+	1    1075 1825
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4725 1875 5200 1875
+Wire Wire Line
+	1675 1675 1750 1675
+Wire Wire Line
+	1675 1475 1775 1475
+Connection ~ 1100 1475
+Wire Wire Line
+	1100 1475 1100 2250
+$Comp
+L Device:R R12
+U 1 1 5DC616EF
+P 1075 2600
+F 0 "R12" H 1145 2646 50  0000 L CNN
+F 1 "R" H 1145 2555 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 1005 2600 50  0001 C CNN
+F 3 "~" H 1075 2600 50  0001 C CNN
+	1    1075 2600
+	1    0    0    -1  
+$EndComp
+Connection ~ 5875 2650
+$Comp
+L Connector:Conn_01x04_Male J22
+U 1 1 5DC61702
+P 7550 2350
+F 0 "J22" H 7658 2631 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 7658 2540 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 7550 2350 50  0001 C CNN
+F 3 "~" H 7550 2350 50  0001 C CNN
+	1    7550 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3700 2250 3800 2250
+Wire Wire Line
+	4725 2650 5200 2650
+Wire Wire Line
+	3025 2450 3100 2450
+Wire Wire Line
+	1000 2450 1075 2450
+Wire Wire Line
+	3700 2450 3775 2450
+Wire Wire Line
+	5725 2550 5050 2550
+Connection ~ 3100 2750
+$Comp
+L Connector:Conn_01x04_Male J15
+U 1 1 5DC61722
+P 2825 2350
+F 0 "J15" H 2933 2631 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 2933 2540 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 2825 2350 50  0001 C CNN
+F 3 "~" H 2825 2350 50  0001 C CNN
+	1    2825 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3025 2350 3175 2350
+Wire Wire Line
+	3025 2250 3125 2250
+Wire Wire Line
+	1075 2750 1750 2750
+Wire Wire Line
+	3025 2550 2350 2550
+Wire Wire Line
+	4375 2450 4450 2450
+$Comp
+L Connector:Conn_01x04_Male J17
+U 1 1 5DC6175A
+P 4175 2350
+F 0 "J17" H 4283 2631 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 4283 2540 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 4175 2350 50  0001 C CNN
+F 3 "~" H 4175 2350 50  0001 C CNN
+	1    4175 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5725 2450 5800 2450
+$Comp
+L Device:D D22
+U 1 1 5DC6176C
+P 7900 2500
+F 0 "D22" V 7946 2421 50  0000 R CNN
+F 1 "D" V 7855 2421 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 7900 2500 50  0001 C CNN
+F 3 "~" H 7900 2500 50  0001 C CNN
+	1    7900 2500
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R16
+U 1 1 5DC6177A
+P 3775 2600
+F 0 "R16" H 3845 2646 50  0000 L CNN
+F 1 "R" H 3845 2555 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3705 2600 50  0001 C CNN
+F 3 "~" H 3775 2600 50  0001 C CNN
+	1    3775 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2425 2750 3100 2750
+Wire Wire Line
+	5125 2750 5800 2750
+Wire Wire Line
+	1825 2650 2500 2650
+Connection ~ 5050 2550
+Connection ~ 1750 2750
+Wire Wire Line
+	6475 2750 7150 2750
+$Comp
+L Device:R R19
+U 1 1 5DC61792
+P 5800 2600
+F 0 "R19" H 5870 2646 50  0000 L CNN
+F 1 "R" H 5870 2555 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5730 2600 50  0001 C CNN
+F 3 "~" H 5800 2600 50  0001 C CNN
+	1    5800 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5800 2750 6475 2750
+Wire Wire Line
+	5725 2350 5875 2350
+$Comp
+L Device:D D17
+U 1 1 5DC617C4
+P 4525 2500
+F 0 "D17" V 4571 2421 50  0000 R CNN
+F 1 "D" V 4480 2421 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 4525 2500 50  0001 C CNN
+F 3 "~" H 4525 2500 50  0001 C CNN
+	1    4525 2500
+	0    -1   -1   0   
+$EndComp
+Connection ~ 5725 2550
+Wire Wire Line
+	2350 2350 2500 2350
+Wire Wire Line
+	3850 2650 4525 2650
+Wire Wire Line
+	3700 2350 3850 2350
+Wire Wire Line
+	6075 2650 6550 2650
+Wire Wire Line
+	6400 2250 6500 2250
+Wire Wire Line
+	6400 2550 5725 2550
+$Comp
+L Connector:Conn_01x04_Male J13
+U 1 1 5DC617E2
+P 1475 2350
+F 0 "J13" H 1583 2631 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 1583 2540 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 1475 2350 50  0001 C CNN
+F 3 "~" H 1475 2350 50  0001 C CNN
+	1    1475 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R15
+U 1 1 5DC61801
+P 3100 2600
+F 0 "R15" H 3170 2646 50  0000 L CNN
+F 1 "R" H 3170 2555 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3030 2600 50  0001 C CNN
+F 3 "~" H 3100 2600 50  0001 C CNN
+	1    3100 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J19
+U 1 1 5DC61811
+P 5525 2350
+F 0 "J19" H 5633 2631 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 5633 2540 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 5525 2350 50  0001 C CNN
+F 3 "~" H 5525 2350 50  0001 C CNN
+	1    5525 2350
+	1    0    0    -1  
+$EndComp
+Connection ~ 6400 2550
+Connection ~ 6475 2750
+Wire Wire Line
+	5875 2650 6550 2650
+Connection ~ 7150 2750
+$Comp
+L Device:D D21
+U 1 1 5DC61878
+P 7225 2500
+F 0 "D21" V 7271 2421 50  0000 R CNN
+F 1 "D" V 7180 2421 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 7225 2500 50  0001 C CNN
+F 3 "~" H 7225 2500 50  0001 C CNN
+	1    7225 2500
+	0    -1   -1   0   
+$EndComp
+Connection ~ 5800 2750
+Wire Wire Line
+	5725 2250 5825 2250
+Wire Wire Line
+	7075 2450 7150 2450
+Connection ~ 2425 2750
+$Comp
+L Connector:Conn_01x04_Male J12
+U 1 1 5DC6188C
+P 800 2350
+F 0 "J12" H 908 2631 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 908 2540 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 800 2350 50  0001 C CNN
+F 3 "~" H 800 2350 50  0001 C CNN
+	1    800  2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1150 2650 1825 2650
+Connection ~ 5200 2650
+$Comp
+L Device:R R17
+U 1 1 5DC618A1
+P 4450 2600
+F 0 "R17" H 4520 2646 50  0000 L CNN
+F 1 "R" H 4520 2555 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 4380 2600 50  0001 C CNN
+F 3 "~" H 4450 2600 50  0001 C CNN
+	1    4450 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D19
+U 1 1 5DC618B1
+P 5875 2500
+F 0 "D19" V 5921 2421 50  0000 R CNN
+F 1 "D" V 5830 2421 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 5875 2500 50  0001 C CNN
+F 3 "~" H 5875 2500 50  0001 C CNN
+	1    5875 2500
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5050 2350 5200 2350
+Wire Wire Line
+	7075 2250 7175 2250
+Wire Wire Line
+	3175 2650 3850 2650
+Connection ~ 4450 2750
+$Comp
+L Device:D D15
+U 1 1 5DC618E8
+P 3175 2500
+F 0 "D15" V 3221 2421 50  0000 R CNN
+F 1 "D" V 3130 2421 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 3175 2500 50  0001 C CNN
+F 3 "~" H 3175 2500 50  0001 C CNN
+	1    3175 2500
+	0    -1   -1   0   
+$EndComp
+Connection ~ 1150 2650
+Wire Wire Line
+	7750 2550 7075 2550
+Connection ~ 3775 2750
+Wire Wire Line
+	2350 2450 2425 2450
+$Comp
+L Device:R R20
+U 1 1 5DC6192A
+P 6475 2600
+F 0 "R20" H 6545 2646 50  0000 L CNN
+F 1 "R" H 6545 2555 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6405 2600 50  0001 C CNN
+F 3 "~" H 6475 2600 50  0001 C CNN
+	1    6475 2600
+	1    0    0    -1  
+$EndComp
+Connection ~ 2350 2550
+Wire Wire Line
+	1750 2750 2425 2750
+Wire Wire Line
+	7150 2750 7825 2750
+Connection ~ 1825 2650
+Wire Wire Line
+	3775 2750 4450 2750
+Wire Wire Line
+	3700 2550 3025 2550
+Wire Wire Line
+	1675 2350 1825 2350
+Connection ~ 4525 2650
+$Comp
+L Device:D D16
+U 1 1 5DC61967
+P 3850 2500
+F 0 "D16" V 3896 2421 50  0000 R CNN
+F 1 "D" V 3805 2421 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 3850 2500 50  0001 C CNN
+F 3 "~" H 3850 2500 50  0001 C CNN
+	1    3850 2500
+	0    -1   -1   0   
+$EndComp
+Connection ~ 3700 2550
+Connection ~ 7225 2650
+Wire Wire Line
+	1000 2250 1100 2250
+Wire Wire Line
+	7075 2550 6400 2550
+Connection ~ 5125 2750
+$Comp
+L Connector:Conn_01x04_Male J18
+U 1 1 5DC6197F
+P 4850 2350
+F 0 "J18" H 4958 2631 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 4958 2540 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 4850 2350 50  0001 C CNN
+F 3 "~" H 4850 2350 50  0001 C CNN
+	1    4850 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	675  2650 1150 2650
+$Comp
+L Connector:Conn_01x04_Male J21
+U 1 1 5DC619AC
+P 6875 2350
+F 0 "J21" H 6983 2631 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 6983 2540 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 6875 2350 50  0001 C CNN
+F 3 "~" H 6875 2350 50  0001 C CNN
+	1    6875 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1000 2350 1150 2350
+$Comp
+L Device:D D13
+U 1 1 5DC619BD
+P 1825 2500
+F 0 "D13" V 1871 2421 50  0000 R CNN
+F 1 "D" V 1780 2421 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 1825 2500 50  0001 C CNN
+F 3 "~" H 1825 2500 50  0001 C CNN
+	1    1825 2500
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7075 2350 7225 2350
+Wire Wire Line
+	2350 2250 2450 2250
+Wire Wire Line
+	6400 2450 6475 2450
+Connection ~ 3175 2650
+$Comp
+L Device:R R21
+U 1 1 5DC619E0
+P 7150 2600
+F 0 "R21" H 7220 2646 50  0000 L CNN
+F 1 "R" H 7220 2555 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 7080 2600 50  0001 C CNN
+F 3 "~" H 7150 2600 50  0001 C CNN
+	1    7150 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J20
+U 1 1 5DC619F2
+P 6200 2350
+F 0 "J20" H 6308 2631 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 6308 2540 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 6200 2350 50  0001 C CNN
+F 3 "~" H 6200 2350 50  0001 C CNN
+	1    6200 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R18
+U 1 1 5DC61A0F
+P 5125 2600
+F 0 "R18" H 5195 2646 50  0000 L CNN
+F 1 "R" H 5195 2555 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5055 2600 50  0001 C CNN
+F 3 "~" H 5125 2600 50  0001 C CNN
+	1    5125 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 2350 6550 2350
+$Comp
+L Device:R R22
+U 1 1 5DC61A3A
+P 7825 2600
+F 0 "R22" H 7895 2646 50  0000 L CNN
+F 1 "R" H 7895 2555 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 7755 2600 50  0001 C CNN
+F 3 "~" H 7825 2600 50  0001 C CNN
+	1    7825 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J16
+U 1 1 5DC61A68
+P 3500 2350
+F 0 "J16" H 3608 2631 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 3608 2540 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 3500 2350 50  0001 C CNN
+F 3 "~" H 3500 2350 50  0001 C CNN
+	1    3500 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1675 2450 1750 2450
+Wire Wire Line
+	7750 2450 7825 2450
+Connection ~ 7075 2550
+Wire Wire Line
+	2350 2550 1675 2550
+$Comp
+L Device:D D18
+U 1 1 5DC61A7F
+P 5200 2500
+F 0 "D18" V 5246 2421 50  0000 R CNN
+F 1 "D" V 5155 2421 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 5200 2500 50  0001 C CNN
+F 3 "~" H 5200 2500 50  0001 C CNN
+	1    5200 2500
+	0    -1   -1   0   
+$EndComp
+Connection ~ 3850 2650
+$Comp
+L Device:D D12
+U 1 1 5DC61A9D
+P 1150 2500
+F 0 "D12" V 1196 2421 50  0000 R CNN
+F 1 "D" V 1105 2421 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 1150 2500 50  0001 C CNN
+F 3 "~" H 1150 2500 50  0001 C CNN
+	1    1150 2500
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R13
+U 1 1 5DC61ACB
+P 1750 2600
+F 0 "R13" H 1820 2646 50  0000 L CNN
+F 1 "R" H 1820 2555 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 1680 2600 50  0001 C CNN
+F 3 "~" H 1750 2600 50  0001 C CNN
+	1    1750 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3100 2750 3775 2750
+Wire Wire Line
+	5050 2550 4375 2550
+Wire Wire Line
+	4375 2350 4525 2350
+$Comp
+L Device:D D20
+U 1 1 5DC61ADD
+P 6550 2500
+F 0 "D20" V 6596 2421 50  0000 R CNN
+F 1 "D" V 6505 2421 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 6550 2500 50  0001 C CNN
+F 3 "~" H 6550 2500 50  0001 C CNN
+	1    6550 2500
+	0    -1   -1   0   
+$EndComp
+Connection ~ 2500 2650
+Connection ~ 3025 2550
+Wire Wire Line
+	4375 2550 3700 2550
+Wire Wire Line
+	4525 2650 5200 2650
+Wire Wire Line
+	7750 2350 7900 2350
+Wire Wire Line
+	5200 2650 5875 2650
+Wire Wire Line
+	5050 2450 5125 2450
+Wire Wire Line
+	1675 2250 1775 2250
+$Comp
+L Connector:Conn_01x04_Male J14
+U 1 1 5DC61B24
+P 2150 2350
+F 0 "J14" H 2258 2631 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 2258 2540 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 2150 2350 50  0001 C CNN
+F 3 "~" H 2150 2350 50  0001 C CNN
+	1    2150 2350
+	1    0    0    -1  
+$EndComp
+Connection ~ 4375 2550
+$Comp
+L Device:D D14
+U 1 1 5DC61B34
+P 2500 2500
+F 0 "D14" V 2546 2421 50  0000 R CNN
+F 1 "D" V 2455 2421 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 2500 2500 50  0001 C CNN
+F 3 "~" H 2500 2500 50  0001 C CNN
+	1    2500 2500
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4450 2750 5125 2750
+Wire Wire Line
+	5050 2250 5150 2250
+$Comp
+L Device:R R14
+U 1 1 5DC61B47
+P 2425 2600
+F 0 "R14" H 2495 2646 50  0000 L CNN
+F 1 "R" H 2495 2555 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 2355 2600 50  0001 C CNN
+F 3 "~" H 2425 2600 50  0001 C CNN
+	1    2425 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7750 2250 7850 2250
+Wire Wire Line
+	4375 2250 4475 2250
+Connection ~ 6550 2650
+Wire Wire Line
+	6550 2650 7225 2650
+Wire Wire Line
+	2500 2650 3175 2650
+Wire Wire Line
+	2025 2650 2500 2650
+Wire Wire Line
+	3375 2650 3850 2650
+Connection ~ 1675 2550
+Connection ~ 1100 2250
+Wire Wire Line
+	1100 2250 1100 3025
+Wire Wire Line
+	1825 3425 2500 3425
+Wire Wire Line
+	6075 3425 6550 3425
+$Comp
+L Connector:Conn_01x04_Male J24
+U 1 1 5DC8C780
+P 1475 3125
+F 0 "J24" H 1583 3406 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 1583 3315 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 1475 3125 50  0001 C CNN
+F 3 "~" H 1475 3125 50  0001 C CNN
+	1    1475 3125
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3025 3225 3100 3225
+$Comp
+L Connector:Conn_01x04_Male J30
+U 1 1 5DC8C792
+P 5525 3125
+F 0 "J30" H 5633 3406 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 5633 3315 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 5525 3125 50  0001 C CNN
+F 3 "~" H 5525 3125 50  0001 C CNN
+	1    5525 3125
+	1    0    0    -1  
+$EndComp
+Connection ~ 3850 3425
+Connection ~ 2425 3525
+$Comp
+L Device:D D33
+U 1 1 5DC8C7A3
+P 7900 3275
+F 0 "D33" V 7946 3196 50  0000 R CNN
+F 1 "D" V 7855 3196 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 7900 3275 50  0001 C CNN
+F 3 "~" H 7900 3275 50  0001 C CNN
+	1    7900 3275
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7075 3225 7150 3225
+$Comp
+L Device:D D23
+U 1 1 5DC8C7B2
+P 1150 3275
+F 0 "D23" V 1196 3196 50  0000 R CNN
+F 1 "D" V 1105 3196 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 1150 3275 50  0001 C CNN
+F 3 "~" H 1150 3275 50  0001 C CNN
+	1    1150 3275
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3100 3525 3775 3525
+Wire Wire Line
+	6400 3025 6500 3025
+Connection ~ 5875 3425
+$Comp
+L Device:D D31
+U 1 1 5DC8C7CA
+P 6550 3275
+F 0 "D31" V 6596 3196 50  0000 R CNN
+F 1 "D" V 6505 3196 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 6550 3275 50  0001 C CNN
+F 3 "~" H 6550 3275 50  0001 C CNN
+	1    6550 3275
+	0    -1   -1   0   
+$EndComp
+Connection ~ 3025 3325
+Connection ~ 3775 3525
+Wire Wire Line
+	2425 3525 3100 3525
+Connection ~ 5800 3525
+Wire Wire Line
+	7075 3025 7175 3025
+Wire Wire Line
+	3025 3325 2350 3325
+Wire Wire Line
+	5725 3225 5800 3225
+Wire Wire Line
+	4725 3425 5200 3425
+Wire Wire Line
+	3850 3425 4525 3425
+Wire Wire Line
+	3700 3125 3850 3125
+$Comp
+L Device:R R26
+U 1 1 5DC8C7FC
+P 3100 3375
+F 0 "R26" H 3170 3421 50  0000 L CNN
+F 1 "R" H 3170 3330 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3030 3375 50  0001 C CNN
+F 3 "~" H 3100 3375 50  0001 C CNN
+	1    3100 3375
+	1    0    0    -1  
+$EndComp
+Connection ~ 4525 3425
+Connection ~ 1150 3425
+Wire Wire Line
+	7750 3325 7075 3325
+Wire Wire Line
+	5050 3125 5200 3125
+$Comp
+L Device:R R27
+U 1 1 5DC8C823
+P 3775 3375
+F 0 "R27" H 3845 3421 50  0000 L CNN
+F 1 "R" H 3845 3330 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3705 3375 50  0001 C CNN
+F 3 "~" H 3775 3375 50  0001 C CNN
+	1    3775 3375
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R30
+U 1 1 5DC8C831
+P 5800 3375
+F 0 "R30" H 5870 3421 50  0000 L CNN
+F 1 "R" H 5870 3330 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5730 3375 50  0001 C CNN
+F 3 "~" H 5800 3375 50  0001 C CNN
+	1    5800 3375
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6550 3425 7225 3425
+Wire Wire Line
+	3025 3025 3125 3025
+Connection ~ 5725 3325
+Connection ~ 7150 3525
+Connection ~ 6475 3525
+Wire Wire Line
+	2350 3225 2425 3225
+Wire Wire Line
+	1000 3225 1075 3225
+Connection ~ 5050 3325
+Wire Wire Line
+	2350 3125 2500 3125
+$Comp
+L Device:D D30
+U 1 1 5DC8C86A
+P 5875 3275
+F 0 "D30" V 5921 3196 50  0000 R CNN
+F 1 "D" V 5830 3196 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 5875 3275 50  0001 C CNN
+F 3 "~" H 5875 3275 50  0001 C CNN
+	1    5875 3275
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R23
+U 1 1 5DC8C878
+P 1075 3375
+F 0 "R23" H 1145 3421 50  0000 L CNN
+F 1 "R" H 1145 3330 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 1005 3375 50  0001 C CNN
+F 3 "~" H 1075 3375 50  0001 C CNN
+	1    1075 3375
+	1    0    0    -1  
+$EndComp
+Connection ~ 4450 3525
+$Comp
+L Connector:Conn_01x04_Male J26
+U 1 1 5DC8C88A
+P 2825 3125
+F 0 "J26" H 2933 3406 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 2933 3315 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 2825 3125 50  0001 C CNN
+F 3 "~" H 2825 3125 50  0001 C CNN
+	1    2825 3125
+	1    0    0    -1  
+$EndComp
+Connection ~ 2500 3425
+$Comp
+L Connector:Conn_01x04_Male J23
+U 1 1 5DC8C8AD
+P 800 3125
+F 0 "J23" H 908 3406 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 908 3315 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 800 3125 50  0001 C CNN
+F 3 "~" H 800 3125 50  0001 C CNN
+	1    800  3125
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1150 3425 1825 3425
+Connection ~ 2350 3325
+$Comp
+L Device:R R28
+U 1 1 5DC8C8CB
+P 4450 3375
+F 0 "R28" H 4520 3421 50  0000 L CNN
+F 1 "R" H 4520 3330 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 4380 3375 50  0001 C CNN
+F 3 "~" H 4450 3375 50  0001 C CNN
+	1    4450 3375
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J31
+U 1 1 5DC8C8DE
+P 6200 3125
+F 0 "J31" H 6308 3406 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 6308 3315 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 6200 3125 50  0001 C CNN
+F 3 "~" H 6200 3125 50  0001 C CNN
+	1    6200 3125
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D32
+U 1 1 5DC8C8ED
+P 7225 3275
+F 0 "D32" V 7271 3196 50  0000 R CNN
+F 1 "D" V 7180 3196 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 7225 3275 50  0001 C CNN
+F 3 "~" H 7225 3275 50  0001 C CNN
+	1    7225 3275
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5725 3025 5825 3025
+Wire Wire Line
+	7075 3325 6400 3325
+Connection ~ 5125 3525
+Wire Wire Line
+	4375 3225 4450 3225
+Wire Wire Line
+	6475 3525 7150 3525
+Wire Wire Line
+	5725 3125 5875 3125
+Wire Wire Line
+	5875 3425 6550 3425
+$Comp
+L Device:D D28
+U 1 1 5DC8C975
+P 4525 3275
+F 0 "D28" V 4571 3196 50  0000 R CNN
+F 1 "D" V 4480 3196 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 4525 3275 50  0001 C CNN
+F 3 "~" H 4525 3275 50  0001 C CNN
+	1    4525 3275
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5800 3525 6475 3525
+Wire Wire Line
+	3700 3225 3775 3225
+Wire Wire Line
+	6400 3325 5725 3325
+$Comp
+L Connector:Conn_01x04_Male J29
+U 1 1 5DC8C9AC
+P 4850 3125
+F 0 "J29" H 4958 3406 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 4958 3315 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 4850 3125 50  0001 C CNN
+F 3 "~" H 4850 3125 50  0001 C CNN
+	1    4850 3125
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5725 3325 5050 3325
+Wire Wire Line
+	1750 3525 2425 3525
+Wire Wire Line
+	1000 3025 1100 3025
+Wire Wire Line
+	7150 3525 7825 3525
+Wire Wire Line
+	3775 3525 4450 3525
+Connection ~ 7075 3325
+Wire Wire Line
+	4375 3025 4475 3025
+Connection ~ 6550 3425
+$Comp
+L Device:R R32
+U 1 1 5DC8C9EB
+P 7150 3375
+F 0 "R32" H 7220 3421 50  0000 L CNN
+F 1 "R" H 7220 3330 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 7080 3375 50  0001 C CNN
+F 3 "~" H 7150 3375 50  0001 C CNN
+	1    7150 3375
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 3225 6475 3225
+Connection ~ 3175 3425
+$Comp
+L Device:R R33
+U 1 1 5DC8C9FE
+P 7825 3375
+F 0 "R33" H 7895 3421 50  0000 L CNN
+F 1 "R" H 7895 3330 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 7755 3375 50  0001 C CNN
+F 3 "~" H 7825 3375 50  0001 C CNN
+	1    7825 3375
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1675 3225 1750 3225
+Wire Wire Line
+	2350 3025 2450 3025
+$Comp
+L Connector:Conn_01x04_Male J32
+U 1 1 5DC8CA10
+P 6875 3125
+F 0 "J32" H 6983 3406 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 6983 3315 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 6875 3125 50  0001 C CNN
+F 3 "~" H 6875 3125 50  0001 C CNN
+	1    6875 3125
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D29
+U 1 1 5DC8CA20
+P 5200 3275
+F 0 "D29" V 5246 3196 50  0000 R CNN
+F 1 "D" V 5155 3196 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 5200 3275 50  0001 C CNN
+F 3 "~" H 5200 3275 50  0001 C CNN
+	1    5200 3275
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5125 3525 5800 3525
+$Comp
+L Device:D D27
+U 1 1 5DC8CA4D
+P 3850 3275
+F 0 "D27" V 3896 3196 50  0000 R CNN
+F 1 "D" V 3805 3196 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 3850 3275 50  0001 C CNN
+F 3 "~" H 3850 3275 50  0001 C CNN
+	1    3850 3275
+	0    -1   -1   0   
+$EndComp
+Connection ~ 7225 3425
+Wire Wire Line
+	3700 3025 3800 3025
+Wire Wire Line
+	675  3425 1150 3425
+Wire Wire Line
+	5050 3025 5150 3025
+Wire Wire Line
+	6400 3125 6550 3125
+Connection ~ 1675 3325
+$Comp
+L Device:D D25
+U 1 1 5DC8CA76
+P 2500 3275
+F 0 "D25" V 2546 3196 50  0000 R CNN
+F 1 "D" V 2455 3196 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 2500 3275 50  0001 C CNN
+F 3 "~" H 2500 3275 50  0001 C CNN
+	1    2500 3275
+	0    -1   -1   0   
+$EndComp
+Connection ~ 3700 3325
+$Comp
+L Device:R R25
+U 1 1 5DC8CA93
+P 2425 3375
+F 0 "R25" H 2495 3421 50  0000 L CNN
+F 1 "R" H 2495 3330 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 2355 3375 50  0001 C CNN
+F 3 "~" H 2425 3375 50  0001 C CNN
+	1    2425 3375
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7750 3025 7850 3025
+Wire Wire Line
+	2025 3425 2500 3425
+Wire Wire Line
+	4375 3325 3700 3325
+Wire Wire Line
+	7750 3225 7825 3225
+$Comp
+L Connector:Conn_01x04_Male J27
+U 1 1 5DC8CABB
+P 3500 3125
+F 0 "J27" H 3608 3406 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 3608 3315 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 3500 3125 50  0001 C CNN
+F 3 "~" H 3500 3125 50  0001 C CNN
+	1    3500 3125
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2350 3325 1675 3325
+Wire Wire Line
+	1000 3125 1150 3125
+Wire Wire Line
+	5050 3325 4375 3325
+Wire Wire Line
+	7750 3125 7900 3125
+Wire Wire Line
+	5200 3425 5875 3425
+Wire Wire Line
+	5050 3225 5125 3225
+Wire Wire Line
+	1675 3025 1775 3025
+Wire Wire Line
+	3025 3125 3175 3125
+Wire Wire Line
+	1075 3525 1750 3525
+Connection ~ 3100 3525
+Connection ~ 5200 3425
+Connection ~ 1825 3425
+Wire Wire Line
+	4525 3425 5200 3425
+$Comp
+L Connector:Conn_01x04_Male J25
+U 1 1 5DC8CB24
+P 2150 3125
+F 0 "J25" H 2258 3406 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 2258 3315 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 2150 3125 50  0001 C CNN
+F 3 "~" H 2150 3125 50  0001 C CNN
+	1    2150 3125
+	1    0    0    -1  
+$EndComp
+Connection ~ 4375 3325
+$Comp
+L Device:D D24
+U 1 1 5DC8CB34
+P 1825 3275
+F 0 "D24" V 1871 3196 50  0000 R CNN
+F 1 "D" V 1780 3196 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 1825 3275 50  0001 C CNN
+F 3 "~" H 1825 3275 50  0001 C CNN
+	1    1825 3275
+	0    -1   -1   0   
+$EndComp
+Connection ~ 6400 3325
+Wire Wire Line
+	3375 3425 3850 3425
+Wire Wire Line
+	4450 3525 5125 3525
+Wire Wire Line
+	3175 3425 3850 3425
+$Comp
+L Device:D D26
+U 1 1 5DC8CB69
+P 3175 3275
+F 0 "D26" V 3221 3196 50  0000 R CNN
+F 1 "D" V 3130 3196 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 3175 3275 50  0001 C CNN
+F 3 "~" H 3175 3275 50  0001 C CNN
+	1    3175 3275
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R24
+U 1 1 5DC8CB79
+P 1750 3375
+F 0 "R24" H 1820 3421 50  0000 L CNN
+F 1 "R" H 1820 3330 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 1680 3375 50  0001 C CNN
+F 3 "~" H 1750 3375 50  0001 C CNN
+	1    1750 3375
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4375 3125 4525 3125
+Wire Wire Line
+	2500 3425 3175 3425
+$Comp
+L Device:R R31
+U 1 1 5DC8CB8C
+P 6475 3375
+F 0 "R31" H 6545 3421 50  0000 L CNN
+F 1 "R" H 6545 3330 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6405 3375 50  0001 C CNN
+F 3 "~" H 6475 3375 50  0001 C CNN
+	1    6475 3375
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J28
+U 1 1 5DC8CB9D
+P 4175 3125
+F 0 "J28" H 4283 3406 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 4283 3315 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 4175 3125 50  0001 C CNN
+F 3 "~" H 4175 3125 50  0001 C CNN
+	1    4175 3125
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J33
+U 1 1 5DC8CBAD
+P 7550 3125
+F 0 "J33" H 7658 3406 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 7658 3315 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 7550 3125 50  0001 C CNN
+F 3 "~" H 7550 3125 50  0001 C CNN
+	1    7550 3125
+	1    0    0    -1  
+$EndComp
+Connection ~ 1750 3525
+Wire Wire Line
+	7075 3125 7225 3125
+Wire Wire Line
+	3700 3325 3025 3325
+Wire Wire Line
+	1675 3125 1825 3125
+$Comp
+L Device:R R29
+U 1 1 5DC8CBFB
+P 5125 3375
+F 0 "R29" H 5195 3421 50  0000 L CNN
+F 1 "R" H 5195 3330 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5055 3375 50  0001 C CNN
+F 3 "~" H 5125 3375 50  0001 C CNN
+	1    5125 3375
+	1    0    0    -1  
+$EndComp
+Connection ~ 1100 3025
+Wire Wire Line
+	1100 3025 1100 3850
+Wire Wire Line
+	7075 4150 6400 4150
+Wire Wire Line
+	1825 4250 2500 4250
+Connection ~ 7075 4150
+Wire Wire Line
+	3175 4250 3850 4250
+Wire Wire Line
+	7075 3950 7225 3950
+Connection ~ 2425 4350
+Wire Wire Line
+	6075 4250 6550 4250
+$Comp
+L Connector:Conn_01x04_Male J38
+U 1 1 5DCC7D41
+P 3500 3950
+F 0 "J38" H 3608 4231 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 3608 4140 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 3500 3950 50  0001 C CNN
+F 3 "~" H 3500 3950 50  0001 C CNN
+	1    3500 3950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1750 4350 2425 4350
+Wire Wire Line
+	2025 4250 2500 4250
+$Comp
+L Device:R R38
+U 1 1 5DCC7D65
+P 3775 4200
+F 0 "R38" H 3845 4246 50  0000 L CNN
+F 1 "R" H 3845 4155 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3705 4200 50  0001 C CNN
+F 3 "~" H 3775 4200 50  0001 C CNN
+	1    3775 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3025 4050 3100 4050
+Wire Wire Line
+	3700 3950 3850 3950
+$Comp
+L Device:D D39
+U 1 1 5DCC7D78
+P 4525 4100
+F 0 "D39" V 4571 4021 50  0000 R CNN
+F 1 "D" V 4480 4021 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 4525 4100 50  0001 C CNN
+F 3 "~" H 4525 4100 50  0001 C CNN
+	1    4525 4100
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	1000 4050 1075 4050
+Connection ~ 3100 4350
+$Comp
+L Device:D D36
+U 1 1 5DCC7D9A
+P 2500 4100
+F 0 "D36" V 2546 4021 50  0000 R CNN
+F 1 "D" V 2455 4021 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 2500 4100 50  0001 C CNN
+F 3 "~" H 2500 4100 50  0001 C CNN
+	1    2500 4100
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5800 4350 6475 4350
+Wire Wire Line
+	1075 4350 1750 4350
+Connection ~ 5200 4250
+$Comp
+L Connector:Conn_01x04_Male J36
+U 1 1 5DCC7DC0
+P 2150 3950
+F 0 "J36" H 2258 4231 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 2258 4140 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 2150 3950 50  0001 C CNN
+F 3 "~" H 2150 3950 50  0001 C CNN
+	1    2150 3950
+	1    0    0    -1  
+$EndComp
+Connection ~ 5725 4150
+$Comp
+L Device:D D43
+U 1 1 5DCC7DD1
+P 7225 4100
+F 0 "D43" V 7271 4021 50  0000 R CNN
+F 1 "D" V 7180 4021 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 7225 4100 50  0001 C CNN
+F 3 "~" H 7225 4100 50  0001 C CNN
+	1    7225 4100
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5725 4050 5800 4050
+Wire Wire Line
+	2350 4150 1675 4150
+Wire Wire Line
+	4375 3850 4475 3850
+Connection ~ 6550 4250
+$Comp
+L Device:R R36
+U 1 1 5DCC7E02
+P 2425 4200
+F 0 "R36" H 2495 4246 50  0000 L CNN
+F 1 "R" H 2495 4155 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 2355 4200 50  0001 C CNN
+F 3 "~" H 2425 4200 50  0001 C CNN
+	1    2425 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2425 4350 3100 4350
+Connection ~ 3025 4150
+Wire Wire Line
+	6550 4250 7225 4250
+Wire Wire Line
+	1150 4250 1825 4250
+$Comp
+L Device:R R34
+U 1 1 5DCC7E23
+P 1075 4200
+F 0 "R34" H 1145 4246 50  0000 L CNN
+F 1 "R" H 1145 4155 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 1005 4200 50  0001 C CNN
+F 3 "~" H 1075 4200 50  0001 C CNN
+	1    1075 4200
+	1    0    0    -1  
+$EndComp
+Connection ~ 5125 4350
+Wire Wire Line
+	4725 4250 5200 4250
+$Comp
+L Connector:Conn_01x04_Male J35
+U 1 1 5DCC7E58
+P 1475 3950
+F 0 "J35" H 1583 4231 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 1583 4140 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 1475 3950 50  0001 C CNN
+F 3 "~" H 1475 3950 50  0001 C CNN
+	1    1475 3950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1000 3850 1100 3850
+Wire Wire Line
+	5050 4050 5125 4050
+Wire Wire Line
+	1675 3850 1775 3850
+Wire Wire Line
+	3025 3950 3175 3950
+$Comp
+L Connector:Conn_01x04_Male J41
+U 1 1 5DCC7E7E
+P 5525 3950
+F 0 "J41" H 5633 4231 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 5633 4140 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 5525 3950 50  0001 C CNN
+F 3 "~" H 5525 3950 50  0001 C CNN
+	1    5525 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R41
+U 1 1 5DCC7E8C
+P 5800 4200
+F 0 "R41" H 5870 4246 50  0000 L CNN
+F 1 "R" H 5870 4155 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5730 4200 50  0001 C CNN
+F 3 "~" H 5800 4200 50  0001 C CNN
+	1    5800 4200
+	1    0    0    -1  
+$EndComp
+Connection ~ 7150 4350
+Wire Wire Line
+	3700 4150 3025 4150
+Wire Wire Line
+	5725 3950 5875 3950
+Wire Wire Line
+	4450 4350 5125 4350
+$Comp
+L Device:D D42
+U 1 1 5DCC7EBD
+P 6550 4100
+F 0 "D42" V 6596 4021 50  0000 R CNN
+F 1 "D" V 6505 4021 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 6550 4100 50  0001 C CNN
+F 3 "~" H 6550 4100 50  0001 C CNN
+	1    6550 4100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J37
+U 1 1 5DCC7ECE
+P 2825 3950
+F 0 "J37" H 2933 4231 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 2933 4140 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 2825 3950 50  0001 C CNN
+F 3 "~" H 2825 3950 50  0001 C CNN
+	1    2825 3950
+	1    0    0    -1  
+$EndComp
+Connection ~ 2500 4250
+Wire Wire Line
+	3025 3850 3125 3850
+Wire Wire Line
+	3375 4250 3850 4250
+Connection ~ 1825 4250
+Wire Wire Line
+	5050 3950 5200 3950
+$Comp
+L Device:R R37
+U 1 1 5DCC7EFB
+P 3100 4200
+F 0 "R37" H 3170 4246 50  0000 L CNN
+F 1 "R" H 3170 4155 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3030 4200 50  0001 C CNN
+F 3 "~" H 3100 4200 50  0001 C CNN
+	1    3100 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4375 4050 4450 4050
+Connection ~ 2350 4150
+Wire Wire Line
+	1675 3950 1825 3950
+$Comp
+L Device:R R43
+U 1 1 5DCC7F1D
+P 7150 4200
+F 0 "R43" H 7220 4246 50  0000 L CNN
+F 1 "R" H 7220 4155 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 7080 4200 50  0001 C CNN
+F 3 "~" H 7150 4200 50  0001 C CNN
+	1    7150 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J39
+U 1 1 5DCC7F2D
+P 4175 3950
+F 0 "J39" H 4283 4231 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 4283 4140 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 4175 3950 50  0001 C CNN
+F 3 "~" H 4175 3950 50  0001 C CNN
+	1    4175 3950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6475 4350 7150 4350
+Wire Wire Line
+	5725 3850 5825 3850
+Wire Wire Line
+	7750 3950 7900 3950
+Wire Wire Line
+	5200 4250 5875 4250
+Connection ~ 5050 4150
+Wire Wire Line
+	2350 3950 2500 3950
+Wire Wire Line
+	6400 4050 6475 4050
+Connection ~ 3175 4250
+$Comp
+L Device:R R44
+U 1 1 5DCC7F63
+P 7825 4200
+F 0 "R44" H 7895 4246 50  0000 L CNN
+F 1 "R" H 7895 4155 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 7755 4200 50  0001 C CNN
+F 3 "~" H 7825 4200 50  0001 C CNN
+	1    7825 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2350 3850 2450 3850
+Connection ~ 5875 4250
+$Comp
+L Device:D D41
+U 1 1 5DCC7F73
+P 5875 4100
+F 0 "D41" V 5921 4021 50  0000 R CNN
+F 1 "D" V 5830 4021 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 5875 4100 50  0001 C CNN
+F 3 "~" H 5875 4100 50  0001 C CNN
+	1    5875 4100
+	0    -1   -1   0   
+$EndComp
+Connection ~ 4450 4350
+$Comp
+L Connector:Conn_01x04_Male J43
+U 1 1 5DCC7F84
+P 6875 3950
+F 0 "J43" H 6983 4231 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 6983 4140 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 6875 3950 50  0001 C CNN
+F 3 "~" H 6875 3950 50  0001 C CNN
+	1    6875 3950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5050 3850 5150 3850
+Connection ~ 3700 4150
+Wire Wire Line
+	3700 3850 3800 3850
+Wire Wire Line
+	1675 4050 1750 4050
+$Comp
+L Connector:Conn_01x04_Male J40
+U 1 1 5DCC7FA8
+P 4850 3950
+F 0 "J40" H 4958 4231 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 4958 4140 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 4850 3950 50  0001 C CNN
+F 3 "~" H 4850 3950 50  0001 C CNN
+	1    4850 3950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5725 4150 5050 4150
+$Comp
+L Device:R R40
+U 1 1 5DCC7FC8
+P 5125 4200
+F 0 "R40" H 5195 4246 50  0000 L CNN
+F 1 "R" H 5195 4155 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5055 4200 50  0001 C CNN
+F 3 "~" H 5125 4200 50  0001 C CNN
+	1    5125 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7750 3850 7850 3850
+$Comp
+L Connector:Conn_01x04_Male J44
+U 1 1 5DCC7FD9
+P 7550 3950
+F 0 "J44" H 7658 4231 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 7658 4140 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-2U" H 7550 3950 50  0001 C CNN
+F 3 "~" H 7550 3950 50  0001 C CNN
+	1    7550 3950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 4150 5725 4150
+Wire Wire Line
+	6400 3950 6550 3950
+Wire Wire Line
+	7750 4050 7825 4050
+Wire Wire Line
+	3775 4350 4450 4350
+Wire Wire Line
+	1000 3950 1150 3950
+Connection ~ 3850 4250
+$Comp
+L Device:D D40
+U 1 1 5DCC7FF4
+P 5200 4100
+F 0 "D40" V 5246 4021 50  0000 R CNN
+F 1 "D" V 5155 4021 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 5200 4100 50  0001 C CNN
+F 3 "~" H 5200 4100 50  0001 C CNN
+	1    5200 4100
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5125 4350 5800 4350
+Connection ~ 1150 4250
+Wire Wire Line
+	7750 4150 7075 4150
+Wire Wire Line
+	7075 3850 7175 3850
+Connection ~ 4525 4250
+Wire Wire Line
+	7075 4050 7150 4050
+Wire Wire Line
+	2350 4050 2425 4050
+Wire Wire Line
+	4375 3950 4525 3950
+Wire Wire Line
+	6400 3850 6500 3850
+Connection ~ 6475 4350
+$Comp
+L Device:R R39
+U 1 1 5DCC8088
+P 4450 4200
+F 0 "R39" H 4520 4246 50  0000 L CNN
+F 1 "R" H 4520 4155 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 4380 4200 50  0001 C CNN
+F 3 "~" H 4450 4200 50  0001 C CNN
+	1    4450 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J42
+U 1 1 5DCC8099
+P 6200 3950
+F 0 "J42" H 6308 4231 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 6308 4140 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 6200 3950 50  0001 C CNN
+F 3 "~" H 6200 3950 50  0001 C CNN
+	1    6200 3950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4525 4250 5200 4250
+Connection ~ 5800 4350
+Wire Wire Line
+	5050 4150 4375 4150
+$Comp
+L Device:D D37
+U 1 1 5DCC80CD
+P 3175 4100
+F 0 "D37" V 3221 4021 50  0000 R CNN
+F 1 "D" V 3130 4021 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 3175 4100 50  0001 C CNN
+F 3 "~" H 3175 4100 50  0001 C CNN
+	1    3175 4100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R35
+U 1 1 5DCC80DB
+P 1750 4200
+F 0 "R35" H 1820 4246 50  0000 L CNN
+F 1 "R" H 1820 4155 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 1680 4200 50  0001 C CNN
+F 3 "~" H 1750 4200 50  0001 C CNN
+	1    1750 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D35
+U 1 1 5DCC80E9
+P 1825 4100
+F 0 "D35" V 1871 4021 50  0000 R CNN
+F 1 "D" V 1780 4021 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 1825 4100 50  0001 C CNN
+F 3 "~" H 1825 4100 50  0001 C CNN
+	1    1825 4100
+	0    -1   -1   0   
+$EndComp
+Connection ~ 4375 4150
+Wire Wire Line
+	4375 4150 3700 4150
+Connection ~ 6400 4150
+$Comp
+L Device:D D38
+U 1 1 5DCC811E
+P 3850 4100
+F 0 "D38" V 3896 4021 50  0000 R CNN
+F 1 "D" V 3805 4021 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 3850 4100 50  0001 C CNN
+F 3 "~" H 3850 4100 50  0001 C CNN
+	1    3850 4100
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	675  4250 1150 4250
+Connection ~ 1750 4350
+$Comp
+L Connector:Conn_01x04_Male J34
+U 1 1 5DCC8131
+P 800 3950
+F 0 "J34" H 908 4231 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 908 4140 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 800 3950 50  0001 C CNN
+F 3 "~" H 800 3950 50  0001 C CNN
+	1    800  3950
+	1    0    0    -1  
+$EndComp
+Connection ~ 7225 4250
+Wire Wire Line
+	3700 4050 3775 4050
+Wire Wire Line
+	2500 4250 3175 4250
+Wire Wire Line
+	5875 4250 6550 4250
+Wire Wire Line
+	3100 4350 3775 4350
+$Comp
+L Device:R R42
+U 1 1 5DCC8168
+P 6475 4200
+F 0 "R42" H 6545 4246 50  0000 L CNN
+F 1 "R" H 6545 4155 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6405 4200 50  0001 C CNN
+F 3 "~" H 6475 4200 50  0001 C CNN
+	1    6475 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D34
+U 1 1 5DCC8178
+P 1150 4100
+F 0 "D34" V 1196 4021 50  0000 R CNN
+F 1 "D" V 1105 4021 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 1150 4100 50  0001 C CNN
+F 3 "~" H 1150 4100 50  0001 C CNN
+	1    1150 4100
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3025 4150 2350 4150
+Connection ~ 1675 4150
+$Comp
+L Device:D D44
+U 1 1 5DCC819C
+P 7900 4100
+F 0 "D44" V 7946 4021 50  0000 R CNN
+F 1 "D" V 7855 4021 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 7900 4100 50  0001 C CNN
+F 3 "~" H 7900 4100 50  0001 C CNN
+	1    7900 4100
+	0    -1   -1   0   
+$EndComp
+Connection ~ 3775 4350
+Wire Wire Line
+	7150 4350 7825 4350
+Wire Wire Line
+	3850 4250 4525 4250
+Connection ~ 1100 3850
+Wire Wire Line
+	1100 3850 1100 4650
+Connection ~ 7150 5150
+$Comp
+L Connector:Conn_01x04_Male J52
+U 1 1 5DCDE8EE
+P 5525 4750
+F 0 "J52" H 5633 5031 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 5633 4940 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 5525 4750 50  0001 C CNN
+F 3 "~" H 5525 4750 50  0001 C CNN
+	1    5525 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R52
+U 1 1 5DCDE8FC
+P 5800 5000
+F 0 "R52" H 5870 5046 50  0000 L CNN
+F 1 "R" H 5870 4955 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5730 5000 50  0001 C CNN
+F 3 "~" H 5800 5000 50  0001 C CNN
+	1    5800 5000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1675 4650 1775 4650
+Wire Wire Line
+	3025 4750 3175 4750
+Wire Wire Line
+	3700 4950 3025 4950
+Wire Wire Line
+	1825 5050 2500 5050
+Wire Wire Line
+	5725 4950 5050 4950
+$Comp
+L Device:R R46
+U 1 1 5DCDE910
+P 1750 5000
+F 0 "R46" H 1820 5046 50  0000 L CNN
+F 1 "R" H 1820 4955 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 1680 5000 50  0001 C CNN
+F 3 "~" H 1750 5000 50  0001 C CNN
+	1    1750 5000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D46
+U 1 1 5DCDE91E
+P 1825 4900
+F 0 "D46" V 1871 4821 50  0000 R CNN
+F 1 "D" V 1780 4821 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 1825 4900 50  0001 C CNN
+F 3 "~" H 1825 4900 50  0001 C CNN
+	1    1825 4900
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4525 5050 5200 5050
+$Comp
+L Device:R R50
+U 1 1 5DCDE93B
+P 4450 5000
+F 0 "R50" H 4520 5046 50  0000 L CNN
+F 1 "R" H 4520 4955 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 4380 5000 50  0001 C CNN
+F 3 "~" H 4450 5000 50  0001 C CNN
+	1    4450 5000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4450 5150 5125 5150
+Connection ~ 5725 4950
+$Comp
+L Device:R R54
+U 1 1 5DCDE94D
+P 7150 5000
+F 0 "R54" H 7220 5046 50  0000 L CNN
+F 1 "R" H 7220 4955 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 7080 5000 50  0001 C CNN
+F 3 "~" H 7150 5000 50  0001 C CNN
+	1    7150 5000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J50
+U 1 1 5DCDE95D
+P 4175 4750
+F 0 "J50" H 4283 5031 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 4283 4940 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 4175 4750 50  0001 C CNN
+F 3 "~" H 4175 4750 50  0001 C CNN
+	1    4175 4750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5050 4850 5125 4850
+Connection ~ 6550 5050
+Wire Wire Line
+	7075 4650 7175 4650
+Connection ~ 1675 4950
+$Comp
+L Device:D D51
+U 1 1 5DCDE99C
+P 5200 4900
+F 0 "D51" V 5246 4821 50  0000 R CNN
+F 1 "D" V 5155 4821 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 5200 4900 50  0001 C CNN
+F 3 "~" H 5200 4900 50  0001 C CNN
+	1    5200 4900
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	2425 5150 3100 5150
+$Comp
+L Connector:Conn_01x04_Male J55
+U 1 1 5DCDE9BB
+P 7550 4750
+F 0 "J55" H 7658 5031 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 7658 4940 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-ISO-ROTATED" H 7550 4750 50  0001 C CNN
+F 3 "~" H 7550 4750 50  0001 C CNN
+	1    7550 4750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7750 4850 7825 4850
+Wire Wire Line
+	3775 5150 4450 5150
+$Comp
+L Connector:Conn_01x04_Male J53
+U 1 1 5DCDE9EC
+P 6200 4750
+F 0 "J53" H 6308 5031 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 6308 4940 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 6200 4750 50  0001 C CNN
+F 3 "~" H 6200 4750 50  0001 C CNN
+	1    6200 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D48
+U 1 1 5DCDEA19
+P 3175 4900
+F 0 "D48" V 3221 4821 50  0000 R CNN
+F 1 "D" V 3130 4821 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 3175 4900 50  0001 C CNN
+F 3 "~" H 3175 4900 50  0001 C CNN
+	1    3175 4900
+	0    -1   -1   0   
+$EndComp
+Connection ~ 7075 4950
+Wire Wire Line
+	7150 5150 7825 5150
+Connection ~ 3100 5150
+Wire Wire Line
+	3100 5150 3775 5150
+Wire Wire Line
+	3025 4950 2350 4950
+Connection ~ 1750 5150
+Wire Wire Line
+	4375 4850 4450 4850
+Wire Wire Line
+	7075 4750 7225 4750
+Wire Wire Line
+	6400 4650 6500 4650
+Wire Wire Line
+	7750 4750 7900 4750
+Connection ~ 5200 5050
+$Comp
+L Device:D D54
+U 1 1 5DCDEA58
+P 7225 4900
+F 0 "D54" V 7271 4821 50  0000 R CNN
+F 1 "D" V 7180 4821 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 7225 4900 50  0001 C CNN
+F 3 "~" H 7225 4900 50  0001 C CNN
+	1    7225 4900
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R53
+U 1 1 5DCDEA85
+P 6475 5000
+F 0 "R53" H 6545 5046 50  0000 L CNN
+F 1 "R" H 6545 4955 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6405 5000 50  0001 C CNN
+F 3 "~" H 6475 5000 50  0001 C CNN
+	1    6475 5000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D45
+U 1 1 5DCDEA93
+P 1150 4900
+F 0 "D45" V 1196 4821 50  0000 R CNN
+F 1 "D" V 1105 4821 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 1150 4900 50  0001 C CNN
+F 3 "~" H 1150 4900 50  0001 C CNN
+	1    1150 4900
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	1675 4750 1825 4750
+Connection ~ 5875 5050
+Connection ~ 1150 5050
+$Comp
+L Device:R R55
+U 1 1 5DCDEAC8
+P 7825 5000
+F 0 "R55" H 7895 5046 50  0000 L CNN
+F 1 "R" H 7895 4955 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 7755 5000 50  0001 C CNN
+F 3 "~" H 7825 5000 50  0001 C CNN
+	1    7825 5000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D52
+U 1 1 5DCDEAD6
+P 5875 4900
+F 0 "D52" V 5921 4821 50  0000 R CNN
+F 1 "D" V 5830 4821 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 5875 4900 50  0001 C CNN
+F 3 "~" H 5875 4900 50  0001 C CNN
+	1    5875 4900
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J54
+U 1 1 5DCDEAE6
+P 6875 4750
+F 0 "J54" H 6983 5031 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 6983 4940 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 6875 4750 50  0001 C CNN
+F 3 "~" H 6875 4750 50  0001 C CNN
+	1    6875 4750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 4950 5725 4950
+$Comp
+L Device:R R45
+U 1 1 5DCDEB14
+P 1075 5000
+F 0 "R45" H 1145 5046 50  0000 L CNN
+F 1 "R" H 1145 4955 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 1005 5000 50  0001 C CNN
+F 3 "~" H 1075 5000 50  0001 C CNN
+	1    1075 5000
+	1    0    0    -1  
+$EndComp
+Connection ~ 4450 5150
+$Comp
+L Connector:Conn_01x04_Male J49
+U 1 1 5DCDEB25
+P 3500 4750
+F 0 "J49" H 3608 5031 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 3608 4940 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 3500 4750 50  0001 C CNN
+F 3 "~" H 3500 4750 50  0001 C CNN
+	1    3500 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D50
+U 1 1 5DCDEB33
+P 4525 4900
+F 0 "D50" V 4571 4821 50  0000 R CNN
+F 1 "D" V 4480 4821 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 4525 4900 50  0001 C CNN
+F 3 "~" H 4525 4900 50  0001 C CNN
+	1    4525 4900
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5050 4650 5150 4650
+Connection ~ 4525 5050
+Wire Wire Line
+	2350 4850 2425 4850
+Wire Wire Line
+	3700 4650 3800 4650
+Wire Wire Line
+	5725 4750 5875 4750
+$Comp
+L Device:D D49
+U 1 1 5DCDEB60
+P 3850 4900
+F 0 "D49" V 3896 4821 50  0000 R CNN
+F 1 "D" V 3805 4821 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 3850 4900 50  0001 C CNN
+F 3 "~" H 3850 4900 50  0001 C CNN
+	1    3850 4900
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J45
+U 1 1 5DCDEB70
+P 800 4750
+F 0 "J45" H 908 5031 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 908 4940 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-2U" H 800 4750 50  0001 C CNN
+F 3 "~" H 800 4750 50  0001 C CNN
+	1    800  4750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5800 5150 6475 5150
+Wire Wire Line
+	6475 5150 7150 5150
+Wire Wire Line
+	4375 4650 4475 4650
+Wire Wire Line
+	1000 4750 1150 4750
+Connection ~ 4375 4950
+Connection ~ 7225 5050
+Wire Wire Line
+	7075 4850 7150 4850
+$Comp
+L Connector:Conn_01x04_Male J51
+U 1 1 5DCDEBC3
+P 4850 4750
+F 0 "J51" H 4958 5031 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 4958 4940 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 4850 4750 50  0001 C CNN
+F 3 "~" H 4850 4750 50  0001 C CNN
+	1    4850 4750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 4750 6550 4750
+Connection ~ 2500 5050
+$Comp
+L Device:R R49
+U 1 1 5DCDEBE5
+P 3775 5000
+F 0 "R49" H 3845 5046 50  0000 L CNN
+F 1 "R" H 3845 4955 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3705 5000 50  0001 C CNN
+F 3 "~" H 3775 5000 50  0001 C CNN
+	1    3775 5000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J46
+U 1 1 5DCDEBF5
+P 1475 4750
+F 0 "J46" H 1583 5031 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 1583 4940 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 1475 4750 50  0001 C CNN
+F 3 "~" H 1475 4750 50  0001 C CNN
+	1    1475 4750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1000 4650 1100 4650
+Wire Wire Line
+	7750 4950 7075 4950
+Wire Wire Line
+	3025 4850 3100 4850
+Wire Wire Line
+	4375 4950 3700 4950
+Wire Wire Line
+	7750 4650 7850 4650
+Wire Wire Line
+	5125 5150 5800 5150
+Connection ~ 3175 5050
+$Comp
+L Connector:Conn_01x04_Male J47
+U 1 1 5DCDEC23
+P 2150 4750
+F 0 "J47" H 2258 5031 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 2258 4940 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 2150 4750 50  0001 C CNN
+F 3 "~" H 2150 4750 50  0001 C CNN
+	1    2150 4750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3850 5050 4525 5050
+Connection ~ 3850 5050
+Wire Wire Line
+	3700 4750 3850 4750
+Wire Wire Line
+	3700 4850 3775 4850
+Connection ~ 6475 5150
+Connection ~ 6400 4950
+Wire Wire Line
+	2500 5050 3175 5050
+Wire Wire Line
+	5875 5050 6550 5050
+Wire Wire Line
+	4725 5050 5200 5050
+Wire Wire Line
+	3025 4650 3125 4650
+Wire Wire Line
+	2350 4650 2450 4650
+Wire Wire Line
+	3375 5050 3850 5050
+Wire Wire Line
+	5200 5050 5875 5050
+Connection ~ 3700 4950
+Wire Wire Line
+	4375 4750 4525 4750
+Connection ~ 1825 5050
+Wire Wire Line
+	5050 4750 5200 4750
+Wire Wire Line
+	1000 4850 1075 4850
+Connection ~ 5800 5150
+$Comp
+L Device:D D47
+U 1 1 5DCDECB1
+P 2500 4900
+F 0 "D47" V 2546 4821 50  0000 R CNN
+F 1 "D" V 2455 4821 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 2500 4900 50  0001 C CNN
+F 3 "~" H 2500 4900 50  0001 C CNN
+	1    2500 4900
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	1075 5150 1750 5150
+Connection ~ 5125 5150
+$Comp
+L Device:R R51
+U 1 1 5DCDECD0
+P 5125 5000
+F 0 "R51" H 5195 5046 50  0000 L CNN
+F 1 "R" H 5195 4955 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5055 5000 50  0001 C CNN
+F 3 "~" H 5125 5000 50  0001 C CNN
+	1    5125 5000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3175 5050 3850 5050
+Wire Wire Line
+	1750 5150 2425 5150
+Connection ~ 5050 4950
+Wire Wire Line
+	2350 4750 2500 4750
+Wire Wire Line
+	6400 4850 6475 4850
+$Comp
+L Device:R R47
+U 1 1 5DCDECF1
+P 2425 5000
+F 0 "R47" H 2495 5046 50  0000 L CNN
+F 1 "R" H 2495 4955 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 2355 5000 50  0001 C CNN
+F 3 "~" H 2425 5000 50  0001 C CNN
+	1    2425 5000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1150 5050 1825 5050
+Wire Wire Line
+	2025 5050 2500 5050
+$Comp
+L Device:D D53
+U 1 1 5DCDED04
+P 6550 4900
+F 0 "D53" V 6596 4821 50  0000 R CNN
+F 1 "D" V 6505 4821 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 6550 4900 50  0001 C CNN
+F 3 "~" H 6550 4900 50  0001 C CNN
+	1    6550 4900
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J48
+U 1 1 5DCDED14
+P 2825 4750
+F 0 "J48" H 2933 5031 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 2933 4940 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1.5U" H 2825 4750 50  0001 C CNN
+F 3 "~" H 2825 4750 50  0001 C CNN
+	1    2825 4750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7075 4950 6400 4950
+$Comp
+L Device:R R48
+U 1 1 5DCDED28
+P 3100 5000
+F 0 "R48" H 3170 5046 50  0000 L CNN
+F 1 "R" H 3170 4955 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3030 5000 50  0001 C CNN
+F 3 "~" H 3100 5000 50  0001 C CNN
+	1    3100 5000
+	1    0    0    -1  
+$EndComp
+Connection ~ 3025 4950
+Wire Wire Line
+	6550 5050 7225 5050
+Connection ~ 3775 5150
+Wire Wire Line
+	675  5050 1150 5050
+Wire Wire Line
+	5050 4950 4375 4950
+$Comp
+L Device:D D55
+U 1 1 5DCDED4B
+P 7900 4900
+F 0 "D55" V 7946 4821 50  0000 R CNN
+F 1 "D" V 7855 4821 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 7900 4900 50  0001 C CNN
+F 3 "~" H 7900 4900 50  0001 C CNN
+	1    7900 4900
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6075 5050 6550 5050
+Connection ~ 2425 5150
+Wire Wire Line
+	5725 4650 5825 4650
+Wire Wire Line
+	2350 4950 1675 4950
+Wire Wire Line
+	5725 4850 5800 4850
+Connection ~ 2350 4950
+Wire Wire Line
+	1675 4850 1750 4850
+Connection ~ 1100 4650
+Wire Wire Line
+	1100 4650 1100 5500
+Wire Wire Line
+	5800 6000 6475 6000
+Wire Wire Line
+	4375 5600 4525 5600
+$Comp
+L Device:D D60
+U 1 1 5DD48EDB
+P 3850 5750
+F 0 "D60" V 3896 5671 50  0000 R CNN
+F 1 "D" V 3805 5671 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 3850 5750 50  0001 C CNN
+F 3 "~" H 3850 5750 50  0001 C CNN
+	1    3850 5750
+	0    -1   -1   0   
+$EndComp
+Connection ~ 3850 5900
+$Comp
+L Connector:Conn_01x04_Male J65
+U 1 1 5DD48F02
+P 6875 5600
+F 0 "J65" H 6983 5881 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 6983 5790 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 6875 5600 50  0001 C CNN
+F 3 "~" H 6875 5600 50  0001 C CNN
+	1    6875 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 5600 6550 5600
+Connection ~ 5800 6000
+Connection ~ 3100 6000
+Connection ~ 3775 6000
+Wire Wire Line
+	7750 5800 7075 5800
+Wire Wire Line
+	6475 6000 7150 6000
+Connection ~ 6550 5900
+Wire Wire Line
+	7075 5800 6400 5800
+Connection ~ 6475 6000
+$Comp
+L Connector:Conn_01x04_Male J60
+U 1 1 5DD48F65
+P 3500 5600
+F 0 "J60" H 3608 5881 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 3608 5790 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 3500 5600 50  0001 C CNN
+F 3 "~" H 3500 5600 50  0001 C CNN
+	1    3500 5600
+	1    0    0    -1  
+$EndComp
+Connection ~ 5125 6000
+Wire Wire Line
+	1750 6000 2425 6000
+Connection ~ 1675 5800
+$Comp
+L Device:R R61
+U 1 1 5DD48F9A
+P 4450 5850
+F 0 "R61" H 4520 5896 50  0000 L CNN
+F 1 "R" H 4520 5805 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 4380 5850 50  0001 C CNN
+F 3 "~" H 4450 5850 50  0001 C CNN
+	1    4450 5850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7750 5700 7825 5700
+Wire Wire Line
+	5050 5600 5200 5600
+Wire Wire Line
+	4375 5700 4450 5700
+$Comp
+L Device:D D62
+U 1 1 5DD48FBB
+P 5200 5750
+F 0 "D62" V 5246 5671 50  0000 R CNN
+F 1 "D" V 5155 5671 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 5200 5750 50  0001 C CNN
+F 3 "~" H 5200 5750 50  0001 C CNN
+	1    5200 5750
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R66
+U 1 1 5DD48FCC
+P 7825 5850
+F 0 "R66" H 7895 5896 50  0000 L CNN
+F 1 "R" H 7895 5805 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 7755 5850 50  0001 C CNN
+F 3 "~" H 7825 5850 50  0001 C CNN
+	1    7825 5850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6550 5900 7225 5900
+$Comp
+L Device:D D65
+U 1 1 5DD48FE9
+P 7225 5750
+F 0 "D65" V 7271 5671 50  0000 R CNN
+F 1 "D" V 7180 5671 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 7225 5750 50  0001 C CNN
+F 3 "~" H 7225 5750 50  0001 C CNN
+	1    7225 5750
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:D D59
+U 1 1 5DD48FFA
+P 3175 5750
+F 0 "D59" V 3221 5671 50  0000 R CNN
+F 1 "D" V 3130 5671 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 3175 5750 50  0001 C CNN
+F 3 "~" H 3175 5750 50  0001 C CNN
+	1    3175 5750
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:D D61
+U 1 1 5DD4900B
+P 4525 5750
+F 0 "D61" V 4571 5671 50  0000 R CNN
+F 1 "D" V 4480 5671 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 4525 5750 50  0001 C CNN
+F 3 "~" H 4525 5750 50  0001 C CNN
+	1    4525 5750
+	0    -1   -1   0   
+$EndComp
+Connection ~ 2350 5800
+Wire Wire Line
+	6400 5500 6500 5500
+$Comp
+L Device:D D63
+U 1 1 5DD49052
+P 5875 5750
+F 0 "D63" V 5921 5671 50  0000 R CNN
+F 1 "D" V 5830 5671 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 5875 5750 50  0001 C CNN
+F 3 "~" H 5875 5750 50  0001 C CNN
+	1    5875 5750
+	0    -1   -1   0   
+$EndComp
+Connection ~ 5725 5800
+Wire Wire Line
+	2350 5600 2500 5600
+Wire Wire Line
+	3175 5900 3850 5900
+Connection ~ 7150 6000
+Wire Wire Line
+	7075 5500 7175 5500
+$Comp
+L Connector:Conn_01x04_Male J61
+U 1 1 5DD49087
+P 4175 5600
+F 0 "J61" H 4283 5881 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 4283 5790 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 4175 5600 50  0001 C CNN
+F 3 "~" H 4175 5600 50  0001 C CNN
+	1    4175 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J66
+U 1 1 5DD49098
+P 7550 5600
+F 0 "J66" H 7658 5881 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 7658 5790 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 7550 5600 50  0001 C CNN
+F 3 "~" H 7550 5600 50  0001 C CNN
+	1    7550 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3775 6000 4450 6000
+$Comp
+L Device:R R63
+U 1 1 5DD490A8
+P 5800 5850
+F 0 "R63" H 5870 5896 50  0000 L CNN
+F 1 "R" H 5870 5805 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5730 5850 50  0001 C CNN
+F 3 "~" H 5800 5850 50  0001 C CNN
+	1    5800 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D57
+U 1 1 5DD490B7
+P 1825 5750
+F 0 "D57" V 1871 5671 50  0000 R CNN
+F 1 "D" V 1780 5671 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 1825 5750 50  0001 C CNN
+F 3 "~" H 1825 5750 50  0001 C CNN
+	1    1825 5750
+	0    -1   -1   0   
+$EndComp
+Connection ~ 1150 5900
+$Comp
+L Connector:Conn_01x04_Male J64
+U 1 1 5DD49107
+P 6200 5600
+F 0 "J64" H 6308 5881 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 6308 5790 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 6200 5600 50  0001 C CNN
+F 3 "~" H 6200 5600 50  0001 C CNN
+	1    6200 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R57
+U 1 1 5DD49115
+P 1750 5850
+F 0 "R57" H 1820 5896 50  0000 L CNN
+F 1 "R" H 1820 5805 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 1680 5850 50  0001 C CNN
+F 3 "~" H 1750 5850 50  0001 C CNN
+	1    1750 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R65
+U 1 1 5DD49134
+P 7150 5850
+F 0 "R65" H 7220 5896 50  0000 L CNN
+F 1 "R" H 7220 5805 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 7080 5850 50  0001 C CNN
+F 3 "~" H 7150 5850 50  0001 C CNN
+	1    7150 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R64
+U 1 1 5DD49142
+P 6475 5850
+F 0 "R64" H 6545 5896 50  0000 L CNN
+F 1 "R" H 6545 5805 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6405 5850 50  0001 C CNN
+F 3 "~" H 6475 5850 50  0001 C CNN
+	1    6475 5850
+	1    0    0    -1  
+$EndComp
+Connection ~ 4450 6000
+Wire Wire Line
+	5725 5600 5875 5600
+Connection ~ 1750 6000
+$Comp
+L Device:D D66
+U 1 1 5DD49175
+P 7900 5750
+F 0 "D66" V 7946 5671 50  0000 R CNN
+F 1 "D" V 7855 5671 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 7900 5750 50  0001 C CNN
+F 3 "~" H 7900 5750 50  0001 C CNN
+	1    7900 5750
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R60
+U 1 1 5DD49183
+P 3775 5850
+F 0 "R60" H 3845 5896 50  0000 L CNN
+F 1 "R" H 3845 5805 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3705 5850 50  0001 C CNN
+F 3 "~" H 3775 5850 50  0001 C CNN
+	1    3775 5850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5050 5700 5125 5700
+Wire Wire Line
+	2425 6000 3100 6000
+Wire Wire Line
+	5125 6000 5800 6000
+Wire Wire Line
+	2350 5800 1675 5800
+Wire Wire Line
+	3025 5800 2350 5800
+$Comp
+L Device:D D58
+U 1 1 5DD491AB
+P 2500 5750
+F 0 "D58" V 2546 5671 50  0000 R CNN
+F 1 "D" V 2455 5671 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 2500 5750 50  0001 C CNN
+F 3 "~" H 2500 5750 50  0001 C CNN
+	1    2500 5750
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J62
+U 1 1 5DD491BB
+P 4850 5600
+F 0 "J62" H 4958 5881 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 4958 5790 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 4850 5600 50  0001 C CNN
+F 3 "~" H 4850 5600 50  0001 C CNN
+	1    4850 5600
+	1    0    0    -1  
+$EndComp
+Connection ~ 7075 5800
+Connection ~ 2500 5900
+Connection ~ 3025 5800
+Wire Wire Line
+	7150 6000 7825 6000
+Connection ~ 5200 5900
+Wire Wire Line
+	7225 5900 7900 5900
+Wire Wire Line
+	1000 5600 1150 5600
+Wire Wire Line
+	4375 5500 4475 5500
+$Comp
+L Device:R R62
+U 1 1 5DD49217
+P 5125 5850
+F 0 "R62" H 5195 5896 50  0000 L CNN
+F 1 "R" H 5195 5805 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5055 5850 50  0001 C CNN
+F 3 "~" H 5125 5850 50  0001 C CNN
+	1    5125 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D64
+U 1 1 5DD49225
+P 6550 5750
+F 0 "D64" V 6596 5671 50  0000 R CNN
+F 1 "D" V 6505 5671 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 6550 5750 50  0001 C CNN
+F 3 "~" H 6550 5750 50  0001 C CNN
+	1    6550 5750
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3025 5700 3100 5700
+Wire Wire Line
+	1000 5700 1075 5700
+Wire Wire Line
+	3700 5700 3775 5700
+Wire Wire Line
+	3700 5600 3850 5600
+Wire Wire Line
+	7750 5600 7900 5600
+Wire Wire Line
+	675  5900 1150 5900
+$Comp
+L Device:R R58
+U 1 1 5DD4923B
+P 2425 5850
+F 0 "R58" H 2495 5896 50  0000 L CNN
+F 1 "R" H 2495 5805 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 2355 5850 50  0001 C CNN
+F 3 "~" H 2425 5850 50  0001 C CNN
+	1    2425 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J59
+U 1 1 5DD4924B
+P 2825 5600
+F 0 "J59" H 2933 5881 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 2933 5790 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 2825 5600 50  0001 C CNN
+F 3 "~" H 2825 5600 50  0001 C CNN
+	1    2825 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2350 5700 2425 5700
+$Comp
+L Connector:Conn_01x04_Male J58
+U 1 1 5DD4925C
+P 2150 5600
+F 0 "J58" H 2258 5881 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 2258 5790 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 2150 5600 50  0001 C CNN
+F 3 "~" H 2150 5600 50  0001 C CNN
+	1    2150 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J63
+U 1 1 5DD4926C
+P 5525 5600
+F 0 "J63" H 5633 5881 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 5633 5790 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 5525 5600 50  0001 C CNN
+F 3 "~" H 5525 5600 50  0001 C CNN
+	1    5525 5600
+	1    0    0    -1  
+$EndComp
+Connection ~ 4375 5800
+Connection ~ 6400 5800
+Wire Wire Line
+	5725 5500 5825 5500
+Wire Wire Line
+	7075 5700 7150 5700
+Wire Wire Line
+	3700 5500 3800 5500
+Wire Wire Line
+	3850 5900 4525 5900
+Wire Wire Line
+	1150 5900 1825 5900
+Wire Wire Line
+	3025 5600 3175 5600
+Wire Wire Line
+	3025 5500 3125 5500
+Wire Wire Line
+	7075 5600 7225 5600
+Wire Wire Line
+	2350 5500 2450 5500
+Wire Wire Line
+	6400 5700 6475 5700
+Connection ~ 3175 5900
+$Comp
+L Device:R R59
+U 1 1 5DD4928D
+P 3100 5850
+F 0 "R59" H 3170 5896 50  0000 L CNN
+F 1 "R" H 3170 5805 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3030 5850 50  0001 C CNN
+F 3 "~" H 3100 5850 50  0001 C CNN
+	1    3100 5850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5725 5700 5800 5700
+Wire Wire Line
+	4450 6000 5125 6000
+$Comp
+L Device:D D56
+U 1 1 5DD492C2
+P 1150 5750
+F 0 "D56" V 1196 5671 50  0000 R CNN
+F 1 "D" V 1105 5671 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 1150 5750 50  0001 C CNN
+F 3 "~" H 1150 5750 50  0001 C CNN
+	1    1150 5750
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6400 5800 5725 5800
+$Comp
+L Connector:Conn_01x04_Male J57
+U 1 1 5DD492D3
+P 1475 5600
+F 0 "J57" H 1583 5881 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 1583 5790 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 1475 5600 50  0001 C CNN
+F 3 "~" H 1475 5600 50  0001 C CNN
+	1    1475 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5050 5500 5150 5500
+Connection ~ 3700 5800
+Connection ~ 7225 5900
+Wire Wire Line
+	3100 6000 3775 6000
+Wire Wire Line
+	5050 5800 4375 5800
+Wire Wire Line
+	5200 5900 5875 5900
+Wire Wire Line
+	1075 6000 1750 6000
+Wire Wire Line
+	7750 5500 7850 5500
+Connection ~ 2425 6000
+$Comp
+L Connector:Conn_01x04_Male J56
+U 1 1 5DD49311
+P 800 5600
+F 0 "J56" H 908 5881 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 908 5790 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 800 5600 50  0001 C CNN
+F 3 "~" H 800 5600 50  0001 C CNN
+	1    800  5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1000 5500 1100 5500
+Connection ~ 5050 5800
+Wire Wire Line
+	3700 5800 3025 5800
+Wire Wire Line
+	1675 5600 1825 5600
+Wire Wire Line
+	2500 5900 3175 5900
+Wire Wire Line
+	5725 5800 5050 5800
+Wire Wire Line
+	4375 5800 3700 5800
+$Comp
+L Device:R R56
+U 1 1 5DD49339
+P 1075 5850
+F 0 "R56" H 1145 5896 50  0000 L CNN
+F 1 "R" H 1145 5805 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 1005 5850 50  0001 C CNN
+F 3 "~" H 1075 5850 50  0001 C CNN
+	1    1075 5850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1675 5700 1750 5700
+Wire Wire Line
+	1675 5500 1775 5500
+Wire Wire Line
+	1775 1475 1775 2250
+Connection ~ 1775 2250
+Wire Wire Line
+	1775 2250 1775 3025
+Connection ~ 1775 3025
+Wire Wire Line
+	1775 3025 1775 3850
+Connection ~ 1775 3850
+Wire Wire Line
+	1775 3850 1775 4650
+Connection ~ 1775 4650
+Wire Wire Line
+	1775 4650 1775 5500
+Wire Wire Line
+	2450 5500 2450 4650
+Connection ~ 2450 1475
+Wire Wire Line
+	2450 1475 2450 1025
+Connection ~ 2450 2250
+Wire Wire Line
+	2450 2250 2450 1475
+Connection ~ 2450 3025
+Wire Wire Line
+	2450 3025 2450 2250
+Connection ~ 2450 3850
+Wire Wire Line
+	2450 3850 2450 3025
+Connection ~ 2450 4650
+Wire Wire Line
+	2450 4650 2450 3850
+Wire Wire Line
+	3125 1475 3125 2250
+Connection ~ 3125 2250
+Wire Wire Line
+	3125 2250 3125 3025
+Connection ~ 3125 3025
+Wire Wire Line
+	3125 3025 3125 3850
+Connection ~ 3125 3850
+Wire Wire Line
+	3125 3850 3125 4650
+Connection ~ 3125 4650
+Wire Wire Line
+	3125 4650 3125 5500
+Wire Wire Line
+	3800 5500 3800 4650
+Connection ~ 3800 1475
+Wire Wire Line
+	3800 1475 3800 1025
+Connection ~ 3800 2250
+Wire Wire Line
+	3800 2250 3800 1475
+Connection ~ 3800 3025
+Wire Wire Line
+	3800 3025 3800 2250
+Connection ~ 3800 3850
+Wire Wire Line
+	3800 3850 3800 3025
+Connection ~ 3800 4650
+Wire Wire Line
+	3800 4650 3800 3850
+Wire Wire Line
+	3125 1475 3125 1025
+Connection ~ 3125 1475
+Wire Wire Line
+	1775 1475 1775 1025
+Connection ~ 1775 1475
+Wire Wire Line
+	4475 1475 4475 2250
+Connection ~ 4475 2250
+Wire Wire Line
+	4475 2250 4475 3025
+Connection ~ 4475 3025
+Wire Wire Line
+	4475 3025 4475 3850
+Connection ~ 4475 3850
+Wire Wire Line
+	4475 3850 4475 4650
+Connection ~ 4475 4650
+Wire Wire Line
+	4475 4650 4475 5500
+Wire Wire Line
+	5150 5500 5150 4650
+Connection ~ 5150 1475
+Wire Wire Line
+	5150 1475 5150 1025
+Connection ~ 5150 2250
+Wire Wire Line
+	5150 2250 5150 1475
+Connection ~ 5150 3025
+Wire Wire Line
+	5150 3025 5150 2250
+Connection ~ 5150 3850
+Wire Wire Line
+	5150 3850 5150 3025
+Connection ~ 5150 4650
+Wire Wire Line
+	5150 4650 5150 3850
+Wire Wire Line
+	4475 1475 4475 1025
+Connection ~ 4475 1475
+Wire Wire Line
+	5825 1475 5825 1025
+Wire Wire Line
+	5825 1475 5825 2250
+Connection ~ 5825 1475
+Connection ~ 5825 2250
+Wire Wire Line
+	5825 2250 5825 3025
+Connection ~ 5825 3025
+Wire Wire Line
+	5825 3025 5825 3850
+Connection ~ 5825 3850
+Wire Wire Line
+	5825 3850 5825 4650
+Connection ~ 5825 4650
+Wire Wire Line
+	5825 4650 5825 5500
+Wire Wire Line
+	6500 5500 6500 4650
+Connection ~ 6500 1475
+Wire Wire Line
+	6500 1475 6500 1025
+Connection ~ 6500 2250
+Wire Wire Line
+	6500 2250 6500 1475
+Connection ~ 6500 3025
+Wire Wire Line
+	6500 3025 6500 2250
+Connection ~ 6500 3850
+Wire Wire Line
+	6500 3850 6500 3025
+Connection ~ 6500 4650
+Wire Wire Line
+	6500 4650 6500 3850
+Wire Wire Line
+	7175 1475 7175 1025
+Wire Wire Line
+	7175 1475 7175 2250
+Connection ~ 7175 1475
+Connection ~ 7175 2250
+Wire Wire Line
+	7175 2250 7175 3025
+Connection ~ 7175 3025
+Wire Wire Line
+	7175 3025 7175 3850
+Connection ~ 7175 3850
+Wire Wire Line
+	7175 3850 7175 4650
+Connection ~ 7175 4650
+Wire Wire Line
+	7175 4650 7175 5500
+Wire Wire Line
+	7850 5500 7850 4650
+Connection ~ 7850 1475
+Wire Wire Line
+	7850 1475 7850 1025
+Connection ~ 7850 2250
+Wire Wire Line
+	7850 2250 7850 1475
+Connection ~ 7850 3025
+Wire Wire Line
+	7850 3025 7850 2250
+Connection ~ 7850 3850
+Wire Wire Line
+	7850 3850 7850 3025
+Connection ~ 7850 4650
+Wire Wire Line
+	7850 4650 7850 3850
+Wire Wire Line
+	5875 5900 6550 5900
+Connection ~ 5875 5900
+Wire Wire Line
+	4525 5900 5200 5900
+Connection ~ 4525 5900
+Wire Wire Line
+	1825 5900 2500 5900
+Connection ~ 1825 5900
+Text GLabel 675  1875 0    50   Input ~ 0
+ROW0
+Text GLabel 675  2650 0    50   Input ~ 0
+ROW1
+Text GLabel 675  3425 0    50   Input ~ 0
+ROW2
+Text GLabel 675  4250 0    50   Input ~ 0
+ROW3
+Text GLabel 675  5050 0    50   Input ~ 0
+ROW4
+Text GLabel 675  5900 0    50   Input ~ 0
+ROW5
+Wire Wire Line
+	325  5800 325  4950
+Wire Wire Line
+	325  1775 1000 1775
+Wire Wire Line
+	325  5800 1000 5800
+Connection ~ 1000 5800
+Wire Wire Line
+	1000 5800 1675 5800
+Connection ~ 1000 1775
+Wire Wire Line
+	1000 1775 1675 1775
+Wire Wire Line
+	325  2550 1000 2550
+Connection ~ 325  2550
+Wire Wire Line
+	325  2550 325  1775
+Connection ~ 1000 2550
+Wire Wire Line
+	1000 2550 1675 2550
+Wire Wire Line
+	325  3325 1000 3325
+Connection ~ 325  3325
+Wire Wire Line
+	325  3325 325  2550
+Connection ~ 1000 3325
+Wire Wire Line
+	1000 3325 1675 3325
+Wire Wire Line
+	325  4150 1000 4150
+Connection ~ 325  4150
+Wire Wire Line
+	325  4150 325  3325
+Connection ~ 1000 4150
+Wire Wire Line
+	1000 4150 1675 4150
+Wire Wire Line
+	325  4950 1000 4950
+Connection ~ 325  4950
+Wire Wire Line
+	325  4950 325  4150
+Connection ~ 1000 4950
+Wire Wire Line
+	1000 4950 1675 4950
+Wire Wire Line
+	425  1975 425  2750
+Wire Wire Line
+	425  6000 1075 6000
+Wire Wire Line
+	425  1975 1075 1975
+Connection ~ 1075 1975
+Wire Wire Line
+	1075 1975 1750 1975
+Connection ~ 1075 6000
+Wire Wire Line
+	1075 5150 425  5150
+Connection ~ 1075 5150
+Connection ~ 425  5150
+Wire Wire Line
+	425  5150 425  6000
+Wire Wire Line
+	1075 4350 425  4350
+Connection ~ 1075 4350
+Connection ~ 425  4350
+Wire Wire Line
+	425  4350 425  5150
+Wire Wire Line
+	1075 3525 425  3525
+Connection ~ 1075 3525
+Connection ~ 425  3525
+Wire Wire Line
+	425  3525 425  4350
+Wire Wire Line
+	1075 2750 425  2750
+Connection ~ 1075 2750
+Connection ~ 425  2750
+Wire Wire Line
+	425  2750 425  3525
+Text GLabel 1100 1025 0    50   Input ~ 0
+COL0
+Text GLabel 1775 1025 0    50   Input ~ 0
+COL1
+Text GLabel 2450 1025 0    50   Input ~ 0
+COL2
+Text GLabel 3125 1025 0    50   Input ~ 0
+COL3
+Text GLabel 3800 1025 0    50   Input ~ 0
+COL4
+Text GLabel 4475 1025 0    50   Input ~ 0
+COL5
+Text GLabel 5150 1025 0    50   Input ~ 0
+COL6
+Text GLabel 5825 1025 0    50   Input ~ 0
+COL7
+Text GLabel 6500 1025 0    50   Input ~ 0
+COL8
+Text GLabel 7175 1025 0    50   Input ~ 0
+COL9
+Text GLabel 7850 1025 0    50   Input ~ 0
+COL10
+Text GLabel 325  1775 0    50   Input ~ 0
+GND
+Text GLabel -1375 12775 2    50   Input ~ 0
+ROW0
+Text GLabel -1375 10875 2    50   Input ~ 0
+ROW2
+Text GLabel -1375 12875 2    50   Input ~ 0
+ROW3
+Text GLabel -1375 12975 2    50   Input ~ 0
+ROW4
+Text GLabel -1375 11575 2    50   Input ~ 0
+COL0
+Text GLabel -1375 11175 2    50   Input ~ 0
+COL1
+Text GLabel -1375 11775 2    50   Input ~ 0
+COL2
+Text GLabel -1375 10975 2    50   Input ~ 0
+COL3
+Text GLabel -1375 13075 2    50   Input ~ 0
+COL4
+Text GLabel -1375 11075 2    50   Input ~ 0
+COL5
+Text GLabel -1375 12275 2    50   Input ~ 0
+COL6
+Text GLabel -1375 11975 2    50   Input ~ 0
+COL7
+Text GLabel -1375 12075 2    50   Input ~ 0
+COL8
+Text GLabel -1375 11425 2    50   Input ~ 0
+COL9
+Text GLabel -1375 11875 2    50   Input ~ 0
+COL10
+Text GLabel -1375 10575 2    50   Input ~ 0
+ROW7
+Text GLabel -1375 10775 2    50   Input ~ 0
+ROW8
+Text GLabel -2575 12625 0    50   Input ~ 0
+GND
+$Comp
+L Switch:SW_SPST SW1
+U 1 1 5DBEC3D4
+P -150 10125
+F 0 "SW1" H -150 10360 50  0000 C CNN
+F 1 "SW_SPST" H -150 10269 50  0000 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical" H -150 10125 50  0001 C CNN
+F 3 "~" H -150 10125 50  0001 C CNN
+	1    -150 10125
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R112
+U 1 1 5DBEE9E7
+P -600 10125
+F 0 "R112" H -530 10171 50  0000 L CNN
+F 1 "R" H -530 10080 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V -670 10125 50  0001 C CNN
+F 3 "~" H -600 10125 50  0001 C CNN
+	1    -600 10125
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R111
+U 1 1 5DBF871B
+P -600 9900
+F 0 "R111" H -530 9946 50  0000 L CNN
+F 1 "R" H -530 9855 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V -670 9900 50  0001 C CNN
+F 3 "~" H -600 9900 50  0001 C CNN
+	1    -600 9900
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	-450 9900 -450 10125
+Wire Wire Line
+	-450 10125 -350 10125
+Connection ~ -450 10125
+Wire Wire Line
+	-750 9900 -750 10125
+Wire Wire Line
+	1825 1875 2500 1875
+Connection ~ 1825 1875
+Wire Wire Line
+	7225 1875 7900 1875
+Wire Wire Line
+	7225 2650 7900 2650
+Wire Wire Line
+	7225 3425 7900 3425
+Wire Wire Line
+	7225 4250 7900 4250
+Wire Wire Line
+	7225 5050 7900 5050
+Wire Wire Line
+	425  6000 425  6850
+Connection ~ 425  6000
+Wire Wire Line
+	325  5800 325  6650
+Connection ~ 325  5800
+Connection ~ 5200 6750
+$Comp
+L Connector:Conn_01x04_Male J77
+U 1 1 5DA9D6D9
+P 7550 6450
+F 0 "J77" H 7658 6731 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 7658 6640 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 7550 6450 50  0001 C CNN
+F 3 "~" H 7550 6450 50  0001 C CNN
+	1    7550 6450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4375 6650 3700 6650
+$Comp
+L Device:R R67
+U 1 1 5DA9D6E8
+P 1075 6700
+F 0 "R67" H 1145 6746 50  0000 L CNN
+F 1 "R" H 1145 6655 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 1005 6700 50  0001 C CNN
+F 3 "~" H 1075 6700 50  0001 C CNN
+	1    1075 6700
+	1    0    0    -1  
+$EndComp
+Connection ~ 2500 6750
+Wire Wire Line
+	3025 6550 3100 6550
+Wire Wire Line
+	5125 6850 5800 6850
+Connection ~ 4375 6650
+Connection ~ 6400 6650
+Wire Wire Line
+	5725 6350 5825 6350
+$Comp
+L Connector:Conn_01x04_Male J70
+U 1 1 5DA9D6FE
+P 2825 6450
+F 0 "J70" H 2933 6731 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 2933 6640 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1.75U" H 2825 6450 50  0001 C CNN
+F 3 "~" H 2825 6450 50  0001 C CNN
+	1    2825 6450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4450 6850 5125 6850
+$Comp
+L Device:R R73
+U 1 1 5DA9D70D
+P 5125 6700
+F 0 "R73" H 5195 6746 50  0000 L CNN
+F 1 "R" H 5195 6655 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5055 6700 50  0001 C CNN
+F 3 "~" H 5125 6700 50  0001 C CNN
+	1    5125 6700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5050 6350 5150 6350
+Connection ~ 7075 6650
+$Comp
+L Connector:Conn_01x04_Male J69
+U 1 1 5DA9D71F
+P 2150 6450
+F 0 "J69" H 2258 6731 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 2258 6640 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 2150 6450 50  0001 C CNN
+F 3 "~" H 2150 6450 50  0001 C CNN
+	1    2150 6450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1675 6550 1750 6550
+Wire Wire Line
+	1675 6350 1775 6350
+Connection ~ 1150 6750
+Wire Wire Line
+	6550 6750 7225 6750
+Wire Wire Line
+	7075 6350 7175 6350
+Wire Wire Line
+	5875 6750 6550 6750
+Wire Wire Line
+	2350 6550 2425 6550
+Wire Wire Line
+	1000 6350 1100 6350
+Connection ~ 5050 6650
+Wire Wire Line
+	3700 6650 3025 6650
+Wire Wire Line
+	1675 6450 1825 6450
+Wire Wire Line
+	2500 6750 3175 6750
+Wire Wire Line
+	5725 6650 5050 6650
+Connection ~ 5875 6750
+Wire Wire Line
+	4525 6750 5200 6750
+Connection ~ 4525 6750
+Wire Wire Line
+	1825 6750 2500 6750
+Connection ~ 1825 6750
+Wire Wire Line
+	5725 6450 5875 6450
+$Comp
+L Device:R R70
+U 1 1 5DA9D740
+P 3100 6700
+F 0 "R70" H 3170 6746 50  0000 L CNN
+F 1 "R" H 3170 6655 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3030 6700 50  0001 C CNN
+F 3 "~" H 3100 6700 50  0001 C CNN
+	1    3100 6700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D67
+U 1 1 5DA9D74E
+P 1150 6600
+F 0 "D67" V 1196 6521 50  0000 R CNN
+F 1 "D" V 1105 6521 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 1150 6600 50  0001 C CNN
+F 3 "~" H 1150 6600 50  0001 C CNN
+	1    1150 6600
+	0    -1   -1   0   
+$EndComp
+Connection ~ 6550 6750
+Wire Wire Line
+	2425 6850 3100 6850
+Wire Wire Line
+	7075 6550 7150 6550
+$Comp
+L Device:D D70
+U 1 1 5DA9D75F
+P 3175 6600
+F 0 "D70" V 3221 6521 50  0000 R CNN
+F 1 "D" V 3130 6521 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 3175 6600 50  0001 C CNN
+F 3 "~" H 3175 6600 50  0001 C CNN
+	1    3175 6600
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4375 6550 4450 6550
+Connection ~ 3100 6850
+$Comp
+L Device:R R68
+U 1 1 5DA9D76F
+P 1750 6700
+F 0 "R68" H 1820 6746 50  0000 L CNN
+F 1 "R" H 1820 6655 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 1680 6700 50  0001 C CNN
+F 3 "~" H 1750 6700 50  0001 C CNN
+	1    1750 6700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1000 6450 1150 6450
+Wire Wire Line
+	2350 6450 2500 6450
+Wire Wire Line
+	7075 6650 6400 6650
+Wire Wire Line
+	7750 6650 7075 6650
+$Comp
+L Device:R R74
+U 1 1 5DA9D781
+P 5800 6700
+F 0 "R74" H 5870 6746 50  0000 L CNN
+F 1 "R" H 5870 6655 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5730 6700 50  0001 C CNN
+F 3 "~" H 5800 6700 50  0001 C CNN
+	1    5800 6700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 6350 6500 6350
+$Comp
+L Device:R R71
+U 1 1 5DA9D790
+P 3775 6700
+F 0 "R71" H 3845 6746 50  0000 L CNN
+F 1 "R" H 3845 6655 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3705 6700 50  0001 C CNN
+F 3 "~" H 3775 6700 50  0001 C CNN
+	1    3775 6700
+	1    0    0    -1  
+$EndComp
+Connection ~ 5725 6650
+Connection ~ 2350 6650
+Connection ~ 4450 6850
+$Comp
+L Device:D D71
+U 1 1 5DA9D7A1
+P 3850 6600
+F 0 "D71" V 3896 6521 50  0000 R CNN
+F 1 "D" V 3805 6521 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 3850 6600 50  0001 C CNN
+F 3 "~" H 3850 6600 50  0001 C CNN
+	1    3850 6600
+	0    -1   -1   0   
+$EndComp
+Connection ~ 3850 6750
+$Comp
+L Connector:Conn_01x04_Male J75
+U 1 1 5DA9D7B2
+P 6200 6450
+F 0 "J75" H 6308 6731 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 6308 6640 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 6200 6450 50  0001 C CNN
+F 3 "~" H 6200 6450 50  0001 C CNN
+	1    6200 6450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J74
+U 1 1 5DA9D7C2
+P 5525 6450
+F 0 "J74" H 5633 6731 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 5633 6640 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 5525 6450 50  0001 C CNN
+F 3 "~" H 5525 6450 50  0001 C CNN
+	1    5525 6450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 6650 5725 6650
+$Comp
+L Connector:Conn_01x04_Male J68
+U 1 1 5DA9D7D3
+P 1475 6450
+F 0 "J68" H 1583 6731 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 1583 6640 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 1475 6450 50  0001 C CNN
+F 3 "~" H 1475 6450 50  0001 C CNN
+	1    1475 6450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D74
+U 1 1 5DA9D7E1
+P 5875 6600
+F 0 "D74" V 5921 6521 50  0000 R CNN
+F 1 "D" V 5830 6521 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 5875 6600 50  0001 C CNN
+F 3 "~" H 5875 6600 50  0001 C CNN
+	1    5875 6600
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3850 6750 4525 6750
+Wire Wire Line
+	3025 6450 3175 6450
+Wire Wire Line
+	3025 6350 3125 6350
+$Comp
+L Device:D D75
+U 1 1 5DA9D7F2
+P 6550 6600
+F 0 "D75" V 6596 6521 50  0000 R CNN
+F 1 "D" V 6505 6521 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 6550 6600 50  0001 C CNN
+F 3 "~" H 6550 6600 50  0001 C CNN
+	1    6550 6600
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3025 6650 2350 6650
+$Comp
+L Connector:Conn_01x04_Male J71
+U 1 1 5DA9D803
+P 3500 6450
+F 0 "J71" H 3608 6731 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 3608 6640 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 3500 6450 50  0001 C CNN
+F 3 "~" H 3500 6450 50  0001 C CNN
+	1    3500 6450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J76
+U 1 1 5DA9D813
+P 6875 6450
+F 0 "J76" H 6983 6731 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 6983 6640 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 6875 6450 50  0001 C CNN
+F 3 "~" H 6875 6450 50  0001 C CNN
+	1    6875 6450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6475 6850 7150 6850
+Connection ~ 1675 6650
+Wire Wire Line
+	5050 6450 5200 6450
+$Comp
+L Connector:Conn_01x04_Male J72
+U 1 1 5DA9D826
+P 4175 6450
+F 0 "J72" H 4283 6731 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 4283 6640 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 4175 6450 50  0001 C CNN
+F 3 "~" H 4175 6450 50  0001 C CNN
+	1    4175 6450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4375 6350 4475 6350
+Connection ~ 7150 6850
+Connection ~ 6475 6850
+Connection ~ 5800 6850
+Wire Wire Line
+	3700 6450 3850 6450
+Wire Wire Line
+	3175 6750 3850 6750
+$Comp
+L Device:R R76
+U 1 1 5DA9D83A
+P 7150 6700
+F 0 "R76" H 7220 6746 50  0000 L CNN
+F 1 "R" H 7220 6655 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 7080 6700 50  0001 C CNN
+F 3 "~" H 7150 6700 50  0001 C CNN
+	1    7150 6700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5050 6550 5125 6550
+Wire Wire Line
+	7150 6850 7825 6850
+Wire Wire Line
+	1750 6850 2425 6850
+Wire Wire Line
+	2350 6650 1675 6650
+Wire Wire Line
+	3775 6850 4450 6850
+Wire Wire Line
+	3700 6550 3775 6550
+Wire Wire Line
+	7750 6550 7825 6550
+Wire Wire Line
+	7075 6450 7225 6450
+Wire Wire Line
+	2350 6350 2450 6350
+Wire Wire Line
+	6400 6550 6475 6550
+Connection ~ 3175 6750
+Wire Wire Line
+	5725 6550 5800 6550
+$Comp
+L Connector:Conn_01x04_Male J73
+U 1 1 5DA9D856
+P 4850 6450
+F 0 "J73" H 4958 6731 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 4958 6640 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 4850 6450 50  0001 C CNN
+F 3 "~" H 4850 6450 50  0001 C CNN
+	1    4850 6450
+	1    0    0    -1  
+$EndComp
+Connection ~ 3025 6650
+$Comp
+L Device:D D68
+U 1 1 5DA9D865
+P 1825 6600
+F 0 "D68" V 1871 6521 50  0000 R CNN
+F 1 "D" V 1780 6521 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 1825 6600 50  0001 C CNN
+F 3 "~" H 1825 6600 50  0001 C CNN
+	1    1825 6600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:D D77
+U 1 1 5DA9D873
+P 7900 6600
+F 0 "D77" V 7946 6521 50  0000 R CNN
+F 1 "D" V 7855 6521 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 7900 6600 50  0001 C CNN
+F 3 "~" H 7900 6600 50  0001 C CNN
+	1    7900 6600
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	1075 6850 1750 6850
+Wire Wire Line
+	7750 6350 7850 6350
+Connection ~ 2425 6850
+$Comp
+L Connector:Conn_01x04_Male J67
+U 1 1 5DA9D886
+P 800 6450
+F 0 "J67" H 908 6731 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 908 6640 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 800 6450 50  0001 C CNN
+F 3 "~" H 800 6450 50  0001 C CNN
+	1    800  6450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7225 6750 7900 6750
+$Comp
+L Device:R R69
+U 1 1 5DA9D895
+P 2425 6700
+F 0 "R69" H 2495 6746 50  0000 L CNN
+F 1 "R" H 2495 6655 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 2355 6700 50  0001 C CNN
+F 3 "~" H 2425 6700 50  0001 C CNN
+	1    2425 6700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R72
+U 1 1 5DA9D8A3
+P 4450 6700
+F 0 "R72" H 4520 6746 50  0000 L CNN
+F 1 "R" H 4520 6655 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 4380 6700 50  0001 C CNN
+F 3 "~" H 4450 6700 50  0001 C CNN
+	1    4450 6700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D76
+U 1 1 5DA9D8B1
+P 7225 6600
+F 0 "D76" V 7271 6521 50  0000 R CNN
+F 1 "D" V 7180 6521 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 7225 6600 50  0001 C CNN
+F 3 "~" H 7225 6600 50  0001 C CNN
+	1    7225 6600
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4375 6450 4525 6450
+$Comp
+L Device:R R75
+U 1 1 5DA9D8C0
+P 6475 6700
+F 0 "R75" H 6545 6746 50  0000 L CNN
+F 1 "R" H 6545 6655 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6405 6700 50  0001 C CNN
+F 3 "~" H 6475 6700 50  0001 C CNN
+	1    6475 6700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3100 6850 3775 6850
+Wire Wire Line
+	5050 6650 4375 6650
+Wire Wire Line
+	5200 6750 5875 6750
+Wire Wire Line
+	6400 6450 6550 6450
+Connection ~ 3775 6850
+Connection ~ 5125 6850
+Text GLabel 675  6750 0    50   Input ~ 0
+ROW6
+$Comp
+L Device:D D72
+U 1 1 5DA9D8D5
+P 4525 6600
+F 0 "D72" V 4571 6521 50  0000 R CNN
+F 1 "D" V 4480 6521 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 4525 6600 50  0001 C CNN
+F 3 "~" H 4525 6600 50  0001 C CNN
+	1    4525 6600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:D D69
+U 1 1 5DA9D8E3
+P 2500 6600
+F 0 "D69" V 2546 6521 50  0000 R CNN
+F 1 "D" V 2455 6521 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 2500 6600 50  0001 C CNN
+F 3 "~" H 2500 6600 50  0001 C CNN
+	1    2500 6600
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3700 6350 3800 6350
+Wire Wire Line
+	325  6650 1000 6650
+Connection ~ 1000 6650
+Wire Wire Line
+	1000 6650 1675 6650
+Wire Wire Line
+	425  6850 1075 6850
+Connection ~ 1075 6850
+Connection ~ 3700 6650
+Connection ~ 7225 6750
+$Comp
+L Device:R R77
+U 1 1 5DA9D8F9
+P 7825 6700
+F 0 "R77" H 7895 6746 50  0000 L CNN
+F 1 "R" H 7895 6655 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 7755 6700 50  0001 C CNN
+F 3 "~" H 7825 6700 50  0001 C CNN
+	1    7825 6700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5800 6850 6475 6850
+Connection ~ 1750 6850
+$Comp
+L Device:D D73
+U 1 1 5DA9D909
+P 5200 6600
+F 0 "D73" V 5246 6521 50  0000 R CNN
+F 1 "D" V 5155 6521 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 5200 6600 50  0001 C CNN
+F 3 "~" H 5200 6600 50  0001 C CNN
+	1    5200 6600
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	1000 6550 1075 6550
+Wire Wire Line
+	7750 6450 7900 6450
+Wire Wire Line
+	675  6750 1150 6750
+Wire Wire Line
+	1150 6750 1825 6750
+Connection ~ 325  6650
+Wire Wire Line
+	325  6650 325  7500
+Connection ~ 425  6850
+Wire Wire Line
+	425  6850 425  7700
+Wire Wire Line
+	5050 7200 5150 7200
+Wire Wire Line
+	4375 7500 3700 7500
+Connection ~ 2500 7600
+Wire Wire Line
+	3025 7400 3100 7400
+Text GLabel 675  7600 0    50   Input ~ 0
+ROW7
+$Comp
+L Device:R R81
+U 1 1 5DADBB6C
+P 3100 7550
+F 0 "R81" H 3170 7596 50  0000 L CNN
+F 1 "R" H 3170 7505 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3030 7550 50  0001 C CNN
+F 3 "~" H 3100 7550 50  0001 C CNN
+	1    3100 7550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7075 7200 7175 7200
+$Comp
+L Connector:Conn_01x04_Male J81
+U 1 1 5DADBB7D
+P 2825 7300
+F 0 "J81" H 2933 7581 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 2933 7490 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1.25U" H 2825 7300 50  0001 C CNN
+F 3 "~" H 2825 7300 50  0001 C CNN
+	1    2825 7300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R78
+U 1 1 5DADBB8B
+P 1075 7550
+F 0 "R78" H 1145 7596 50  0000 L CNN
+F 1 "R" H 1145 7505 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 1005 7550 50  0001 C CNN
+F 3 "~" H 1075 7550 50  0001 C CNN
+	1    1075 7550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R84
+U 1 1 5DADBB99
+P 5125 7550
+F 0 "R84" H 5195 7596 50  0000 L CNN
+F 1 "R" H 5195 7505 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5055 7550 50  0001 C CNN
+F 3 "~" H 5125 7550 50  0001 C CNN
+	1    5125 7550
+	1    0    0    -1  
+$EndComp
+Connection ~ 1150 7600
+Connection ~ 7075 7500
+$Comp
+L Connector:Conn_01x04_Male J88
+U 1 1 5DADBBAB
+P 7550 7300
+F 0 "J88" H 7658 7581 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 7658 7490 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-2.75U" H 7550 7300 50  0001 C CNN
+F 3 "~" H 7550 7300 50  0001 C CNN
+	1    7550 7300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1675 7200 1775 7200
+Connection ~ 6400 7500
+Wire Wire Line
+	6550 7600 7225 7600
+Wire Wire Line
+	5875 7600 6550 7600
+Wire Wire Line
+	2350 7400 2425 7400
+Wire Wire Line
+	4450 7700 5125 7700
+Wire Wire Line
+	5725 7200 5825 7200
+Wire Wire Line
+	5125 7700 5800 7700
+Wire Wire Line
+	1675 7400 1750 7400
+$Comp
+L Device:D D78
+U 1 1 5DADBBC2
+P 1150 7450
+F 0 "D78" V 1196 7371 50  0000 R CNN
+F 1 "D" V 1105 7371 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 1150 7450 50  0001 C CNN
+F 3 "~" H 1150 7450 50  0001 C CNN
+	1    1150 7450
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J80
+U 1 1 5DADBBD2
+P 2150 7300
+F 0 "J80" H 2258 7581 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 2258 7490 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 2150 7300 50  0001 C CNN
+F 3 "~" H 2150 7300 50  0001 C CNN
+	1    2150 7300
+	1    0    0    -1  
+$EndComp
+Connection ~ 5200 7600
+Connection ~ 4375 7500
+Connection ~ 5050 7500
+Wire Wire Line
+	1000 7200 1100 7200
+Wire Wire Line
+	3700 7500 3025 7500
+Wire Wire Line
+	1675 7300 1825 7300
+Wire Wire Line
+	2500 7600 3175 7600
+Wire Wire Line
+	5725 7500 5050 7500
+Connection ~ 5875 7600
+Wire Wire Line
+	4525 7600 5200 7600
+Connection ~ 4525 7600
+Wire Wire Line
+	1825 7600 2500 7600
+Connection ~ 1825 7600
+Wire Wire Line
+	5725 7300 5875 7300
+Wire Wire Line
+	3025 7500 2350 7500
+$Comp
+L Connector:Conn_01x04_Male J82
+U 1 1 5DADBBF1
+P 3500 7300
+F 0 "J82" H 3608 7581 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 3608 7490 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 3500 7300 50  0001 C CNN
+F 3 "~" H 3500 7300 50  0001 C CNN
+	1    3500 7300
+	1    0    0    -1  
+$EndComp
+Connection ~ 6550 7600
+Wire Wire Line
+	2425 7700 3100 7700
+Wire Wire Line
+	7075 7400 7150 7400
+$Comp
+L Device:D D81
+U 1 1 5DADBC02
+P 3175 7450
+F 0 "D81" V 3221 7371 50  0000 R CNN
+F 1 "D" V 3130 7371 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 3175 7450 50  0001 C CNN
+F 3 "~" H 3175 7450 50  0001 C CNN
+	1    3175 7450
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4375 7400 4450 7400
+Connection ~ 3100 7700
+$Comp
+L Device:R R79
+U 1 1 5DADBC12
+P 1750 7550
+F 0 "R79" H 1820 7596 50  0000 L CNN
+F 1 "R" H 1820 7505 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 1680 7550 50  0001 C CNN
+F 3 "~" H 1750 7550 50  0001 C CNN
+	1    1750 7550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1000 7300 1150 7300
+Wire Wire Line
+	2350 7300 2500 7300
+Wire Wire Line
+	7075 7500 6400 7500
+Wire Wire Line
+	7750 7500 7075 7500
+$Comp
+L Device:R R85
+U 1 1 5DADBC24
+P 5800 7550
+F 0 "R85" H 5870 7596 50  0000 L CNN
+F 1 "R" H 5870 7505 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5730 7550 50  0001 C CNN
+F 3 "~" H 5800 7550 50  0001 C CNN
+	1    5800 7550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 7200 6500 7200
+$Comp
+L Device:R R82
+U 1 1 5DADBC33
+P 3775 7550
+F 0 "R82" H 3845 7596 50  0000 L CNN
+F 1 "R" H 3845 7505 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3705 7550 50  0001 C CNN
+F 3 "~" H 3775 7550 50  0001 C CNN
+	1    3775 7550
+	1    0    0    -1  
+$EndComp
+Connection ~ 5725 7500
+Connection ~ 2350 7500
+Connection ~ 4450 7700
+$Comp
+L Device:D D82
+U 1 1 5DADBC44
+P 3850 7450
+F 0 "D82" V 3896 7371 50  0000 R CNN
+F 1 "D" V 3805 7371 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 3850 7450 50  0001 C CNN
+F 3 "~" H 3850 7450 50  0001 C CNN
+	1    3850 7450
+	0    -1   -1   0   
+$EndComp
+Connection ~ 3850 7600
+$Comp
+L Connector:Conn_01x04_Male J86
+U 1 1 5DADBC55
+P 6200 7300
+F 0 "J86" H 6308 7581 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 6308 7490 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 6200 7300 50  0001 C CNN
+F 3 "~" H 6200 7300 50  0001 C CNN
+	1    6200 7300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J85
+U 1 1 5DADBC65
+P 5525 7300
+F 0 "J85" H 5633 7581 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 5633 7490 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 5525 7300 50  0001 C CNN
+F 3 "~" H 5525 7300 50  0001 C CNN
+	1    5525 7300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 7500 5725 7500
+$Comp
+L Connector:Conn_01x04_Male J79
+U 1 1 5DADBC76
+P 1475 7300
+F 0 "J79" H 1583 7581 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 1583 7490 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 1475 7300 50  0001 C CNN
+F 3 "~" H 1475 7300 50  0001 C CNN
+	1    1475 7300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D85
+U 1 1 5DADBC84
+P 5875 7450
+F 0 "D85" V 5921 7371 50  0000 R CNN
+F 1 "D" V 5830 7371 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 5875 7450 50  0001 C CNN
+F 3 "~" H 5875 7450 50  0001 C CNN
+	1    5875 7450
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3850 7600 4525 7600
+Wire Wire Line
+	3025 7300 3175 7300
+Wire Wire Line
+	3025 7200 3125 7200
+$Comp
+L Device:D D86
+U 1 1 5DADBC95
+P 6550 7450
+F 0 "D86" V 6596 7371 50  0000 R CNN
+F 1 "D" V 6505 7371 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 6550 7450 50  0001 C CNN
+F 3 "~" H 6550 7450 50  0001 C CNN
+	1    6550 7450
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	1150 7600 1825 7600
+$Comp
+L Connector:Conn_01x04_Male J87
+U 1 1 5DADBCA6
+P 6875 7300
+F 0 "J87" H 6983 7581 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 6983 7490 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 6875 7300 50  0001 C CNN
+F 3 "~" H 6875 7300 50  0001 C CNN
+	1    6875 7300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6475 7700 7150 7700
+Connection ~ 1675 7500
+Wire Wire Line
+	5050 7300 5200 7300
+$Comp
+L Connector:Conn_01x04_Male J83
+U 1 1 5DADBCB9
+P 4175 7300
+F 0 "J83" H 4283 7581 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 4283 7490 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 4175 7300 50  0001 C CNN
+F 3 "~" H 4175 7300 50  0001 C CNN
+	1    4175 7300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4375 7200 4475 7200
+Connection ~ 7150 7700
+Connection ~ 6475 7700
+Connection ~ 5800 7700
+Wire Wire Line
+	3700 7300 3850 7300
+Wire Wire Line
+	3175 7600 3850 7600
+$Comp
+L Device:R R87
+U 1 1 5DADBCCD
+P 7150 7550
+F 0 "R87" H 7220 7596 50  0000 L CNN
+F 1 "R" H 7220 7505 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 7080 7550 50  0001 C CNN
+F 3 "~" H 7150 7550 50  0001 C CNN
+	1    7150 7550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5050 7400 5125 7400
+Wire Wire Line
+	7150 7700 7825 7700
+Wire Wire Line
+	1750 7700 2425 7700
+Wire Wire Line
+	2350 7500 1675 7500
+Wire Wire Line
+	3775 7700 4450 7700
+Wire Wire Line
+	3700 7400 3775 7400
+Wire Wire Line
+	7750 7400 7825 7400
+Wire Wire Line
+	7075 7300 7225 7300
+Wire Wire Line
+	2350 7200 2450 7200
+Wire Wire Line
+	6400 7400 6475 7400
+Connection ~ 3175 7600
+Wire Wire Line
+	5725 7400 5800 7400
+$Comp
+L Connector:Conn_01x04_Male J84
+U 1 1 5DADBCE9
+P 4850 7300
+F 0 "J84" H 4958 7581 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 4958 7490 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 4850 7300 50  0001 C CNN
+F 3 "~" H 4850 7300 50  0001 C CNN
+	1    4850 7300
+	1    0    0    -1  
+$EndComp
+Connection ~ 3025 7500
+$Comp
+L Device:D D79
+U 1 1 5DADBCF8
+P 1825 7450
+F 0 "D79" V 1871 7371 50  0000 R CNN
+F 1 "D" V 1780 7371 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 1825 7450 50  0001 C CNN
+F 3 "~" H 1825 7450 50  0001 C CNN
+	1    1825 7450
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:D D88
+U 1 1 5DADBD06
+P 7900 7450
+F 0 "D88" V 7946 7371 50  0000 R CNN
+F 1 "D" V 7855 7371 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 7900 7450 50  0001 C CNN
+F 3 "~" H 7900 7450 50  0001 C CNN
+	1    7900 7450
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	1075 7700 1750 7700
+Wire Wire Line
+	7750 7200 7850 7200
+Connection ~ 2425 7700
+$Comp
+L Connector:Conn_01x04_Male J78
+U 1 1 5DADBD19
+P 800 7300
+F 0 "J78" H 908 7581 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 908 7490 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 800 7300 50  0001 C CNN
+F 3 "~" H 800 7300 50  0001 C CNN
+	1    800  7300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7225 7600 7900 7600
+$Comp
+L Device:R R80
+U 1 1 5DADBD28
+P 2425 7550
+F 0 "R80" H 2495 7596 50  0000 L CNN
+F 1 "R" H 2495 7505 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 2355 7550 50  0001 C CNN
+F 3 "~" H 2425 7550 50  0001 C CNN
+	1    2425 7550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R83
+U 1 1 5DADBD36
+P 4450 7550
+F 0 "R83" H 4520 7596 50  0000 L CNN
+F 1 "R" H 4520 7505 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 4380 7550 50  0001 C CNN
+F 3 "~" H 4450 7550 50  0001 C CNN
+	1    4450 7550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D87
+U 1 1 5DADBD44
+P 7225 7450
+F 0 "D87" V 7271 7371 50  0000 R CNN
+F 1 "D" V 7180 7371 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 7225 7450 50  0001 C CNN
+F 3 "~" H 7225 7450 50  0001 C CNN
+	1    7225 7450
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4375 7300 4525 7300
+$Comp
+L Device:R R86
+U 1 1 5DADBD53
+P 6475 7550
+F 0 "R86" H 6545 7596 50  0000 L CNN
+F 1 "R" H 6545 7505 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6405 7550 50  0001 C CNN
+F 3 "~" H 6475 7550 50  0001 C CNN
+	1    6475 7550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3100 7700 3775 7700
+Wire Wire Line
+	5050 7500 4375 7500
+Wire Wire Line
+	5200 7600 5875 7600
+Wire Wire Line
+	6400 7300 6550 7300
+Connection ~ 3775 7700
+Connection ~ 5125 7700
+$Comp
+L Device:D D83
+U 1 1 5DADBD67
+P 4525 7450
+F 0 "D83" V 4571 7371 50  0000 R CNN
+F 1 "D" V 4480 7371 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 4525 7450 50  0001 C CNN
+F 3 "~" H 4525 7450 50  0001 C CNN
+	1    4525 7450
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:D D80
+U 1 1 5DADBD75
+P 2500 7450
+F 0 "D80" V 2546 7371 50  0000 R CNN
+F 1 "D" V 2455 7371 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 2500 7450 50  0001 C CNN
+F 3 "~" H 2500 7450 50  0001 C CNN
+	1    2500 7450
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3700 7200 3800 7200
+Wire Wire Line
+	325  7500 1000 7500
+Connection ~ 1000 7500
+Wire Wire Line
+	1000 7500 1675 7500
+Wire Wire Line
+	425  7700 1075 7700
+Connection ~ 1075 7700
+Connection ~ 3700 7500
+Connection ~ 7225 7600
+$Comp
+L Device:R R88
+U 1 1 5DADBD8B
+P 7825 7550
+F 0 "R88" H 7895 7596 50  0000 L CNN
+F 1 "R" H 7895 7505 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 7755 7550 50  0001 C CNN
+F 3 "~" H 7825 7550 50  0001 C CNN
+	1    7825 7550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5800 7700 6475 7700
+Connection ~ 1750 7700
+$Comp
+L Device:D D84
+U 1 1 5DADBD9B
+P 5200 7450
+F 0 "D84" V 5246 7371 50  0000 R CNN
+F 1 "D" V 5155 7371 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 5200 7450 50  0001 C CNN
+F 3 "~" H 5200 7450 50  0001 C CNN
+	1    5200 7450
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	1000 7400 1075 7400
+Wire Wire Line
+	7750 7300 7900 7300
+Wire Wire Line
+	675  7600 1150 7600
+Connection ~ 325  7500
+Connection ~ 425  7700
+Wire Wire Line
+	425  7700 425  8725
+Wire Wire Line
+	325  7500 325  8525
+Connection ~ 5200 8625
+$Comp
+L Connector:Conn_01x04_Male J99
+U 1 1 5DB2E644
+P 7550 8325
+F 0 "J99" H 7658 8606 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 7658 8515 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1.25U" H 7550 8325 50  0001 C CNN
+F 3 "~" H 7550 8325 50  0001 C CNN
+	1    7550 8325
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4375 8525 3700 8525
+$Comp
+L Device:R R89
+U 1 1 5DB2E653
+P 1075 8575
+F 0 "R89" H 1145 8621 50  0000 L CNN
+F 1 "R" H 1145 8530 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 1005 8575 50  0001 C CNN
+F 3 "~" H 1075 8575 50  0001 C CNN
+	1    1075 8575
+	1    0    0    -1  
+$EndComp
+Connection ~ 2500 8625
+Wire Wire Line
+	3025 8425 3100 8425
+Wire Wire Line
+	5125 8725 5800 8725
+Connection ~ 4375 8525
+Connection ~ 6400 8525
+Wire Wire Line
+	5725 8225 5825 8225
+$Comp
+L Connector:Conn_01x04_Male J92
+U 1 1 5DB2E669
+P 2825 8325
+F 0 "J92" H 2933 8606 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 2933 8515 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1.25U" H 2825 8325 50  0001 C CNN
+F 3 "~" H 2825 8325 50  0001 C CNN
+	1    2825 8325
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4450 8725 5125 8725
+$Comp
+L Device:R R95
+U 1 1 5DB2E678
+P 5125 8575
+F 0 "R95" H 5195 8621 50  0000 L CNN
+F 1 "R" H 5195 8530 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5055 8575 50  0001 C CNN
+F 3 "~" H 5125 8575 50  0001 C CNN
+	1    5125 8575
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5050 8225 5150 8225
+Connection ~ 7075 8525
+$Comp
+L Connector:Conn_01x04_Male J91
+U 1 1 5DB2E68A
+P 2150 8325
+F 0 "J91" H 2258 8606 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 2258 8515 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 2150 8325 50  0001 C CNN
+F 3 "~" H 2150 8325 50  0001 C CNN
+	1    2150 8325
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1675 8425 1750 8425
+Wire Wire Line
+	1675 8225 1775 8225
+Connection ~ 1150 8625
+Wire Wire Line
+	6550 8625 7225 8625
+Wire Wire Line
+	7075 8225 7175 8225
+Wire Wire Line
+	5875 8625 6550 8625
+Wire Wire Line
+	2350 8425 2425 8425
+Wire Wire Line
+	1000 8225 1100 8225
+Connection ~ 5050 8525
+Wire Wire Line
+	3700 8525 3025 8525
+Wire Wire Line
+	1675 8325 1825 8325
+Wire Wire Line
+	2500 8625 3175 8625
+Wire Wire Line
+	5725 8525 5050 8525
+Connection ~ 5875 8625
+Wire Wire Line
+	4525 8625 5200 8625
+Connection ~ 4525 8625
+Wire Wire Line
+	1825 8625 2500 8625
+Connection ~ 1825 8625
+Wire Wire Line
+	5725 8325 5875 8325
+$Comp
+L Device:R R92
+U 1 1 5DB2E6AB
+P 3100 8575
+F 0 "R92" H 3170 8621 50  0000 L CNN
+F 1 "R" H 3170 8530 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3030 8575 50  0001 C CNN
+F 3 "~" H 3100 8575 50  0001 C CNN
+	1    3100 8575
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D89
+U 1 1 5DB2E6B9
+P 1150 8475
+F 0 "D89" V 1196 8396 50  0000 R CNN
+F 1 "D" V 1105 8396 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 1150 8475 50  0001 C CNN
+F 3 "~" H 1150 8475 50  0001 C CNN
+	1    1150 8475
+	0    -1   -1   0   
+$EndComp
+Connection ~ 6550 8625
+Wire Wire Line
+	2425 8725 3100 8725
+Wire Wire Line
+	7075 8425 7150 8425
+$Comp
+L Device:D D92
+U 1 1 5DB2E6CA
+P 3175 8475
+F 0 "D92" V 3221 8396 50  0000 R CNN
+F 1 "D" V 3130 8396 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 3175 8475 50  0001 C CNN
+F 3 "~" H 3175 8475 50  0001 C CNN
+	1    3175 8475
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4375 8425 4450 8425
+Connection ~ 3100 8725
+$Comp
+L Device:R R90
+U 1 1 5DB2E6DA
+P 1750 8575
+F 0 "R90" H 1820 8621 50  0000 L CNN
+F 1 "R" H 1820 8530 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 1680 8575 50  0001 C CNN
+F 3 "~" H 1750 8575 50  0001 C CNN
+	1    1750 8575
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1000 8325 1150 8325
+Wire Wire Line
+	2350 8325 2500 8325
+Wire Wire Line
+	7075 8525 6400 8525
+Wire Wire Line
+	7750 8525 7075 8525
+$Comp
+L Device:R R96
+U 1 1 5DB2E6EC
+P 5800 8575
+F 0 "R96" H 5870 8621 50  0000 L CNN
+F 1 "R" H 5870 8530 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5730 8575 50  0001 C CNN
+F 3 "~" H 5800 8575 50  0001 C CNN
+	1    5800 8575
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 8225 6500 8225
+$Comp
+L Device:R R93
+U 1 1 5DB2E6FB
+P 3775 8575
+F 0 "R93" H 3845 8621 50  0000 L CNN
+F 1 "R" H 3845 8530 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3705 8575 50  0001 C CNN
+F 3 "~" H 3775 8575 50  0001 C CNN
+	1    3775 8575
+	1    0    0    -1  
+$EndComp
+Connection ~ 5725 8525
+Connection ~ 2350 8525
+Connection ~ 4450 8725
+$Comp
+L Device:D D93
+U 1 1 5DB2E70C
+P 3850 8475
+F 0 "D93" V 3896 8396 50  0000 R CNN
+F 1 "D" V 3805 8396 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 3850 8475 50  0001 C CNN
+F 3 "~" H 3850 8475 50  0001 C CNN
+	1    3850 8475
+	0    -1   -1   0   
+$EndComp
+Connection ~ 3850 8625
+$Comp
+L Connector:Conn_01x04_Male J97
+U 1 1 5DB2E71D
+P 6200 8325
+F 0 "J97" H 6308 8606 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 6308 8515 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 6200 8325 50  0001 C CNN
+F 3 "~" H 6200 8325 50  0001 C CNN
+	1    6200 8325
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J96
+U 1 1 5DB2E72D
+P 5525 8325
+F 0 "J96" H 5633 8606 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 5633 8515 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 5525 8325 50  0001 C CNN
+F 3 "~" H 5525 8325 50  0001 C CNN
+	1    5525 8325
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 8525 5725 8525
+$Comp
+L Connector:Conn_01x04_Male J90
+U 1 1 5DB2E73E
+P 1475 8325
+F 0 "J90" H 1583 8606 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 1583 8515 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 1475 8325 50  0001 C CNN
+F 3 "~" H 1475 8325 50  0001 C CNN
+	1    1475 8325
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D96
+U 1 1 5DB2E74C
+P 5875 8475
+F 0 "D96" V 5921 8396 50  0000 R CNN
+F 1 "D" V 5830 8396 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 5875 8475 50  0001 C CNN
+F 3 "~" H 5875 8475 50  0001 C CNN
+	1    5875 8475
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3850 8625 4525 8625
+Wire Wire Line
+	3025 8325 3175 8325
+Wire Wire Line
+	3025 8225 3125 8225
+$Comp
+L Device:D D97
+U 1 1 5DB2E75D
+P 6550 8475
+F 0 "D97" V 6596 8396 50  0000 R CNN
+F 1 "D" V 6505 8396 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 6550 8475 50  0001 C CNN
+F 3 "~" H 6550 8475 50  0001 C CNN
+	1    6550 8475
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3025 8525 2350 8525
+$Comp
+L Connector:Conn_01x04_Male J93
+U 1 1 5DB2E76E
+P 3500 8325
+F 0 "J93" H 3608 8606 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 3608 8515 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 3500 8325 50  0001 C CNN
+F 3 "~" H 3500 8325 50  0001 C CNN
+	1    3500 8325
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J98
+U 1 1 5DB2E77E
+P 6875 8325
+F 0 "J98" H 6983 8606 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 6983 8515 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1.25U" H 6875 8325 50  0001 C CNN
+F 3 "~" H 6875 8325 50  0001 C CNN
+	1    6875 8325
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6475 8725 7150 8725
+Connection ~ 1675 8525
+Wire Wire Line
+	5050 8325 5200 8325
+$Comp
+L Connector:Conn_01x04_Male J94
+U 1 1 5DB2E791
+P 4175 8325
+F 0 "J94" H 4283 8606 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 4283 8515 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 4175 8325 50  0001 C CNN
+F 3 "~" H 4175 8325 50  0001 C CNN
+	1    4175 8325
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4375 8225 4475 8225
+Connection ~ 7150 8725
+Connection ~ 6475 8725
+Connection ~ 5800 8725
+Wire Wire Line
+	3700 8325 3850 8325
+Wire Wire Line
+	3175 8625 3850 8625
+$Comp
+L Device:R R98
+U 1 1 5DB2E7A5
+P 7150 8575
+F 0 "R98" H 7220 8621 50  0000 L CNN
+F 1 "R" H 7220 8530 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 7080 8575 50  0001 C CNN
+F 3 "~" H 7150 8575 50  0001 C CNN
+	1    7150 8575
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5050 8425 5125 8425
+Wire Wire Line
+	7150 8725 7825 8725
+Wire Wire Line
+	1750 8725 2425 8725
+Wire Wire Line
+	2350 8525 1675 8525
+Wire Wire Line
+	3775 8725 4450 8725
+Wire Wire Line
+	3700 8425 3775 8425
+Wire Wire Line
+	7750 8425 7825 8425
+Wire Wire Line
+	7075 8325 7225 8325
+Wire Wire Line
+	2350 8225 2450 8225
+Wire Wire Line
+	6400 8425 6475 8425
+Connection ~ 3175 8625
+Wire Wire Line
+	5725 8425 5800 8425
+$Comp
+L Connector:Conn_01x04_Male J95
+U 1 1 5DB2E7C1
+P 4850 8325
+F 0 "J95" H 4958 8606 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 4958 8515 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 4850 8325 50  0001 C CNN
+F 3 "~" H 4850 8325 50  0001 C CNN
+	1    4850 8325
+	1    0    0    -1  
+$EndComp
+Connection ~ 3025 8525
+$Comp
+L Device:D D90
+U 1 1 5DB2E7D0
+P 1825 8475
+F 0 "D90" V 1871 8396 50  0000 R CNN
+F 1 "D" V 1780 8396 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 1825 8475 50  0001 C CNN
+F 3 "~" H 1825 8475 50  0001 C CNN
+	1    1825 8475
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:D D99
+U 1 1 5DB2E7DE
+P 7900 8475
+F 0 "D99" V 7946 8396 50  0000 R CNN
+F 1 "D" V 7855 8396 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 7900 8475 50  0001 C CNN
+F 3 "~" H 7900 8475 50  0001 C CNN
+	1    7900 8475
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	1075 8725 1750 8725
+Wire Wire Line
+	7750 8225 7850 8225
+Connection ~ 2425 8725
+$Comp
+L Connector:Conn_01x04_Male J89
+U 1 1 5DB2E7F1
+P 800 8325
+F 0 "J89" H 908 8606 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 908 8515 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-2U" H 800 8325 50  0001 C CNN
+F 3 "~" H 800 8325 50  0001 C CNN
+	1    800  8325
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7225 8625 7900 8625
+$Comp
+L Device:R R91
+U 1 1 5DB2E800
+P 2425 8575
+F 0 "R91" H 2495 8621 50  0000 L CNN
+F 1 "R" H 2495 8530 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 2355 8575 50  0001 C CNN
+F 3 "~" H 2425 8575 50  0001 C CNN
+	1    2425 8575
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R94
+U 1 1 5DB2E80E
+P 4450 8575
+F 0 "R94" H 4520 8621 50  0000 L CNN
+F 1 "R" H 4520 8530 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 4380 8575 50  0001 C CNN
+F 3 "~" H 4450 8575 50  0001 C CNN
+	1    4450 8575
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D98
+U 1 1 5DB2E81C
+P 7225 8475
+F 0 "D98" V 7271 8396 50  0000 R CNN
+F 1 "D" V 7180 8396 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 7225 8475 50  0001 C CNN
+F 3 "~" H 7225 8475 50  0001 C CNN
+	1    7225 8475
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4375 8325 4525 8325
+$Comp
+L Device:R R97
+U 1 1 5DB2E82B
+P 6475 8575
+F 0 "R97" H 6545 8621 50  0000 L CNN
+F 1 "R" H 6545 8530 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6405 8575 50  0001 C CNN
+F 3 "~" H 6475 8575 50  0001 C CNN
+	1    6475 8575
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3100 8725 3775 8725
+Wire Wire Line
+	5050 8525 4375 8525
+Wire Wire Line
+	5200 8625 5875 8625
+Wire Wire Line
+	6400 8325 6550 8325
+Connection ~ 3775 8725
+Connection ~ 5125 8725
+Text GLabel 675  8625 0    50   Input ~ 0
+ROW8
+$Comp
+L Device:D D94
+U 1 1 5DB2E840
+P 4525 8475
+F 0 "D94" V 4571 8396 50  0000 R CNN
+F 1 "D" V 4480 8396 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 4525 8475 50  0001 C CNN
+F 3 "~" H 4525 8475 50  0001 C CNN
+	1    4525 8475
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:D D91
+U 1 1 5DB2E84E
+P 2500 8475
+F 0 "D91" V 2546 8396 50  0000 R CNN
+F 1 "D" V 2455 8396 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 2500 8475 50  0001 C CNN
+F 3 "~" H 2500 8475 50  0001 C CNN
+	1    2500 8475
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3700 8225 3800 8225
+Wire Wire Line
+	325  8525 1000 8525
+Connection ~ 1000 8525
+Wire Wire Line
+	1000 8525 1675 8525
+Wire Wire Line
+	425  8725 1075 8725
+Connection ~ 1075 8725
+Connection ~ 3700 8525
+Connection ~ 7225 8625
+$Comp
+L Device:R R99
+U 1 1 5DB2E864
+P 7825 8575
+F 0 "R99" H 7895 8621 50  0000 L CNN
+F 1 "R" H 7895 8530 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 7755 8575 50  0001 C CNN
+F 3 "~" H 7825 8575 50  0001 C CNN
+	1    7825 8575
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5800 8725 6475 8725
+Connection ~ 1750 8725
+$Comp
+L Device:D D95
+U 1 1 5DB2E874
+P 5200 8475
+F 0 "D95" V 5246 8396 50  0000 R CNN
+F 1 "D" V 5155 8396 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 5200 8475 50  0001 C CNN
+F 3 "~" H 5200 8475 50  0001 C CNN
+	1    5200 8475
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	1000 8425 1075 8425
+Wire Wire Line
+	7750 8325 7900 8325
+Wire Wire Line
+	675  8625 1150 8625
+Wire Wire Line
+	1150 8625 1825 8625
+Connection ~ 325  8525
+Wire Wire Line
+	325  8525 325  9425
+Connection ~ 425  8725
+Wire Wire Line
+	425  8725 425  9625
+Wire Wire Line
+	7750 9425 7075 9425
+Wire Wire Line
+	6400 9125 6500 9125
+$Comp
+L Device:R R100
+U 1 1 5DB51BC5
+P 1075 9475
+F 0 "R100" H 1145 9521 50  0000 L CNN
+F 1 "R" H 1145 9430 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 1005 9475 50  0001 C CNN
+F 3 "~" H 1075 9475 50  0001 C CNN
+	1    1075 9475
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J107
+U 1 1 5DB51BD5
+P 5525 9225
+F 0 "J107" H 5633 9506 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 5633 9415 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 5525 9225 50  0001 C CNN
+F 3 "~" H 5525 9225 50  0001 C CNN
+	1    5525 9225
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3850 9525 4525 9525
+Wire Wire Line
+	3025 9225 3175 9225
+Wire Wire Line
+	3025 9125 3125 9125
+Wire Wire Line
+	5875 9525 6550 9525
+Wire Wire Line
+	1675 9125 1775 9125
+Wire Wire Line
+	2500 9525 3175 9525
+$Comp
+L Device:R R104
+U 1 1 5DB51BE9
+P 3775 9475
+F 0 "R104" H 3845 9521 50  0000 L CNN
+F 1 "R" H 3845 9430 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3705 9475 50  0001 C CNN
+F 3 "~" H 3775 9475 50  0001 C CNN
+	1    3775 9475
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1000 9125 1100 9125
+$Comp
+L Device:D D107
+U 1 1 5DB51BF8
+P 5875 9375
+F 0 "D107" V 5921 9296 50  0000 R CNN
+F 1 "D" V 5830 9296 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 5875 9375 50  0001 C CNN
+F 3 "~" H 5875 9375 50  0001 C CNN
+	1    5875 9375
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J109
+U 1 1 5DB51C08
+P 6875 9225
+F 0 "J109" H 6983 9506 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 6983 9415 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1.25U" H 6875 9225 50  0001 C CNN
+F 3 "~" H 6875 9225 50  0001 C CNN
+	1    6875 9225
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4375 9425 3700 9425
+Wire Wire Line
+	2350 9325 2425 9325
+Wire Wire Line
+	7075 9125 7175 9125
+$Comp
+L Device:D D103
+U 1 1 5DB51C19
+P 3175 9375
+F 0 "D103" V 3221 9296 50  0000 R CNN
+F 1 "D" V 3130 9296 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 3175 9375 50  0001 C CNN
+F 3 "~" H 3175 9375 50  0001 C CNN
+	1    3175 9375
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3700 9225 3850 9225
+Wire Wire Line
+	3175 9525 3850 9525
+$Comp
+L Device:R R109
+U 1 1 5DB51C29
+P 7150 9475
+F 0 "R109" H 7220 9521 50  0000 L CNN
+F 1 "R" H 7220 9430 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 7080 9475 50  0001 C CNN
+F 3 "~" H 7150 9475 50  0001 C CNN
+	1    7150 9475
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R107
+U 1 1 5DB51C37
+P 5800 9475
+F 0 "R107" H 5870 9521 50  0000 L CNN
+F 1 "R" H 5870 9430 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5730 9475 50  0001 C CNN
+F 3 "~" H 5800 9475 50  0001 C CNN
+	1    5800 9475
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7225 9525 7900 9525
+$Comp
+L Device:R R102
+U 1 1 5DB51C46
+P 2425 9475
+F 0 "R102" H 2495 9521 50  0000 L CNN
+F 1 "R" H 2495 9430 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 2355 9475 50  0001 C CNN
+F 3 "~" H 2425 9475 50  0001 C CNN
+	1    2425 9475
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R105
+U 1 1 5DB51C54
+P 4450 9475
+F 0 "R105" H 4520 9521 50  0000 L CNN
+F 1 "R" H 4520 9430 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 4380 9475 50  0001 C CNN
+F 3 "~" H 4450 9475 50  0001 C CNN
+	1    4450 9475
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6475 9625 7150 9625
+Wire Wire Line
+	5050 9225 5200 9225
+$Comp
+L Connector:Conn_01x04_Male J105
+U 1 1 5DB51C66
+P 4175 9225
+F 0 "J105" H 4283 9506 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 4283 9415 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1.25U" H 4175 9225 50  0001 C CNN
+F 3 "~" H 4175 9225 50  0001 C CNN
+	1    4175 9225
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4525 9525 5200 9525
+Wire Wire Line
+	1000 9225 1150 9225
+Wire Wire Line
+	2350 9225 2500 9225
+Wire Wire Line
+	7075 9425 6400 9425
+Wire Wire Line
+	6550 9525 7225 9525
+Wire Wire Line
+	6400 9425 5725 9425
+$Comp
+L Connector:Conn_01x04_Male J101
+U 1 1 5DB51C7C
+P 1475 9225
+F 0 "J101" H 1583 9506 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 1583 9415 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 1475 9225 50  0001 C CNN
+F 3 "~" H 1475 9225 50  0001 C CNN
+	1    1475 9225
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D104
+U 1 1 5DB51C8A
+P 3850 9375
+F 0 "D104" V 3896 9296 50  0000 R CNN
+F 1 "D" V 3805 9296 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 3850 9375 50  0001 C CNN
+F 3 "~" H 3850 9375 50  0001 C CNN
+	1    3850 9375
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R101
+U 1 1 5DB51C98
+P 1750 9475
+F 0 "R101" H 1820 9521 50  0000 L CNN
+F 1 "R" H 1820 9430 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 1680 9475 50  0001 C CNN
+F 3 "~" H 1750 9475 50  0001 C CNN
+	1    1750 9475
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3700 9425 3025 9425
+Wire Wire Line
+	4375 9325 4450 9325
+Wire Wire Line
+	5050 9125 5150 9125
+$Comp
+L Device:R R103
+U 1 1 5DB51CA9
+P 3100 9475
+F 0 "R103" H 3170 9521 50  0000 L CNN
+F 1 "R" H 3170 9430 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3030 9475 50  0001 C CNN
+F 3 "~" H 3100 9475 50  0001 C CNN
+	1    3100 9475
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D101
+U 1 1 5DB51CB7
+P 1825 9375
+F 0 "D101" V 1871 9296 50  0000 R CNN
+F 1 "D" V 1780 9296 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 1825 9375 50  0001 C CNN
+F 3 "~" H 1825 9375 50  0001 C CNN
+	1    1825 9375
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:D D110
+U 1 1 5DB51CC5
+P 7900 9375
+F 0 "D110" V 7946 9296 50  0000 R CNN
+F 1 "D" V 7855 9296 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 7900 9375 50  0001 C CNN
+F 3 "~" H 7900 9375 50  0001 C CNN
+	1    7900 9375
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5725 9325 5800 9325
+$Comp
+L Connector:Conn_01x04_Male J106
+U 1 1 5DB51CD6
+P 4850 9225
+F 0 "J106" H 4958 9506 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 4958 9415 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-6.25U" H 4850 9225 50  0001 C CNN
+F 3 "~" H 4850 9225 50  0001 C CNN
+	1    4850 9225
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1075 9625 1750 9625
+Wire Wire Line
+	7750 9125 7850 9125
+$Comp
+L Connector:Conn_01x04_Male J100
+U 1 1 5DB51CE8
+P 800 9225
+F 0 "J100" H 908 9506 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 908 9415 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-2U" H 800 9225 50  0001 C CNN
+F 3 "~" H 800 9225 50  0001 C CNN
+	1    800  9225
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D109
+U 1 1 5DB51CF6
+P 7225 9375
+F 0 "D109" V 7271 9296 50  0000 R CNN
+F 1 "D" V 7180 9296 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 7225 9375 50  0001 C CNN
+F 3 "~" H 7225 9375 50  0001 C CNN
+	1    7225 9375
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4375 9225 4525 9225
+$Comp
+L Device:R R108
+U 1 1 5DB51D05
+P 6475 9475
+F 0 "R108" H 6545 9521 50  0000 L CNN
+F 1 "R" H 6545 9430 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6405 9475 50  0001 C CNN
+F 3 "~" H 6475 9475 50  0001 C CNN
+	1    6475 9475
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3100 9625 3775 9625
+Wire Wire Line
+	5050 9425 4375 9425
+Wire Wire Line
+	5200 9525 5875 9525
+Wire Wire Line
+	6400 9225 6550 9225
+$Comp
+L Device:D D105
+U 1 1 5DB51D17
+P 4525 9375
+F 0 "D105" V 4571 9296 50  0000 R CNN
+F 1 "D" V 4480 9296 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 4525 9375 50  0001 C CNN
+F 3 "~" H 4525 9375 50  0001 C CNN
+	1    4525 9375
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:D D102
+U 1 1 5DB51D25
+P 2500 9375
+F 0 "D102" V 2546 9296 50  0000 R CNN
+F 1 "D" V 2455 9296 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 2500 9375 50  0001 C CNN
+F 3 "~" H 2500 9375 50  0001 C CNN
+	1    2500 9375
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3700 9125 3800 9125
+Wire Wire Line
+	4450 9625 5125 9625
+Wire Wire Line
+	5050 9325 5125 9325
+Wire Wire Line
+	7150 9625 7825 9625
+Wire Wire Line
+	1750 9625 2425 9625
+Wire Wire Line
+	2350 9425 1675 9425
+Wire Wire Line
+	3775 9625 4450 9625
+Wire Wire Line
+	3700 9325 3775 9325
+Wire Wire Line
+	7750 9325 7825 9325
+Wire Wire Line
+	7075 9225 7225 9225
+Wire Wire Line
+	2350 9125 2450 9125
+Wire Wire Line
+	6400 9325 6475 9325
+$Comp
+L Connector:Conn_01x04_Male J108
+U 1 1 5DB51D41
+P 6200 9225
+F 0 "J108" H 6308 9506 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 6308 9415 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 6200 9225 50  0001 C CNN
+F 3 "~" H 6200 9225 50  0001 C CNN
+	1    6200 9225
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J103
+U 1 1 5DB51D51
+P 2825 9225
+F 0 "J103" H 2933 9506 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 2933 9415 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1.25U" H 2825 9225 50  0001 C CNN
+F 3 "~" H 2825 9225 50  0001 C CNN
+	1    2825 9225
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1675 9325 1750 9325
+Wire Wire Line
+	1675 9225 1825 9225
+$Comp
+L Device:D D100
+U 1 1 5DB51D61
+P 1150 9375
+F 0 "D100" V 1196 9296 50  0000 R CNN
+F 1 "D" V 1105 9296 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 1150 9375 50  0001 C CNN
+F 3 "~" H 1150 9375 50  0001 C CNN
+	1    1150 9375
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4375 9125 4475 9125
+Wire Wire Line
+	1825 9525 2500 9525
+Wire Wire Line
+	325  9425 1000 9425
+Wire Wire Line
+	1000 9425 1675 9425
+Wire Wire Line
+	425  9625 1075 9625
+$Comp
+L Device:R R110
+U 1 1 5DB51D74
+P 7825 9475
+F 0 "R110" H 7895 9521 50  0000 L CNN
+F 1 "R" H 7895 9430 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 7755 9475 50  0001 C CNN
+F 3 "~" H 7825 9475 50  0001 C CNN
+	1    7825 9475
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5800 9625 6475 9625
+$Comp
+L Device:D D106
+U 1 1 5DB51D83
+P 5200 9375
+F 0 "D106" V 5246 9296 50  0000 R CNN
+F 1 "D" V 5155 9296 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 5200 9375 50  0001 C CNN
+F 3 "~" H 5200 9375 50  0001 C CNN
+	1    5200 9375
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	1000 9325 1075 9325
+Wire Wire Line
+	7750 9225 7900 9225
+Wire Wire Line
+	675  9525 1150 9525
+Wire Wire Line
+	5725 9425 5050 9425
+$Comp
+L Connector:Conn_01x04_Male J102
+U 1 1 5DB51D97
+P 2150 9225
+F 0 "J102" H 2258 9506 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 2258 9415 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 2150 9225 50  0001 C CNN
+F 3 "~" H 2150 9225 50  0001 C CNN
+	1    2150 9225
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3025 9325 3100 9325
+$Comp
+L Connector:Conn_01x04_Male J110
+U 1 1 5DB51DA8
+P 7550 9225
+F 0 "J110" H 7658 9506 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 7658 9415 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1.25U" H 7550 9225 50  0001 C CNN
+F 3 "~" H 7550 9225 50  0001 C CNN
+	1    7550 9225
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J104
+U 1 1 5DB51DB8
+P 3500 9225
+F 0 "J104" H 3608 9506 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 3608 9415 50  0000 C CNN
+F 2 "bobthebuilder:MXOnly-1U" H 3500 9225 50  0001 C CNN
+F 3 "~" H 3500 9225 50  0001 C CNN
+	1    3500 9225
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5725 9225 5875 9225
+Wire Wire Line
+	5125 9625 5800 9625
+Wire Wire Line
+	1150 9525 1825 9525
+$Comp
+L Device:R R106
+U 1 1 5DB51DC9
+P 5125 9475
+F 0 "R106" H 5195 9521 50  0000 L CNN
+F 1 "R" H 5195 9430 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5055 9475 50  0001 C CNN
+F 3 "~" H 5125 9475 50  0001 C CNN
+	1    5125 9475
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D108
+U 1 1 5DB51DD7
+P 6550 9375
+F 0 "D108" V 6596 9296 50  0000 R CNN
+F 1 "D" V 6505 9296 50  0000 R CNN
+F 2 "bobthebuilder:D_DO-35_SOD27_P7.62mm_Horizontal" H 6550 9375 50  0001 C CNN
+F 3 "~" H 6550 9375 50  0001 C CNN
+	1    6550 9375
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3025 9425 2350 9425
+Wire Wire Line
+	2425 9625 3100 9625
+Wire Wire Line
+	7075 9325 7150 9325
+Wire Wire Line
+	5725 9125 5825 9125
+Text GLabel 675  9525 0    50   Input ~ 0
+ROW9
+Connection ~ 1000 9425
+Connection ~ 1075 9625
+Connection ~ 1150 9525
+Connection ~ 1675 9425
+Connection ~ 1750 9625
+Connection ~ 1825 9525
+Connection ~ 2350 9425
+Connection ~ 2425 9625
+Connection ~ 2500 9525
+Connection ~ 3025 9425
+Connection ~ 3100 9625
+Connection ~ 3175 9525
+Connection ~ 3700 9425
+Connection ~ 3775 9625
+Connection ~ 3850 9525
+Connection ~ 4375 9425
+Connection ~ 4450 9625
+Connection ~ 4525 9525
+Connection ~ 5050 9425
+Connection ~ 5125 9625
+Connection ~ 5200 9525
+Connection ~ 5725 9425
+Connection ~ 5800 9625
+Connection ~ 5875 9525
+Connection ~ 6400 9425
+Connection ~ 6475 9625
+Connection ~ 6550 9525
+Connection ~ 7075 9425
+Connection ~ 7150 9625
+Connection ~ 7225 9525
+$Comp
+L mx2:TEENSY2.0 U1
+U 1 1 5DC21D7F
+P -1975 11775
+F 0 "U1" H -1975 13324 60  0000 C CNN
+F 1 "TEENSY2.0" H -1975 13217 60  0000 C CNN
+F 2 "teensy:Teensy2.0" H -1975 11775 60  0000 C CNN
+F 3 "" H -1975 11775 60  0000 C CNN
+	1    -1975 11775
+	1    0    0    -1  
+$EndComp
+Text GLabel -1375 10675 2    50   Input ~ 0
+ROW9
+NoConn ~ -2575 10475
+NoConn ~ -2575 10575
+Wire Wire Line
+	1100 9125 1100 8225
+Connection ~ 1100 5500
+Connection ~ 1100 6350
+Wire Wire Line
+	1100 6350 1100 5500
+Connection ~ 1100 7200
+Wire Wire Line
+	1100 7200 1100 6350
+Connection ~ 1100 8225
+Wire Wire Line
+	1100 8225 1100 7200
+Wire Wire Line
+	1775 5500 1775 6350
+Connection ~ 1775 5500
+Connection ~ 1775 6350
+Wire Wire Line
+	1775 6350 1775 7200
+Connection ~ 1775 7200
+Wire Wire Line
+	1775 7200 1775 8225
+Connection ~ 1775 8225
+Wire Wire Line
+	1775 8225 1775 9125
+Wire Wire Line
+	2450 9125 2450 8225
+Connection ~ 2450 5500
+Connection ~ 2450 6350
+Wire Wire Line
+	2450 6350 2450 5500
+Connection ~ 2450 7200
+Wire Wire Line
+	2450 7200 2450 6350
+Connection ~ 2450 8225
+Wire Wire Line
+	2450 8225 2450 7200
+Wire Wire Line
+	3125 5500 3125 6350
+Connection ~ 3125 5500
+Connection ~ 3125 6350
+Wire Wire Line
+	3125 6350 3125 7200
+Connection ~ 3125 7200
+Wire Wire Line
+	3125 7200 3125 8225
+Connection ~ 3125 8225
+Wire Wire Line
+	3125 8225 3125 9125
+Wire Wire Line
+	3800 9125 3800 8225
+Connection ~ 3800 5500
+Connection ~ 3800 6350
+Wire Wire Line
+	3800 6350 3800 5500
+Connection ~ 3800 7200
+Wire Wire Line
+	3800 7200 3800 6350
+Connection ~ 3800 8225
+Wire Wire Line
+	3800 8225 3800 7200
+Wire Wire Line
+	4475 5500 4475 6350
+Connection ~ 4475 5500
+Connection ~ 4475 6350
+Wire Wire Line
+	4475 6350 4475 7200
+Connection ~ 4475 7200
+Wire Wire Line
+	4475 7200 4475 8225
+Connection ~ 4475 8225
+Wire Wire Line
+	4475 8225 4475 9125
+Wire Wire Line
+	5150 9125 5150 8225
+Connection ~ 5150 5500
+Connection ~ 5150 6350
+Wire Wire Line
+	5150 6350 5150 5500
+Connection ~ 5150 7200
+Wire Wire Line
+	5150 7200 5150 6350
+Connection ~ 5150 8225
+Wire Wire Line
+	5150 8225 5150 7200
+Wire Wire Line
+	5825 5500 5825 6350
+Connection ~ 5825 5500
+Connection ~ 5825 6350
+Wire Wire Line
+	5825 6350 5825 7200
+Connection ~ 5825 7200
+Wire Wire Line
+	5825 7200 5825 8225
+Connection ~ 5825 8225
+Wire Wire Line
+	5825 8225 5825 9125
+Wire Wire Line
+	6500 9125 6500 8225
+Connection ~ 6500 5500
+Connection ~ 6500 6350
+Wire Wire Line
+	6500 6350 6500 5500
+Connection ~ 6500 7200
+Wire Wire Line
+	6500 7200 6500 6350
+Connection ~ 6500 8225
+Wire Wire Line
+	6500 8225 6500 7200
+Wire Wire Line
+	7175 5500 7175 6350
+Connection ~ 7175 5500
+Connection ~ 7175 6350
+Wire Wire Line
+	7175 6350 7175 7200
+Connection ~ 7175 7200
+Wire Wire Line
+	7175 7200 7175 8225
+Connection ~ 7175 8225
+Wire Wire Line
+	7175 8225 7175 9125
+Wire Wire Line
+	7850 9125 7850 8225
+Connection ~ 7850 5500
+Connection ~ 7850 6350
+Wire Wire Line
+	7850 6350 7850 5500
+Connection ~ 7850 7200
+Wire Wire Line
+	7850 7200 7850 6350
+Connection ~ 7850 8225
+Wire Wire Line
+	7850 8225 7850 7200
+Connection ~ 425  9625
+Wire Wire Line
+	-2900 12275 -2575 12275
+Text GLabel -2575 12725 0    50   Input ~ 0
+GND
+NoConn ~ -1375 12175
+Text GLabel -1375 12675 2    50   Input ~ 0
+ROW1
+Text GLabel -1375 12575 2    50   Input ~ 0
+ROW5
+Text GLabel -1375 10475 2    50   Input ~ 0
+ROW6
+Wire Wire Line
+	-2900 10125 -2900 12175
+$Comp
+L Device:R R113
+U 1 1 5DAEEC86
+P -825 12425
+F 0 "R113" H -755 12471 50  0000 L CNN
+F 1 "R" H -755 12380 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V -895 12425 50  0001 C CNN
+F 3 "~" H -825 12425 50  0001 C CNN
+	1    -825 12425
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R114
+U 1 1 5DAF35C8
+P -825 11675
+F 0 "R114" H -755 11721 50  0000 L CNN
+F 1 "R" H -755 11630 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V -895 11675 50  0001 C CNN
+F 3 "~" H -825 11675 50  0001 C CNN
+	1    -825 11675
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R115
+U 1 1 5DAF502F
+P -825 11325
+F 0 "R115" H -755 11371 50  0000 L CNN
+F 1 "R" H -755 11280 50  0000 L CNN
+F 2 "bobthebuilder:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V -895 11325 50  0001 C CNN
+F 3 "~" H -825 11325 50  0001 C CNN
+	1    -825 11325
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:LED D112
+U 1 1 5DB4B755
+P -425 11325
+F 0 "D112" H -432 11070 50  0000 C CNN
+F 1 "LED" H -432 11161 50  0000 C CNN
+F 2 "LED_THT:LED_D3.0mm" H -425 11325 50  0001 C CNN
+F 3 "~" H -425 11325 50  0001 C CNN
+	1    -425 11325
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:LED D113
+U 1 1 5DB4B925
+P -425 11675
+F 0 "D113" H -432 11420 50  0000 C CNN
+F 1 "LED" H -432 11511 50  0000 C CNN
+F 2 "LED_THT:LED_D3.0mm" H -425 11675 50  0001 C CNN
+F 3 "~" H -425 11675 50  0001 C CNN
+	1    -425 11675
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:LED D114
+U 1 1 5DB4D121
+P -425 12425
+F 0 "D114" H -432 12170 50  0000 C CNN
+F 1 "LED" H -432 12261 50  0000 C CNN
+F 2 "LED_THT:LED_D3.0mm" H -425 12425 50  0001 C CNN
+F 3 "~" H -425 12425 50  0001 C CNN
+	1    -425 12425
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	-675 12425 -575 12425
+Wire Wire Line
+	-675 11675 -575 11675
+Wire Wire Line
+	-1375 11325 -975 11325
+Wire Wire Line
+	-675 11325 -575 11325
+Connection ~ 325  9425
+Wire Wire Line
+	-975 12425 -1375 12425
+Wire Wire Line
+	-2575 12175 -2900 12175
+Connection ~ -2900 12175
+Wire Wire Line
+	-2900 12175 -2900 12275
+Wire Wire Line
+	-275 12425 325  12425
+Connection ~ -275 12425
+Connection ~ -275 11675
+Wire Wire Line
+	-275 11675 -275 12425
+Wire Wire Line
+	-275 11325 -275 11675
+Wire Wire Line
+	-1375 11675 -975 11675
+Connection ~ -750 10125
+Wire Wire Line
+	-2900 10125 -750 10125
+Wire Wire Line
+	325  9425 325  12425
+Wire Wire Line
+	425  9625 425  10125
+Wire Wire Line
+	50   10125 425  10125
+$EndSCHEMATC

@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name "left_110key-rescue")(type "Legacy")(uri "${KIPRJMOD}/left_110key-rescue.lib")(options "")(descr ""))
+)
