@@ -1,0 +1,16 @@
+The Crushed paper matrix by gipetto.
+
+A short explanation.
+Many moons ago I happened across a lost page on wikipedia mentioning how crushed paper is the most efficient form of storage because it utilizes all available space in the compressed area. Although paper is 3 dimensional, the same principle can be applied in 2d. 
+
+Crushed paper seldom tears and can be unfolded again into a flat sheet, or a line in 2d. This is useful because the insulated line property is the ideal dc characteristic of a routed pcb, no vias or jumpers. I have used this technique a few times and thought it was documented when pcb reviewers said it was duplexed. However, duplexing typically uses a complicated schematic of set ratios between rows and columns. The crushed paper matrix can be used with any matrix schematic, though naturally a simple square matrix (10x10, 7x7) maximizes the switch count for the number of mcu pins. 
+
+So, to start with, count the switches on your design, take the square root, if it is an even number, great, if it's not, round one number up and one number down, i.e square root of 50 switches is 7.07 so pick 7 for rows and 8 for columns (more cols makes routing easier) 
+Next, open up a paint program and load a screenshot of a layout from keyboard-layout-editor.com. Following the image, draw a line between each switch, each line can only cover the number of rows in the schematic. Do not cross any lines. Be sure to go back and forth to eliminate any missed keys. 
+
+In this image you can see that the goal was to increase the apparent thickness of each column, like the corrugations in cardboard. 
+It's also helpful to aim for each line being a duplicate of the one next to it, this provides space between the lines for traces which run to the mcu. Be sure to number each line with a column number similar to how your schematic is done, usually left to right incrementing. When routing the pcb later, do each mcu trace from the same direction, so top to bottom, left to right, or clockwise, anticlockwise around a pcb.
+
+Next, go to keyboard-layout-editor.com, load your layout, flip the tab over to raw data and delete any non 1U size keycap dimension information for example "{w:1.5}," and re-arrange each key in an ortholinear matrix identical to what you have in your schematic file. save your raw data to a local text file as the website corrupts occasionally. 
+you can then upload this saved data to kbfirmware.com to get a mostly working code, or a good base to use with a working build from the repo.
+If you want to have a standard keymap.c you can rename the center legend on each key to its counterpart from kb.h, for e.g K0000, K0101. Then sort the ortholinear matrix back to its original key position and edit the lower block in kb.h to match.
