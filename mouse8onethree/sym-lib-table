@@ -1,3 +1,0 @@
-(sym_lib_table
-  (lib (name "mouse8-rescue")(type "Legacy")(uri "${KIPRJMOD}/mouse8-rescue.lib")(options "")(descr ""))
-)
