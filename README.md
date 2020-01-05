@@ -4,7 +4,7 @@ The buttons folder is a cut off version of the smt pcb for those who want a ligh
 
 the mouse8 folder is a work in progress similar project in kicad 6.0 nightly build using all surface mount parts, aiming for a lighter weight and lower cost. I uploaded the files so interested parties could submit bugfixes and comments. as of yet there are no successful builds, due to slow shipping times and tight budgets on my end. 
 
-The gerbers are complete, although I am still finding critical errors on a weekly basis. the 3360 footprint is proprietary so I could not release it. it is freely available if hunted down though, as are the microswitch and ec10 footprints. 
+The gerbers are complete, the 3360 footprint is proprietary so I could not release it. it is freely available if hunted down though, as are the microswitch and ec10 footprints. 
 if anyone cares to make a libre one I will add it here.
 
 I moved the sensor forward for this build, only time will tell if that was the right decision. It is still possible to move it farther with a redesign, although I did not want to change it too much.
