@@ -23,3 +23,5 @@ mouse8onethree is an untested reworking of the mouse8 pcb to fit the ergo intell
 ISP guide is here:
 
 https://github.com/qmk/qmk_firmware/blob/master/docs/isp_flashing_guide.md
+
+mouse is based on this post https://www.overclock.net/threads/reverse-engineering-3366.1561041/post-26323358
