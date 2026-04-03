@@ -1,0 +1,237 @@
+I have been reading many comments on youtube about mechanics frustrations with cars due to their in built flaws making them unreliable and short lived. I decided that i would collect them all so i have been writing/paraphrasing this. please suggest additions or changes. i am hosting it on github because i have lost a version of the file locally due to bad mains power. many of these ideas are not my own and have been taken from youtube comments. the authors wanted their opinions heard and i am collating them, not for monetary reasons but to do something about the dire state of technology.
+
+regulatory changes
+
+whoever divides the pie eats last. a government could hold a competition, like the olympic games where all manufacturers submit their best engine design. the best engine design is selected and approved to be the basis for a standard only if the manufacturer agrees to open source it to all other manufacturers. if no engine is selected then no new designs can be approved in the country. this is how financing for altrustic engineering can be arranged. This intervention is necessary to increase reliability for the end consumer as well as reducing waste from lemon designs that make it to production. By reducing the variance of parts needed to service vehicles, older vehicles can be kept running for longer in combination with a right to repair, and auto companies do not become insolvent by being sued due to warranty replacements. This should reduce the emmissions of the auto industry since a smaller number of vehicles can be produced with extended lifetimes. There would be more technicians available to repair the vehicles because they only need to specialise on one family of designs.
+after the design is selected there is a review period where other manufacturers may suggest changes to ease construction and ensure compatibility to the open standards. 
+The patent system is designed to incentivise making automobile parts incompatible, because modifying a patented design can create a new patentable design. the system could be reformed to incentivise compatibility.
+the right to obtain workshop manuals
+the right to independent repair without extortion, specifically adblue systems. manufacturers should stand over their systems or scrap them.
+pay the auto manufacturers by the hour of labour instead of by the finished automobile, so there would be no incentive to produce a short lived product.
+there needs to be a global unified regulation on fuel pump handle colours, so that the same colour handle is for diesel fuel in every country, and the same for petrol. currently, when drivers cross the border into a neighbouring country or even a different petrol station, they colour codes are mixed up.
+engines and transmissions must have a dipstick.
+the right to repair and recycle autos in scrapyards should not be infringed by security devices such as immobilizers
+
+a list of features to facilitate engine rebuilds and swaps, as well as increase reliabilty and reduce cost to both the consumer and the manufacturer.
+
+latching headlight relay that fails safe when the ignition is off so as not to drain the battery.
+
+external water pump driven from accessory belt so that seizure does not break timing belt or drain water in to oil. it's a good idea to fit the water pump on the rear of the engine, driven from a cam, like ford v6 duratec 30 used. don't put the water pump behind the timing cover.
+
+electric power steering to reduce parasitic load from belt driven p/s pump power steering is generally only needed when at low speeds. generally combined with a manual rack steering rack.
+
+metal gear type hand operated window winder (no cables to sieze, fray or break) 
+cables should be avoided such as in gear shifters.
+
+universal standard for engine bell housing pattern for a specific KW range to facilitate engine swaps, standard could consider being based on gm LS engine since there is a widespread aftermarket support, or for the fiat based lada cars, since they use a range of engines 1.3 to 1.7L with a single compatible gearbox. metric thread preferred. : i just wish the vehicle manufacturers would standardize on SAE bell housing dimensions, it would make things easier.  the ford and cummins engines all have SAE dimensions either on the engine or the adapters.
+
+univeral standard for auto with manual gearbox bell housing and cv drives for a specific KW range to facilitate swaps.
+
+given the future scarcity of manual cars, there should be provision made so that automatic cars can be easily converted to manual when their transmission wears out.
+
+universal standard for engine starter to fit bell housing and flywheel. should be standardised on engine or gearbox, not both, preferably on the engine so that the bushing in the starter for the bendix gear can be replaced with a new starter rather than having to knock the bushing out of the gearbox.
+
+univeral standard for diesel starters with planetary reduction system and petrol starters.
+
+starter bolt pattern should be arranged so that the bolt heads are outside the width of the starter cylinder so that they can be accessed with a socket, extension and ratchet. 
+
+petrol and diesel engine blocks could be the same with alternative cylinder heads so long as the bolts are capable of handling the diesel's higher compression.
+
+cylinders in engine blocks should be separated so that they can be bored and resleeved after scuffing damage as well as allowing coolant to circulate between them avoiding head gasket failure. it is not excusible to reduce the life of the engine severely by marginally removing weight and making an engine block shorter, packing the cylinders closer together. this is as bad or worse for the environment as the aim of the legal requirements, to raise mpg.
+
+compatibility with vintage sealed beam lights for inexpensive replacement without requiring standardisation. (see technology connections youtube video)
+
+aerodynamic saloon or coupe shape to raise mpg. 
+
+engine oil gerotor pump that fits around crankshaft so that no drive belt or gear is needed (common on v engines) such as gm LS
+
+timing set and covers should be able to accomadate head and block resurfacing without becoming misaligned
+
+engine sump plugs should be on a separate bolt on plate so that the plate can be removed and replaced without removing the sump (see suzuki gn125) plate can contain an oil level sensor so that it has a dual function. the sensor detects when there is too much oil and fuel in the engine sump as well as when there is too little oil to warn against both failure modes. By using two sensors it may be feasible to measure the density of the engine oil to warn of fuel dilution.
+
+overhead cam engines should be rebuildable using second hand parts for the expensive components with the exception of water pumps and timing chain tensioners. that is to say the cam journals should be replaceable so that metal filings damage can be repaired. warpage of the head could be corrected for with shims under the cam journals after the head is planed. 
+
+cam journals could be reversible so that the head can be rotated 180 degrees to the crank in order for the inline 4 head to be reused on a v8 design. likewise, inline3 cylinder heads could be able to be used on v6 engines. porsche did this with the 928 and 944. they also allowed either dohc or sohc heads to be used. cams should have drives on both end so the same cam could be used on both banks. there should be a blanking plate for the cams on the rear of both heads, and timing chain on the front of both heads. vw used inline 5 heads on its v10tdi.
+
+separate fuel injectors for head and ports to combat carbon buildup in gasoline direct injection engines.
+
+open source immobilizer and ecu that prevents a car being hotwired but not parted out and recoded and reassembled. this can be done by matching the ecu to a code inside the engine. 
+
+din socket for car stereo. standard electrical harness.ISO7736
+
+if timing gears are used the cam gear should be across from its driven gear which is mounted to the block, not beneath so that when the head is planed the gears do not grind.
+
+wet timing belts should not be made from materials that dissolve in low cost oil. this is a gentrification of automobile design.
+
+universal standard for fuel injectors.
+
+car shell should be galvanised to reduce corrosion.
+
+universal standard for towbars, with standardised header at rear to wire socket to. header is fused or protected so that shorts in the trailer do not damage car electrics.
+
+steelie wheels for low cost replacement.
+
+engine ecu should not be located in a water channel.
+
+universal standard for wheel studs, wheels and wheel bolt patterns for a specific KW range.
+
+all parts should be interchangeable unless there is a reason not to, that isn't market protectionism.
+so water pumps are interchangeable, as are windscreen wiper motors. con rods are not, since stroke will change. pistons will be interchangeable since 0.5L is most efficient in mpg, it should be standardised there, apart from oversize pistons for rebuilds. wheel bolt pattern should be interchangeable. a range of sizes from 4,5,6,8,10, 12 stud for small cars to heavy equipment. 10 stud pattern should be that of heavy trucks. the other stud dimensions can be selected from existing popular equipment that is not prone to metal fatigue.
+
+no sunroof since they clog with leaves and cause corrosion.
+
+engine balance shaft should be able to be removed when it wears out and oil feed blanked off without nasty hacks. (see audi 1.8tfsi)
+
+no electric door buttons, manual only.
+
+ecu should not be located on the floor so that if the car gets flooded they get submerged. locate them above the door line so that water runs out when the door is opened.
+
+car body designs should not be abandoned at the 7 year mark leaving it impossible to source parts, once scrap yards empty out. car body design should be kept mostly static like the lada, once a rust free aerodynamic shell is reached.
+
+longitudinal engines should use viscous or direct coupling for fan instead of electric because the former reduces alternator draw.
+
+use crossflow heads for increased efficiency.
+
+use a hatch over the fuel tank so that it's not necessary to drop the tank to replace the fuel pump
+
+catalytic converter should be inside the engine compartment above the wheel driveshafts to prevent theft.
+
+all bolts should be easily accessible.
+
+all bolts should not be the shouldered type (built in washer) that become rounded when rusty. 
+
+do not use hex or torx bolts preferentially as they become rounded when rusty.
+
+all oil filters should be easily accessible without being burned by hot engine components. they should drain vertically using without spillage that requires cleanup using a spout if necessary.
+
+the oil pump pickup tube must go straight to the pump, not through the sump housing where it can suck air.
+
+car battery holder should be larger so that when the engine becomes hard to start a larger battery can be fitted.
+
+exhaust manifold should be assembled in multiple pieces so that it does not crack from thermal expansion.
+
+car should not boil when idling in traffic or driving in desert conditions. use larger radiator, or run the internal heater compartment blower motor in reverse so that scalding hot air is not forced on the passengers.
+
+dipstick tube should not be made from plastic and snap off. neither should dipstick. dipstick tube should be threaded on with a hydraulic nut.
+
+diesel engines should be fitted with a water fuel trap.
+
+spark plugs should preferentially not use leak prone tube seals through the rocker cover. fuel injectors should not be located inside the rocker cover so that the sump fills with fuel when they leak.
+
+headlight bulbs should be able to be replaced without removing front bumper. tail light bulbs should be able to be replaced without unscrewing taillight assembly
+
+front seating should be adjustable for larger and smaller persons.
+
+head should use hydraulically adjusting tappets.
+
+car body should be no larger than necessary to keep weight down and increase mpg.
+
+do not locate the starter inside the bell housing so that replacing it requires removal of the engine or gearbox.
+
+place a wire mesh over the defrost vent so that objects cannot fall inside the vent, jamming components.
+
+do not solder relays into the fuse panel
+
+supply a spare wheel identical to the others and space to stow it.
+
+spark plugs should not be located near the exhaust manifold so that their associated cables burn up.
+
+car wheel rims should not be designed to use rare and unavailable tyre sizes.
+
+There could be a new ohv pushrod inline cylinder engine designed using backported ohc technology. Features such as twin cams in block with variable valve timing, crossflow head, gear drive to cams. ohv engines are more reliable and easier to rebuild.  
+
+3d printed interior plastics so they can be printed and replaced as needed.
+
+use a keyway on the crankshaft so it does not go out of time during maintenance.
+
+auto chokes often fail causing excessive fuel consumption. manual chokes may be more dependable, though chokes are not relevant in modern vehicles
+
+automatic clutch cable adjusters often fail, a fixed cable with an adjuster nut may be superior.
+
+intake manifold should not cover the spark plugs
+
+cars could be fitted with a cigarette lighter socket for ancillaries, or for smokers.
+
+the car design should be driven to 100K miles before entering production for testing purposes. mercedes did this.
+
+power steering pulleys should have holes in the side to access bolt heads so that the pump can be removed.
+
+don't use plastic water pipes, interconnects or thermostat housings, they crack and often overheat the engine.
+
+transmission should have external filter.
+
+don't make the valve/rocker cover out of plastic, it warps and leaks oil.
+
+any engineer who designs a car should have worked servicing them for a period of at least 6 months.
+
+don't use a plastic oil filter housing that breaks when replacing a filter.
+
+fuses and other serviceable parts should be sold separately to the wiring loom. this is so that warranty repairs can be performed at reasonable cost without deviating from procedure.
+
+transmission should have a fill port to ease servicing.
+
+use closed deck engine blocks and avoid siamesed cylinders to reduce occurence of head gasket failure.
+
+It's better to use alternatives such as a larger flywheel than a dual mass flywheel since the latter require frequent replacements.
+
+reversible radiator fan for self cleaning. cars that idle in place may have the fan direction blowing forward or when in reverse, and switched to intake when in motion or when stationary.
+
+quick attach systems on industrial loaders should be standardised.
+
+Since engines in tractors are load bearing, and chassis mount engines are not, there should be provision to mount strengthening rails to the latter to fit tractors. 
+
+plastic idler pulleys should not be used.
+
+a timing belt should have sufficient room around it to be changed.
+
+tractors and heavy goods vehicles should have more durable wiring than an automobile due to their harsh treatment.
+
+most parts should be replaceable without recoding the ecu.
+
+a central locking system should not lock the occupants inside their vehicle, i.e. there should be a manual release internally. the manual release should work even with no voltage from the 12v battery.
+
+diesel exhaust fluid tank filler cap should be only accessible from the trunk to prevent accidental contamination with fuel.
+
+electronic camshaft phasers should use brushless motors instead of brushes to avoid damage from oil ingress.
+
+cars should be fitted with brushless alternators since the cost to build over a brushed version is minor and it greatly increases service life. a brushed alternator should have a round roof over the top half so that oil leaks drip over but not through. this can be integrated into the case so that the case splits along the axle, not across.
+
+oil filters should not be designed so that they drain themselves of oil when the engine is stopped. this accelerates wear.
+
+oil leaks in the valley of a v engine should not be designed to drain into the bell housing. ideally they would drain externally.
+
+vvt solenoids should be easily replaceable after seizing.
+
+do not use two piece lug nuts, steel with a chrome cap. they are impossible to remove when they corrode.
+
+circuits that read specific resistance and voltage of wiring should have a procedure for letting the auto learn a new baseline resistance and voltage for the wiring.
+
+injector pumps and camshafts should have a bolt hole for alignment when the timing belt is changed.
+
+seized balance shafts should not result in oil starvation.
+
+ac evaporator coil should be under the hood, not the dash for easy servicing.
+
+exhaust gas recycling can be accomplished by using variable valve timing so it's better to use that approach than to use egr hardware that will coke up.
+
+do not make weak screw on filter housings that snap across when the seized filter is unscrewed.
+
+lifters should be removable without removing the cylinder head from the block.
+
+do not put an exhaust heat source beside the transfer case so that the oil boils into grease.
+
+Pre 2012 JK? It’s not uncommon that fires are caused by overheated transmission fluid. Pre-2012 3.8L JK automatics have insufficient transmission cooling capacity. Fluid overheats in certain operating conditions, most common is operating under load in 4HI. Fluid overheats and pours out the dipstick tube, right onto the passenger exhaust manifold, and ignites. The plastic pressure side fuel line from the tank to the fuel rail is (stupidly) located right behind the exhaust crossover. The flames hit the fuel line and melt through it allowing fuel at high pressure to spray onto the exhaust. POOF!!!!
+
+Excessive Cam bearing clearance will starve those lifters. Might of had a cam bearing clearance issue near that lifter.
+
+camshaft sprocket alignment dowel should not be able to sink too deep into the cam. 
+
+You don’t have to freeze the entire mechanical design to maximize interchangeability.  You just need to freeze the interfaces between components.
+
+head gaskets should be designed in such a way that if they can be fitted on in the wrong orientation, that it will not damage the engine. i.e. ensure the gasket has symmetry, or a locating stud to prevent installation.
+
+do not place mounting studs on the oil filter canister, because regular servicing using the mounting studs will cause premature failure of the canister.
+
+stop adding back-up lights to the start up circuit for running lights. If you start your vehicle and do not move it out of park (or remote start as well, I think?) your backup lights will stay on making everyone in the parking lot think that you're preparing to back out while you're sitting in a parking spot, probably not even in the vehicle.
+
+
